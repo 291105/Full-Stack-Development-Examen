@@ -1,0 +1,203 @@
+﻿/* Algemene stijlen */
+html, body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Zorg ervoor dat de body de volledige hoogte van het scherm inneemt */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../images/plane.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* De achtergrond blijft vast tijdens het scrollen */
+    overflow-x: hidden; /* Voorkom horizontaal scrollen */
+}
+
+/* Zorg ervoor dat de hoofdinhoud alle beschikbare ruimte opvult */
+main {
+    flex: 1;
+}
+
+/* Header en Navigatiebalk */
+header {
+    position: fixed; /* Zorgt dat de header vast blijft staan */
+    top: 0;
+    width: 100%; /* Laat de header de volledige breedte bedekken */
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8); /* Transparant witte achtergrond */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Schaduw onder de header */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Verdeel de ruimte tussen logo, navigatielinks en knoppen */
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #0a4d68;
+}
+
+/* Navigatielinks */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+    .nav-links a {
+        text-decoration: none;
+        color: #0a4d68;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+        .nav-links a:hover {
+            color: #007bff; /* Verander kleur bij hover */
+        }
+
+/* Auth-buttons (Sign-in/Sign-up) */
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+    .auth-buttons .sign-in,
+    .auth-buttons .sign-up {
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .auth-buttons .sign-in {
+        background: transparent;
+        color: #0a4d68;
+        border: 1px solid #0a4d68;
+    }
+
+        .auth-buttons .sign-in:hover {
+            background: #0a4d68;
+            color: white;
+        }
+
+    .auth-buttons .sign-up {
+        background: #007bff;
+        color: white;
+        border: none;
+    }
+
+        .auth-buttons .sign-up:hover {
+            background: #0056b3;
+        }
+
+/* Hoofdinhoud (H1 en knop) */
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(50vh - 80px);
+    text-align: center;
+    margin-top: 80px;
+}
+
+.button-56 {
+    background-color: #f0f8ff;
+    border: 2px solid #111;
+    border-radius: 8px;
+    padding: 0.5rem 2rem;
+    font-family: Inter, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+    .button-56:hover {
+        background-color: #0a4d68;
+        color: white;
+        border-color: #0a4d68;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+/* Witte vlakken die scrollen */
+/* Sectie container voor beide secties naast elkaar */
+.container {
+    display: flex;
+    justify-content: center; /* Centreert de tekstvakken horizontaal */
+    align-items: center; /* Centreert de tekstvakken verticaal als er genoeg ruimte is */
+    gap: 40px; /* Voeg ruimte toe tussen de secties */
+    padding: 20px;
+    margin: 20px auto; /* Zorgt voor automatische centrering */
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Grijze sectie (Linkerhelft) */
+.left-section {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 48%;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+    .left-section h2 {
+        font-size: 2rem;
+        color: white;
+    }
+
+    .left-section p {
+        font-size: 1rem;
+    }
+
+/* Tweede sectie (Rechterhelft) */
+.right-section {
+    background-color: white;
+    color: #333;
+    width: 48%;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+    .right-section h2 {
+        font-size: 2rem;
+        color: #333;
+    }
+
+    .right-section p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+/* Sticky Footer */
+footer {
+    background-color: #0a4d68;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
