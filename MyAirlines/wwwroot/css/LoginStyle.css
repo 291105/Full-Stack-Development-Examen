@@ -1,0 +1,90 @@
+﻿/* Reset de standaard margin en padding */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Zorg ervoor dat de login container in het midden staat */
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 80px; /* ruimte voor de header */
+    padding-bottom: 80px; /* ruimte voor de footer */
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    box-sizing: border-box;
+}
+
+/* Styling voor de login-card */
+.login-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Verander van row naar column */
+    gap: 20px; /* Kleinere ruimte tussen secties */
+    box-sizing: border-box; /* Zorg ervoor dat padding correct wordt berekend */
+    text-align: center; /* Zorg ervoor dat tekst in het midden staat */
+}
+
+    /* Zorg ervoor dat de login secties en formulieren netjes worden weergegeven */
+    .login-card section {
+        width: 100%; /* Maak de sectie 100% breed */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Styling voor de form headers en knoppen */
+    .login-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .login-card .form-floating {
+        width: 100%; /* Zorg ervoor dat de form elements 100% breed zijn */
+        margin-bottom: 20px; /* Ruimte tussen de form elementen */
+    }
+
+        .login-card .form-floating input {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 8px;
+            width: 100%; /* Zorg ervoor dat input velden niet smal zijn */
+            box-sizing: border-box;
+        }
+
+    /* Verfraai de knoppen */
+    .login-card .btn {
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        margin-top: 10px; /* Ruimte boven de knop */
+        width: 100%; /* Maak de knoppen 100% breed */
+    }
+
+    /* Styling voor de checkboxes en extra links */
+    .login-card .checkbox {
+        text-align: left; /* Zet de checkbox in lijn met de tekst */
+        margin-bottom: 20px;
+    }
+
+    .login-card a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .login-card a:hover {
+            text-decoration: underline;
+        }
+
+    /* Geef ruimte voor footer en header door margin te gebruiken */
+    .login-card p {
+        margin-top: 10px;
+    }

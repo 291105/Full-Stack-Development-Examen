@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\wwwroot\\css\\loginstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\wwwroot\\css\\loginstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\wwwroot\\css\\headerstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\wwwroot\\css\\headerstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\wwwroot\\css\\flightsearchstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\wwwroot\\css\\flightsearchstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|c:\\users\\gebruiker\\source\\repos\\myairlines\\myairlines\\views\\flightsearch\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E39AF261-01ED-4B48-BCEC-AC8F6D8986DE}|MyAirlines\\MyAirlines.csproj|solutionrelative:myairlines\\views\\flightsearch\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 296,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,56 +78,94 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "MyAirlines\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "MyAirlines\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "MyAirlines\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "MyAirlines\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAADcAAAAAAAAAAAAowFAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-05T10:49:49.014Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Header.cshtml",
-              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Views\\Shared\\_Header.cshtml",
-              "RelativeDocumentMoniker": "MyAirlines\\Views\\Shared\\_Header.cshtml",
-              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Views\\Shared\\_Header.cshtml",
-              "RelativeToolTip": "MyAirlines\\Views\\Shared\\_Header.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-05T10:49:45.141Z",
+              "WhenOpened": "2025-04-08T15:45:47.463Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Program.cs",
-              "RelativeDocumentMoniker": "MyAirlines\\Program.cs",
-              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Program.cs",
-              "RelativeToolTip": "MyAirlines\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "MyAirlines\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeToolTip": "MyAirlines\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAIsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T10:40:38.312Z"
+              "WhenOpened": "2025-04-08T15:42:28.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginStyle.css",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\LoginStyle.css",
+              "RelativeDocumentMoniker": "MyAirlines\\wwwroot\\css\\LoginStyle.css",
+              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\LoginStyle.css*",
+              "RelativeToolTip": "MyAirlines\\wwwroot\\css\\LoginStyle.css*",
+              "ViewState": "AgIAADEAAAAAAAAAAAAYwEUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-08T15:42:23.252Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "MyAirlines\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "MyAirlines\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAiwC8AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-05T10:13:22.227Z"
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "MyAirlines\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "MyAirlines\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-08T15:41:49.592Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HeaderStyle.css",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\HeaderStyle.css",
+              "RelativeDocumentMoniker": "MyAirlines\\wwwroot\\css\\HeaderStyle.css",
+              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\HeaderStyle.css",
+              "RelativeToolTip": "MyAirlines\\wwwroot\\css\\HeaderStyle.css",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAYwGMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-08T15:40:29.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FlightSearchStyle.css",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\FlightSearchStyle.css",
+              "RelativeDocumentMoniker": "MyAirlines\\wwwroot\\css\\FlightSearchStyle.css",
+              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\FlightSearchStyle.css",
+              "RelativeToolTip": "MyAirlines\\wwwroot\\css\\FlightSearchStyle.css",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAHsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-08T15:37:47.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Search.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Views\\FlightSearch\\Search.cshtml",
+              "RelativeDocumentMoniker": "MyAirlines\\Views\\FlightSearch\\Search.cshtml",
+              "ToolTip": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\Views\\FlightSearch\\Search.cshtml",
+              "RelativeToolTip": "MyAirlines\\Views\\FlightSearch\\Search.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAswE0AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T14:57:01.428Z",
+              "EditorCaption": ""
             }
           ]
         },

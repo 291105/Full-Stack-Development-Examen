@@ -19,90 +19,6 @@ main {
     flex: 1;
 }
 
-/* Header en Navigatiebalk */
-header {
-    position: fixed; /* Zorgt dat de header vast blijft staan */
-    top: 0;
-    width: 100%; /* Laat de header de volledige breedte bedekken */
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.8); /* Transparant witte achtergrond */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Schaduw onder de header */
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between; /* Verdeel de ruimte tussen logo, navigatielinks en knoppen */
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* Logo */
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #0a4d68;
-}
-
-/* Navigatielinks */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-    .nav-links a {
-        text-decoration: none;
-        color: #0a4d68;
-        font-size: 1rem;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-
-        .nav-links a:hover {
-            color: #007bff; /* Verander kleur bij hover */
-        }
-
-/* Auth-buttons (Sign-in/Sign-up) */
-.auth-buttons {
-    display: flex;
-    gap: 1rem;
-}
-
-    .auth-buttons .sign-in,
-    .auth-buttons .sign-up {
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 500;
-        transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .auth-buttons .sign-in {
-        background: transparent;
-        color: #0a4d68;
-        border: 1px solid #0a4d68;
-    }
-
-        .auth-buttons .sign-in:hover {
-            background: #0a4d68;
-            color: white;
-        }
-
-    .auth-buttons .sign-up {
-        background: #007bff;
-        color: white;
-        border: none;
-    }
-
-        .auth-buttons .sign-up:hover {
-            background: #0056b3;
-        }
-
 /* Hoofdinhoud (H1 en knop) */
 h1 {
     text-align: center;
@@ -134,6 +50,7 @@ h1 {
     text-align: center;
     position: relative;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
     .button-56:hover {
@@ -193,11 +110,6 @@ h1 {
         color: #666;
     }
 
-/* Sticky Footer */
-footer {
-    background-color: #0a4d68;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-}
+
+
+

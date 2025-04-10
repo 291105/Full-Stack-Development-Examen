@@ -1,0 +1,124 @@
+﻿html, body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('../images/plane.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+main {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    padding: 30px 20px;
+    color: #333;
+}
+
+/* Form card */
+.row .col-md-4 {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    margin-top: 20px;
+    max-width: 450px;
+    width: 100%;
+}
+
+/* Form styling */
+select,
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    margin-top: 12px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    transition: 0.3s ease;
+}
+
+    select:focus,
+    input:focus {
+        border-color: #0056b3;
+        outline: none;
+    }
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+/* Table styling */
+table.table {
+    margin-top: 40px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 1000px;
+}
+
+table th,
+table td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table thead {
+    background-color: #007bff;
+    color: white;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+.notLoggedIn {
+    background-color: rgba(255, 255, 255, 0.8); /* doorschijnend wit */
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+    .notLoggedIn h2 {
+        margin-bottom: 20px;
+    }
+
+    .notLoggedIn .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }

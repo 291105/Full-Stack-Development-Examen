@@ -13,8 +13,24 @@
       "PackagePath": "staticwebassets\\Images\\Plane.jpg"
     },
     {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\FlightSearchStyle.css",
+      "PackagePath": "staticwebassets\\css\\FlightSearchStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\FooterStyle.css",
+      "PackagePath": "staticwebassets\\css\\FooterStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\HeaderStyle.css",
+      "PackagePath": "staticwebassets\\css\\HeaderStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\HomepageStyle.css",
       "PackagePath": "staticwebassets\\css\\HomepageStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\LoginStyle.css",
+      "PackagePath": "staticwebassets\\css\\LoginStyle.css"
     },
     {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\site.css",

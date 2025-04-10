@@ -1,0 +1,15 @@
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.csproj.AssemblyReference.cache
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.AssemblyInfo.cs
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.sourcelink.json
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\bin\Debug\net8.0\FlightProject.Domain.deps.json
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\bin\Debug\net8.0\FlightProject.Domain.runtimeconfig.json
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\bin\Debug\net8.0\FlightProject.Domain.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\bin\Debug\net8.0\FlightProject.Domain.pdb
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\refint\FlightProject.Domain.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.pdb
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.genruntimeconfig.cache
+C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\ref\FlightProject.Domain.dll

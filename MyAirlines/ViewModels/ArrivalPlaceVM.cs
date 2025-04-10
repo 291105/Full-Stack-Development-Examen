@@ -2,6 +2,8 @@
 {
     public class ArrivalPlaceVM
     {
-        public PlaceVM? Place { get; set; }
+        public int Id { get; set; } //id van arrival
+       public string Name { get; set; } //place.name
+       
     }
 }

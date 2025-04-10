@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "ContainingType": "MyAirlines.Controllers.API.FlightController",
+    "Method": "Get",
+    "RelativePath": "api/Flight",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "departureAirportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "arrivalAirportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MyAirlines.ViewModels.FlightsByAirportVM, MyAirlines, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "tst.Controllers.API.AirportController",
+    "Method": "Get",
+    "RelativePath": "api/luchthavens",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MyAirlines.ViewModels.PlaceVM, MyAirlines, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

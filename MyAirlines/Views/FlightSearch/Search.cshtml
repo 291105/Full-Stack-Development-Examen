@@ -1,0 +1,94 @@
+﻿
+@model MyAirlines.ViewModels.FlightSearchVM
+@{
+    ViewData["Title"] = "Search";
+}
+<link href="~/css/flightsearchstyle.css" rel="stylesheet" asp-append-version="true" />
+@if (User.Identity.IsAuthenticated)
+{
+    <main>
+        <h1>Find your flight</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-controller="FlightSearch" asp-action="Search" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <select id="SelectedDepartureId" asp-for="SelectedDepartureId" asp-items="@Model.AirportDeparture">
+                            <option value="">Please select a departure airport</option>
+                        </select>
+                        <select id="SelectedArrivalId" asp-for="SelectedArrivalId" asp-items="@Model.AirportArrival">
+                            <option value="">Please select an arrival airport</option>
+                        </select>
+
+                        <!--Vertrek agenda voor datum-->
+                        <div>
+                            <label for="DepartureDate">Departure Date</label>
+                            <input asp-for="DepartureDate" type="date" class="form-control" />
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Search flights" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        @if (Model.Flights != null && Model.Flights.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Departure Place</th>
+                        <th>Arrival Place</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Flights)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DeparturePlace)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ArrivalPlace)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DepartureTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ArrivalTime)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Er zijn geen flights gevonden tussen deze luchthavens</p>
+        }
+    </main>
+}
+else
+{
+    <main class="text-center mt-5">
+        <div class="notLoggedIn">
+            <h2>You are not logged in</h2>
+            <p>Log in to search for flights and see available destinations.</p>
+            <a class="btn btn-primary m-2" href="/Identity/Account/Login">Login</a>
+            <a class="btn btn-secondary m-2" href="/Identity/Account/Register">Register</a>
+        </div>
+    </main>
+}
+
+
+
+

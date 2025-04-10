@@ -13,6 +13,6 @@ namespace MyAirlines.ViewModels
         public ClassVM? Class { get; set; }
         public SeasonVM? Season { get; set; }
         public AircraftVM? Aircraft { get; set; }
-        public FlightVM? Flight { get; set; }
+        public FlightsByAirportVM? Flight { get; set; }
     }
 }
