@@ -1,16 +1,35 @@
 ﻿<header>
     <nav class="navbar">
-        <div class="logo"><img src="~/images/avaro logo.png" /></div>
-        <ul class="nav-links">
-            <li><a href="#">Destinations</a></li>
-            <li><a href="#">Flights</a></li>
-            <li><a href="#">Trending Places</a></li>
-            <li><a href="#">Accommodations</a></li>
-            <li><a href="#">Support</a></li>
-        </ul>
+        <div class="logo">
+            <img height="70" src="~/images/logo_avaro.svg" />
+        </div>
         <div class="auth-buttons">
             <a href="#" class="sign-in">Sign in</a>
             <a href="#" class="sign-up">Register</a>
+            @await Html.PartialAsync("_SelectCulture")
         </div>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+            <svg width="30" height="30" viewBox="0 0 100 80" fill="#333">
+                <rect width="100" height="10"></rect>
+                <rect y="30" width="100" height="10"></rect>
+                <rect y="60" width="100" height="10"></rect>
+            </svg>
+        </button>
     </nav>
+    <ul class="nav-links" id="nav-menu">
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">Flights</a></li>
+        <li><a href="#">Trending Places</a></li>
+        <li><a href="#">Accommodations</a></li>
+        <li><a href="#">Support</a></li>
+    </ul>
 </header>
+
+<script>
+    const hamburger = document.getElementById('hamburger-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+</script>
