@@ -1,57 +1,123 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
+@{
+    ViewData["Title"] = Localizer["Home Page"];
+}
 
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mijn Website</title>
+    <title>@Localizer["Home Page"]</title>
     <link href="~/css/homepagestyle.css" rel="stylesheet" />
 </head>
 <body>
-    
+
     <main>
         <div class="text-center">
-            <h1>The sky is just the beginning.</h1>
-            <button class="button-56" role="button"> Fly with us</button>
+            <h1 class="playfair-display-title">@Localizer["Main Slogan"]</h1>
+            <button class="button-56" role="button">@Localizer["Fly with us"]</button>
         </div>
 
-        <div class="container">
-            <!-- Grijze sectie (Linkerhelft) -->
-            <div class="left-section">
-                <h2>Over Avaro Airlines</h2>
-                <p>
-                    Welkom bij Avaro Airlines, een innovatieve vliegtuigmaatschappij met een focus op comfort, efficiëntie en moderne technologie. Wij streven ernaar om reizen eenvoudiger en aangenamer te maken met betrouwbare vluchten en uitstekende service.
-
-                    Avaro is niet zomaar een luchtvaartmaatschappij – het is een project gebouwd door twee gepassioneerde studenten Toegepaste Informatica. Met onze technische achtergrond combineren we luchtvaart en IT om een unieke, digitale vliegervaring te creëren.
-
-                    Bij Avaro draait alles om innovatie, efficiëntie en klanttevredenheid. Vlieg met ons en ervaar de toekomst van luchtvaart!
-                </p>
+        <div class="responsive-container">
+            <!-- Left Section -->
+            <div class="sd-gm-black left-section">
+                <h2>@Localizer["About"] Avaro Airlines</h2>
+                <p>@Localizer["About-Text-1"]</p>
+                <p>@Localizer["About-Text-2"]</p>
+                <p>@Localizer["About-Text-3"]</p>
             </div>
 
-            <!-- Tweede sectie (Rechterhelft) -->
-            <div class="right-section">
-                <h2>Waar zijn we te vinden:</h2>
-                <p>
-                    📍 Adres <br />
-                    SkyTower 12, 1000 Luchtvaartlaan, Aviacity
-                    <br />
-                    📞 Contactgegevens <br />
-                    📧 E-mail: info@avaroairlines.com <br />
-                    📱 Telefoon: +32 123 45 67 89 <br />
-                    <br />
-                    🕒 Openingstijden klantenservice <br />
-                    🗓 Maandag - Vrijdag: 08:00 - 18:00 <br />
-                    🗓 Zaterdag: 09:00 - 13:00 <br />
-                    ⛔ Zondag & Feestdagen: Gesloten
-                </p>
+            <!-- Right Section -->
+            <div class="sd-gm-white right-section">
+                <h2>@Localizer["Where to find us"]?</h2>
+                <p>📍 <b>@Localizer["Address"]</b> SkyTower 12, 1000 Luchtvaartlaan, Aviacity</p>
+                <p>📞 <b>@Localizer["Contact Information"]</b></p>
+                <p>📧 <b>@Localizer["Email"]</b>: info@avaroairlines.com</p>
+                <p>📱 <b>@Localizer["Phone"]</b>: +32 123 45 67 89</p>
+                <p>🕒 <b>@Localizer["Customer Service Opening Hours"]</b></p>
+                <p>🗓 <b>@Localizer["day-monday"] - @Localizer["day-friday"]</b>: 08:00 - 18:00</p>
+                <p>🗓 <b>@Localizer["day-saturday"]</b>: 09:00 - 13:00</p>
+                <p>⛔ <b>@Localizer["day-sunday"] & @Localizer["Holidays"]</b>: @Localizer["Closed"]</p>
             </div>
         </div>
+
+        <div class="responsive-container">
+            <div class="middle-section">
+                <h2>Destinations</h2>
+                <div class="destinations-grid">
+
+                    <!-- New York -->
+                    <div class="sd-gm-white destination-card">
+                        <img height="200" src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="New York Skyline">
+                        <div class="destination-card-info">
+                            <h3>New York</h3>
+                            <p>From €599</p>
+                        </div>
+                    </div>
+
+                    <!-- London -->
+                    <div class="sd-gm-white destination-card">
+                        <img height="200" src="https://images.unsplash.com/photo-1480449649358-ee14c6ee0b17?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="London Skyline">
+                        <div class="destination-card-info">
+                            <h3>London</h3>
+                            <p>From €549</p>
+                        </div>
+                    </div>
+
+                    <!-- Tokyo -->
+                    <div class="sd-gm-white destination-card">
+                        <img height="200" src="https://images.unsplash.com/photo-1531219435494-8e90d22adc1e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Tokyo Skyline">
+                        <div class="destination-card-info">
+                            <h3>Tokyo</h3>
+                            <p>From €749</p>
+                        </div>
+                    </div>
+
+                    <!-- Sydney -->
+                    <div class="sd-gm-white destination-card">
+                        <img height="200" src="https://images.unsplash.com/photo-1467803738586-46b7eb7b16a1?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sydney Skyline">
+                        <div class="destination-card-info">
+                            <h3>Sydney</h3>
+                            <p>From €799</p>
+                        </div>
+                    </div>
+
+                    <!-- Singapore -->
+                    <div class="sd-gm-white destination-card">
+                        <img height="200" src="https://images.unsplash.com/photo-1727859146476-c60c7f8f9764?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Singapore Skyline">
+                        <div class="destination-card-info">
+                            <h3>Singapore</h3>
+                            <p>From €699</p>
+                        </div>
+                    </div>
+
+                    <!-- Cape Town -->
+                    <div class="sd-gm-white destination-card">
+                        <img height="200" src="https://images.unsplash.com/photo-1525945995886-0ede2bd49ab6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cape Town Skyline">
+                        <div class="destination-card-info">
+                            <h3>Kaapstad (Cape Town)</h3>
+                            <p>From €829</p>
+                        </div>
+                    </div>
+
+                    <!-- Dubai -->
+                    <div class="sd-gm-white destination-card">
+                        <img height="200" src="https://images.unsplash.com/photo-1550779864-6ccb28702fdb?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dubai Skyline">
+                        <div class="destination-card-info">
+                            <h3>Dubai</h3>
+                            <p>From €689</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
     </main>
+
 </body>
 </html>
-
-

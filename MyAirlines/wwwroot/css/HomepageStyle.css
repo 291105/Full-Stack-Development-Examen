@@ -5,13 +5,24 @@ html, body {
     min-height: 100vh; /* Zorg ervoor dat de body de volledige hoogte van het scherm inneemt */
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('../images/plane.jpg');
+    background-image: url('../images/background_avaro.png') !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed; /* De achtergrond blijft vast tijdens het scrollen */
     overflow-x: hidden; /* Voorkom horizontaal scrollen */
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* FONTS */
+.playfair-display-title {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 /* Zorg ervoor dat de hoofdinhoud alle beschikbare ruimte opvult */
@@ -29,14 +40,12 @@ header {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Schaduw onder de header */
 }
 
-.navbar {
+/*.navbar {
     display: flex;
-    justify-content: space-between; /* Verdeel de ruimte tussen logo, navigatielinks en knoppen */
-    align-items: center;
+    justify-content: space-between;*/ /* Verdeel de ruimte tussen logo, navigatielinks en knoppen */
+    /*align-items: center;
     padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: auto;
-}
+}*/
 
 /* Logo */
 .logo {
@@ -46,7 +55,7 @@ header {
 }
 
 /* Navigatielinks */
-.nav-links {
+/*.nav-links {
     list-style: none;
     display: flex;
     gap: 2rem;
@@ -63,11 +72,11 @@ header {
     }
 
         .nav-links a:hover {
-            color: #007bff; /* Verander kleur bij hover */
-        }
+            color: #007bff;*/ /* Verander kleur bij hover */
+        /*}*/
 
 /* Auth-buttons (Sign-in/Sign-up) */
-.auth-buttons {
+/*.auth-buttons {
     display: flex;
     gap: 1rem;
 }
@@ -101,7 +110,7 @@ header {
 
         .auth-buttons .sign-up:hover {
             background: #0056b3;
-        }
+        }*/
 
 /* Hoofdinhoud (H1 en knop) */
 h1 {
@@ -116,17 +125,16 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(50vh - 80px);
+    height: calc(70vh - 80px);
     text-align: center;
     margin-top: 80px;
 }
 
 .button-56 {
     background-color: #f0f8ff;
-    border: 2px solid #111;
+    border: none;
     border-radius: 8px;
     padding: 0.5rem 2rem;
-    font-family: Inter, sans-serif;
     font-size: 1.2rem;
     font-weight: bold;
     color: black;
@@ -148,7 +156,6 @@ h1 {
 .container {
     display: flex;
     justify-content: center; /* Centreert de tekstvakken horizontaal */
-    align-items: center; /* Centreert de tekstvakken verticaal als er genoeg ruimte is */
     gap: 40px; /* Voeg ruimte toe tussen de secties */
     padding: 20px;
     margin: 20px auto; /* Zorgt voor automatische centrering */
@@ -156,36 +163,40 @@ h1 {
     max-width: 1200px;
 }
 
-/* Grijze sectie (Linkerhelft) */
-.left-section {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    width: 48%;
-    padding: 40px;
+.responsive-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.middle-section {
+    width: 100%;
+    max-width: 1024px;
+    padding: 0px;
     border-radius: 10px;
 }
 
-    .left-section h2 {
-        font-size: 2rem;
+    .middle-section h2 {
         color: white;
+        margin-bottom: 25px;
+    }
+
+/* Linker en rechter secties */
+.left-section, .right-section {
+    width: 48%;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 500px;
+}
+
+    .left-section h2, .right-section h2 {
+        font-size: 2rem;
     }
 
     .left-section p {
         font-size: 1rem;
-    }
-
-/* Tweede sectie (Rechterhelft) */
-.right-section {
-    background-color: white;
-    color: #333;
-    width: 48%;
-    padding: 40px;
-    border-radius: 10px;
-}
-
-    .right-section h2 {
-        font-size: 2rem;
-        color: #333;
     }
 
     .right-section p {
@@ -193,11 +204,73 @@ h1 {
         color: #666;
     }
 
+.destinations-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+    .destinations-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.destination-card-info {
+    padding: 10px 25px;
+}
+
+.destination-card {
+    border-radius: 10px;
+    padding: 5px;
+    text-align: left;
+    overflow: hidden;
+}
+
+    .destination-card img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+
 /* Sticky Footer */
 footer {
-    background-color: #0a4d68;
-    color: white;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     width: 100%;
+    font-weight: bold;
+}
+
+    footer p {
+        margin: 0px;
+    }
+
+
+
+@media (max-width: 768px) {
+    .text-center {
+        padding: 1.5rem 1rem;
+    }
+
+    .left-section, .right-section {
+        width: 100%;
+        border-radius: 0px;
+        max-width: unset;
+    }
+
+    .responsive-container {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+        gap: 0;
+    }
+
+    .middle-section {
+        padding: 1rem;
+    }
 }
