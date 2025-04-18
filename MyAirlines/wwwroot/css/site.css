@@ -20,3 +20,194 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+.setLang {
+    appearance: initial;
+    background: transparent;
+    color: #0a4d68;
+    border: 1px solid #0a4d68;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    outline: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-btn {
+    padding: 5px 12px;
+    /*border: 1px solid #ccc;*/
+    display: flex;
+    align-items: center;
+    background: transparent;
+    color: #0a4d68;
+    /*border: 1px solid #0a4d68;*/
+    border-radius: 25px;
+    height: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    min-width: 160px;
+    z-index: 1;
+    border-radius: 15px;
+    padding: 10px;
+    right: -20px;
+}
+
+    .dropdown-content div {
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+.dropdown-item:hover {
+    border-radius: 10px;
+    background: linear-gradient(45deg, #0fbdff, #0029ffa1);
+    color: white;
+    font-weight: bold;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.flag {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+
+
+.sd-gm-white {
+    background: rgba(255, 255, 255, 0.50);
+    color: #333;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.sd-gm-black {
+    background: rgba(0, 0, 0, 0.50);
+    color: white;
+}
+
+.sd-gm-black, .sd-gm-white {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+}
+
+/* Auth-buttons (Sign-in/Sign-up) */
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+    .auth-buttons .sign-in,
+    .auth-buttons .sign-up {
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .auth-buttons .sign-in {
+        background: transparent;
+        color: #0fbdff;
+        border: 1px solid #0fbdff;
+        transition: 0.3s;
+    }
+
+        .auth-buttons .sign-in:hover {
+            transform: scale(0.95);
+        }
+
+    .auth-buttons .sign-up {
+        background: linear-gradient(45deg, #0fbdff, #0029ffa1);
+        color: white;
+        border: none;
+        transition: 0.3s;
+    }
+
+        .auth-buttons .sign-up:hover {
+            transform: scale(0.95);
+        }
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    justify-content: start;
+    padding: 10px 25px;
+    margin: 0;
+}
+
+    .nav-links a {
+        text-decoration: none;
+        color: #0a4d68;
+        transition: 0.3s;
+    }
+
+        .nav-links a:hover {
+            color: black;
+        }
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+    .auth-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+    }
+}

@@ -305,3 +305,17 @@ C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\bin\Debug\net8.0\runtimes\
 C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\obj\Debug\net8.0\MyAirlines.Resources.Views.Home.Index.resources
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\obj\Debug\net8.0\MyAirlines.Resources.Views.Home.Index.en.resources
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\obj\Debug\net8.0\MyAirlines.Resources.Views.Home.Index.es.resources
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\obj\Debug\net8.0\MyAirlines.Resources.Views.Home.Index.fr.resources
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\obj\Debug\net8.0\MyAirlines.Resources.Views.Home.Index.nl.resources
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\obj\Debug\net8.0\MyAirlines.csproj.GenerateResource.cache
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\bin\Debug\net8.0\en\MyAirlines.resources.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\bin\Debug\net8.0\es\MyAirlines.resources.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\bin\Debug\net8.0\fr\MyAirlines.resources.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\bin\Debug\net8.0\nl\MyAirlines.resources.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\obj\Debug\net8.0\en\MyAirlines.resources.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\obj\Debug\net8.0\es\MyAirlines.resources.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\obj\Debug\net8.0\fr\MyAirlines.resources.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\MyAirlines\obj\Debug\net8.0\nl\MyAirlines.resources.dll

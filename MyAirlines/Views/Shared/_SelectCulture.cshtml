@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Microsoft.Extensions.Options
+
+@inject IOptions<RequestLocalizationOptions> locOptions
+
+@{
+    var currentRequestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = locOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
+
+    var responseUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+
+    var flagMap = new Dictionary<string, string> {
+        { "nl", "nl" },
+        { "fr", "fr" },
+        { "en", "gb" },
+        { "es", "es" }
+    };
+
+    var currentCulture = currentRequestCulture.RequestCulture.UICulture.Name.Split('-')[0].ToLower();
+    var currentItem = cultureItems.FirstOrDefault(i => i.Value.StartsWith(currentCulture))
+                      ?? new SelectListItem { Value = currentCulture, Text = currentCulture };
+    var currentCountryCode = flagMap.ContainsKey(currentCulture) ? flagMap[currentCulture] : currentCulture;
+}
+
+<!-- Custom Dropdown with Flag Images -->
+<div class="dropdown" id="language-dropdown">
+    <div class="dropdown-btn" id="selected">
+        <img class="flag" src="https://flagcdn.com/w20/@(currentCountryCode).png" alt="@currentItem.Text Flag">
+        @currentItem.Text
+    </div>
+    <div class="dropdown-content" id="langOptions">
+        @foreach (var item in cultureItems)
+        {
+            var shortCode = item.Value.Split('-')[0].ToLower();
+            var countryCode = flagMap.ContainsKey(shortCode) ? flagMap[shortCode] : shortCode;
+            <div data-lang="@item.Value" data-label="@item.Text" class="dropdown-item">
+                <img class="flag" src="https://flagcdn.com/w20/@(countryCode).png" alt="@item.Text Flag">
+                @item.Text
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Hidden form for language change -->
+<form id="selectLanguage" asp-controller="Home" asp-action="SetAppLanguage" asp-route-returnUrl="@responseUrl" method="post">
+    <input type="hidden" name="lang" id="langInput" value="@currentRequestCulture.RequestCulture.UICulture.Name" />
+</form>
+
+<script>
+    // Toggle dropdown open/close
+    document.getElementById('selected').addEventListener('click', () => {
+        document.getElementById('language-dropdown').classList.toggle('open');
+    });
+
+    // Select language from dropdown
+    document.querySelectorAll('#langOptions .dropdown-item').forEach(el => {
+        el.addEventListener('click', () => {
+            const lang = el.getAttribute('data-lang');
+            const label = el.getAttribute('data-label');
+            const imgSrc = el.querySelector('img').src;
+
+            const selectedBtn = document.getElementById('selected');
+            selectedBtn.innerHTML = '';
+
+            const flagImg = document.createElement('img');
+            flagImg.className = 'flag';
+            flagImg.src = imgSrc;
+            flagImg.alt = 'Flag';
+            selectedBtn.appendChild(flagImg);
+
+            selectedBtn.appendChild(document.createTextNode(' ' + label));
+
+            document.getElementById('langInput').value = lang;
+            document.getElementById('selectLanguage').submit();
+        });
+    });
+
+    // Sluit dropdown bij klik buiten
+    document.addEventListener('click', function (event) {
+        const dropdown = document.getElementById('language-dropdown');
+        if (!dropdown.contains(event.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
+</script>

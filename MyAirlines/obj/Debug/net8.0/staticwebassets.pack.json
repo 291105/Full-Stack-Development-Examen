@@ -13,6 +13,26 @@
       "PackagePath": "staticwebassets\\Images\\Plane.jpg"
     },
     {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\avaro_white.svg",
+      "PackagePath": "staticwebassets\\Images\\avaro_white.svg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\background_avaro.png",
+      "PackagePath": "staticwebassets\\Images\\background_avaro.png"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\desktop.ini",
+      "PackagePath": "staticwebassets\\Images\\desktop.ini"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\logo_avaro.svg",
+      "PackagePath": "staticwebassets\\Images\\logo_avaro.svg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\shopping_cart.svg",
+      "PackagePath": "staticwebassets\\Images\\shopping_cart.svg"
+    },
+    {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\FlightSearchStyle.css",
       "PackagePath": "staticwebassets\\css\\FlightSearchStyle.css"
     },

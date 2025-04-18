@@ -1,14 +1,21 @@
-﻿<link href="~/css/HeaderStyle.css" rel="stylesheet" />
+﻿
+<link href="~/css/HeaderStyle.css" rel="stylesheet" />
 <header>
     <nav class="navbar">
-        <div class="logo"><img src="~/images/avaro logo.png" /></div>
+        <div class="logo">
+            <img height="70" src="~/images/logo_avaro.svg" />
+        </div>
+
+        <!-- Standaard nav-links die altijd zichtbaar blijven (zonder cultuurkeuze) -->
         <ul class="nav-links">
             <li><a href="#">Destinations</a></li>
             <li><a href="#">Flights</a></li>
             <li><a href="#">Trending Places</a></li>
             <li><a href="#">Accommodations</a></li>
-            <li><a  href="#">Support</a></li>
+            <li><a href="#">Support</a></li>
         </ul>
+
+        <!-- Auth-buttons voor ingelogde en niet-ingelogde gebruikers -->
         <div class="auth-buttons">
             @if (User.Identity.IsAuthenticated)
             {
@@ -22,6 +29,32 @@
                 <a href="/Identity/Account/Login" class="sign-in">Sign in</a>
                 <a href="/Identity/Account/Register" class="sign-up">Register</a>
             }
+            @await Html.PartialAsync("_SelectCulture")
         </div>
+
+        <!-- Hamburger menu button -->
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+            <svg width="30" height="30" viewBox="0 0 100 80" fill="#333">
+                <rect width="100" height="10"></rect>
+                <rect y="30" width="100" height="10"></rect>
+                <rect y="60" width="100" height="10"></rect>
+            </svg>
+        </button>
+
+      
+       
     </nav>
 </header>
+
+
+
+
+<script>
+    const hamburger = document.getElementById('hamburger-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+</script>
+
