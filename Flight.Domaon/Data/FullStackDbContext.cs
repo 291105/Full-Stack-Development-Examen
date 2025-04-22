@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using FlightProject.Domain.EntitiesDB;
+using FlightProject.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace FlightProject.Domain.DataDB;
+namespace FlightProject.Domain.Data;
 
 public partial class FullStackDbContext : DbContext
 {
@@ -19,6 +19,18 @@ public partial class FullStackDbContext : DbContext
     public virtual DbSet<Aircraft> Aircraft { get; set; }
 
     public virtual DbSet<ArrivalPlace> ArrivalPlaces { get; set; }
+
+    public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+
+    public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; }
+
+    public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+
+    public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+
+    public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+
+    public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; }
 
     public virtual DbSet<Booking> Bookings { get; set; }
 
@@ -42,13 +54,15 @@ public partial class FullStackDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=nenavivesproject.database.windows.net; Database=FullStackExamen; User ID=beheerder; Password=azerty-123; TrustServerCertificate=True; MultipleActiveResultSets=true;");
+        => optionsBuilder.UseSqlServer("Server=.\\SQL22_VIVES; Database=FullStackExamen; Trusted_Connection=True; TrustServerCertificate=True; MultipleActiveResultSets=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.UseCollation("SQL_Latin1_General_CP1_CI_AS");
+
         modelBuilder.Entity<Aircraft>(entity =>
         {
-            entity.HasKey(e => e.AircraftId).HasName("PK__Aircraft__F75CBC0BF3B17BA2");
+            entity.HasKey(e => e.AircraftId).HasName("PK__Aircraft__F75CBC0B1830EC4C");
 
             entity.Property(e => e.AircraftId).HasColumnName("AircraftID");
             entity.Property(e => e.Name)
@@ -59,7 +73,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<ArrivalPlace>(entity =>
         {
-            entity.HasKey(e => e.ArrivalId).HasName("PK__ArrivalP__2B1A513B0C0093EA");
+            entity.HasKey(e => e.ArrivalId).HasName("PK__ArrivalP__2B1A513B85150E27");
 
             entity.ToTable("ArrivalPlace");
 
@@ -72,9 +86,81 @@ public partial class FullStackDbContext : DbContext
                 .HasConstraintName("FKArrivalPla487541");
         });
 
+        modelBuilder.Entity<AspNetRole>(entity =>
+        {
+            entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
+                .IsUnique()
+                .HasFilter("([NormalizedName] IS NOT NULL)");
+
+            entity.Property(e => e.Name).HasMaxLength(256);
+            entity.Property(e => e.NormalizedName).HasMaxLength(256);
+        });
+
+        modelBuilder.Entity<AspNetRoleClaim>(entity =>
+        {
+            entity.HasIndex(e => e.RoleId, "IX_AspNetRoleClaims_RoleId");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.AspNetRoleClaims).HasForeignKey(d => d.RoleId);
+        });
+
+        modelBuilder.Entity<AspNetUser>(entity =>
+        {
+            entity.HasIndex(e => e.NormalizedEmail, "EmailIndex");
+
+            entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex")
+                .IsUnique()
+                .HasFilter("([NormalizedUserName] IS NOT NULL)");
+
+            entity.Property(e => e.Email).HasMaxLength(256);
+            entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
+            entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+            entity.Property(e => e.UserName).HasMaxLength(256);
+
+            entity.HasMany(d => d.Roles).WithMany(p => p.Users)
+                .UsingEntity<Dictionary<string, object>>(
+                    "AspNetUserRole",
+                    r => r.HasOne<AspNetRole>().WithMany().HasForeignKey("RoleId"),
+                    l => l.HasOne<AspNetUser>().WithMany().HasForeignKey("UserId"),
+                    j =>
+                    {
+                        j.HasKey("UserId", "RoleId");
+                        j.ToTable("AspNetUserRoles");
+                        j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
+                    });
+        });
+
+        modelBuilder.Entity<AspNetUserClaim>(entity =>
+        {
+            entity.HasIndex(e => e.UserId, "IX_AspNetUserClaims_UserId");
+
+            entity.HasOne(d => d.User).WithMany(p => p.AspNetUserClaims).HasForeignKey(d => d.UserId);
+        });
+
+        modelBuilder.Entity<AspNetUserLogin>(entity =>
+        {
+            entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
+
+            entity.HasIndex(e => e.UserId, "IX_AspNetUserLogins_UserId");
+
+            entity.Property(e => e.LoginProvider).HasMaxLength(128);
+            entity.Property(e => e.ProviderKey).HasMaxLength(128);
+
+            entity.HasOne(d => d.User).WithMany(p => p.AspNetUserLogins).HasForeignKey(d => d.UserId);
+        });
+
+        modelBuilder.Entity<AspNetUserToken>(entity =>
+        {
+            entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
+
+            entity.Property(e => e.LoginProvider).HasMaxLength(128);
+            entity.Property(e => e.Name).HasMaxLength(128);
+
+            entity.HasOne(d => d.User).WithMany(p => p.AspNetUserTokens).HasForeignKey(d => d.UserId);
+        });
+
         modelBuilder.Entity<Booking>(entity =>
         {
-            entity.HasKey(e => e.BookingId).HasName("PK__Booking__73951ACD0C107845");
+            entity.HasKey(e => e.BookingId).HasName("PK__Booking__73951ACD12AAC51B");
 
             entity.ToTable("Booking");
 
@@ -101,7 +187,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Class>(entity =>
         {
-            entity.HasKey(e => e.ClassId).HasName("PK__Class__CB1927A0AA484FCD");
+            entity.HasKey(e => e.ClassId).HasName("PK__Class__CB1927A01634CCDF");
 
             entity.ToTable("Class");
 
@@ -113,7 +199,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<DeparturePlace>(entity =>
         {
-            entity.HasKey(e => e.DepartureId).HasName("PK__Departur__8F8A78993355F123");
+            entity.HasKey(e => e.DepartureId).HasName("PK__Departur__8F8A7899925B7B0C");
 
             entity.ToTable("DeparturePlace");
 
@@ -128,7 +214,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Flight>(entity =>
         {
-            entity.HasKey(e => e.FlightId).HasName("PK__Flight__8A9E148E2FF854B6");
+            entity.HasKey(e => e.FlightId).HasName("PK__Flight__8A9E148EB74B7D40");
 
             entity.ToTable("Flight");
 
@@ -151,7 +237,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<FlightStop>(entity =>
         {
-            entity.HasKey(e => new { e.StopOrder, e.FlightId }).HasName("PK__FlightSt__88848E5891283C22");
+            entity.HasKey(e => new { e.StopOrder, e.FlightId }).HasName("PK__FlightSt__88848E58E7198168");
 
             entity.ToTable("FlightStop");
 
@@ -171,7 +257,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Meal>(entity =>
         {
-            entity.HasKey(e => e.MealId).HasName("PK__Meal__ACF6A65DA62E159B");
+            entity.HasKey(e => e.MealId).HasName("PK__Meal__ACF6A65DF25E4429");
 
             entity.ToTable("Meal");
 
@@ -186,7 +272,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Place>(entity =>
         {
-            entity.HasKey(e => e.PlaceId).HasName("PK__Place__D5222B4EABC14F28");
+            entity.HasKey(e => e.PlaceId).HasName("PK__Place__D5222B4E5FB5E60E");
 
             entity.ToTable("Place");
 
@@ -201,7 +287,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Season>(entity =>
         {
-            entity.HasKey(e => e.SeasonId).HasName("PK__Season__C1814E18F4865CAD");
+            entity.HasKey(e => e.SeasonId).HasName("PK__Season__C1814E18B1973222");
 
             entity.ToTable("Season");
 
@@ -210,7 +296,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Ticket>(entity =>
         {
-            entity.HasKey(e => e.TicketId).HasName("PK__Ticket__712CC6279FC687FA");
+            entity.HasKey(e => e.TicketId).HasName("PK__Ticket__712CC627FA1790F8");
 
             entity.ToTable("Ticket");
 
@@ -261,7 +347,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<TransferPlace>(entity =>
         {
-            entity.HasKey(e => e.TransferId).HasName("PK__Transfer__9549017137963AE0");
+            entity.HasKey(e => e.TransferId).HasName("PK__Transfer__9549017151D25586");
 
             entity.ToTable("TransferPlace");
 

@@ -23,6 +23,20 @@
         },
         "runtime": {
           "MyAirlines.dll": {}
+        },
+        "resources": {
+          "en/MyAirlines.resources.dll": {
+            "locale": "en"
+          },
+          "es/MyAirlines.resources.dll": {
+            "locale": "es"
+          },
+          "fr/MyAirlines.resources.dll": {
+            "locale": "fr"
+          },
+          "nl/MyAirlines.resources.dll": {
+            "locale": "nl"
+          }
         }
       },
       "AutoMapper/12.0.0": {

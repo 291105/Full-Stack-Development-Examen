@@ -1,0 +1,190 @@
+﻿@model MyAirlines.ViewModels.BookingVM
+
+@{
+    ViewData["Title"] = "BookFlight";
+}
+
+<h1>BookFlight</h1>
+
+<h4>Passenger Information</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="BookFlight" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Passagiers formulieren -->
+            <div id="passengerFormsContainer">
+                @if (Model.Passengers != null && Model.Passengers.Count > 0)
+                {
+                    @for (int i = 0; i < Model.Passengers.Count; i++)
+                    {
+                        <div class="passenger-form" id="passenger-form-@i">
+                            <h4>Passenger @i + 1</h4>
+
+                            <!-- First Name -->
+                            <div class="form-group">
+                                <label asp-for="Passengers[@i].FirstName" class="control-label">First Name</label>
+                                <input asp-for="Passengers[@i].FirstName" class="form-control" />
+                                <span asp-validation-for="Passengers[@i].FirstName" class="text-danger"></span>
+                            </div>
+
+                            <!-- Last Name -->
+                            <div class="form-group">
+                                <label asp-for="Passengers[@i].LastName" class="control-label">Last Name</label>
+                                <input asp-for="Passengers[@i].LastName" class="form-control" />
+                                <span asp-validation-for="Passengers[@i].LastName" class="text-danger"></span>
+                            </div>
+
+                            <!-- Email Address -->
+                            <div class="form-group">
+                                <label asp-for="Passengers[@i].EmailAddress" class="control-label">Email Address</label>
+                                <input asp-for="Passengers[@i].EmailAddress" class="form-control" />
+                                <span asp-validation-for="Passengers[@i].EmailAddress" class="text-danger"></span>
+                            </div>
+
+                            <!-- Phone Number -->
+                            <div class="form-group">
+                                <label asp-for="Passengers[@i].PhoneNumber" class="control-label">Phone Number</label>
+                                <input asp-for="Passengers[@i].PhoneNumber" class="form-control" />
+                                <span asp-validation-for="Passengers[@i].PhoneNumber" class="text-danger"></span>
+                            </div>
+
+                            <!-- National Register Number -->
+                            <div class="form-group">
+                                <label asp-for="Passengers[@i].NationalRegisterNumber" class="control-label">National Register Number</label>
+                                <input asp-for="Passengers[@i].NationalRegisterNumber" class="form-control" />
+                                <span asp-validation-for="Passengers[@i].NationalRegisterNumber" class="text-danger"></span>
+                            </div>
+
+                            <!-- Meal Selection -->
+                            <div class="form-group">
+                                <label asp-for="Passengers[@i].SelectedMealID" class="control-label">Meal Selection</label>
+                                @if (Model.Passengers[@i].AvailableMeals != null && Model.Passengers[@i].AvailableMeals.Any())
+                                {
+                                    <select asp-for="Passengers[@i].SelectedMealID" asp-items="@(Model.Passengers[@i].AvailableMeals)" class="form-control">
+                                        <option value="">Please select a meal</option>
+                                    </select>
+                                }
+                                else
+                                {
+                                    <p>No meals available for this passenger.</p>
+                                }
+                                <span asp-validation-for="Passengers[@i].SelectedMealID" class="text-danger"></span>
+                            </div>
+
+                            <!-- Class Selection -->
+                            <div class="form-group">
+                                <label asp-for="Passengers[@i].SelectedClassID" class="control-label">Class Selection</label>
+                                @if (Model.Passengers[@i].AvailableClasses != null && Model.Passengers[@i].AvailableClasses.Any())
+                                {
+                                    <select asp-for="Passengers[@i].SelectedClassID" asp-items="@(Model.Passengers[@i].AvailableClasses)" class="form-control">
+                                        <option value="">Please select a class</option>
+                                    </select>
+                                }
+                                else
+                                {
+                                    <p>No classes available for this passenger.</p>
+                                }
+                                <span asp-validation-for="Passengers[@i].SelectedClassID" class="text-danger"></span>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No passengers added yet.</p>
+                }
+            </div>
+
+            <!-- Add Passenger Button -->
+            <div class="form-group">
+                <button type="button" id="addPassengerButton" class="btn btn-primary">Add Another Passenger</button>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <input type="submit" value="Book Flight" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Wait until the DOM content is fully loaded before adding passengers
+    document.addEventListener('DOMContentLoaded', function () {
+        var passengerList = document.querySelectorAll('.passenger-form');
+        if (passengerList.length === 0) {
+            console.log('No passengers found when the page loaded!');
+        }
+
+        document.getElementById('addPassengerButton').addEventListener('click', function () {
+            var passengerFormsContainer = document.getElementById('passengerFormsContainer');
+            var newPassengerIndex = passengerFormsContainer.children.length;
+
+            var newForm = document.createElement('div');
+            newForm.classList.add('passenger-form');
+            newForm.id = 'passenger-form-' + newPassengerIndex;
+
+            newForm.innerHTML = `
+                        <h4>Passenger ${newPassengerIndex + 1}</h4>
+
+                        <!-- First Name -->
+                        <div class="form-group">
+                            <label for="Passengers[${newPassengerIndex}].FirstName" class="control-label">First Name</label>
+                            <input name="Passengers[${newPassengerIndex}].FirstName" class="form-control" />
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="form-group">
+                            <label for="Passengers[${newPassengerIndex}].LastName" class="control-label">Last Name</label>
+                            <input name="Passengers[${newPassengerIndex}].LastName" class="form-control" />
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="form-group">
+                            <label for="Passengers[${newPassengerIndex}].EmailAddress" class="control-label">Email Address</label>
+                            <input name="Passengers[${newPassengerIndex}].EmailAddress" class="form-control" />
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="form-group">
+                            <label for="Passengers[${newPassengerIndex}].PhoneNumber" class="control-label">Phone Number</label>
+                            <input name="Passengers[${newPassengerIndex}].PhoneNumber" class="form-control" />
+                        </div>
+
+                        <!-- National Register Number -->
+                        <div class="form-group">
+                            <label for="Passengers[${newPassengerIndex}].NationalRegisterNumber" class="control-label">National Register Number</label>
+                            <input name="Passengers[${newPassengerIndex}].NationalRegisterNumber" class="form-control" />
+                        </div>
+
+                        <!-- Meal Selection -->
+                        <div class="form-group">
+                            <label for="Passengers[${newPassengerIndex}].SelectedMealID" class="control-label">Meal Selection</label>
+                            <select name="Passengers[${newPassengerIndex}].SelectedMealID" class="form-control">
+                                <option value="">Please select a meal</option>
+    @foreach (var meal in Model.Passengers[0].AvailableMeals)
+    {
+                                        <option value="@meal.Value">@meal.Text</option>
+    }
+                            </select>
+                        </div>
+
+                        <!-- Class Selection -->
+                        <div class="form-group">
+                            <label for="Passengers[${newPassengerIndex}].SelectedClassID" class="control-label">Class Selection</label>
+                            <select name="Passengers[${newPassengerIndex}].SelectedClassID" class="form-control">
+                                <option value="">Please select a class</option>
+    @foreach (var clazz in Model.Passengers[0].AvailableClasses)
+    {
+                                        <option value="@clazz.Value">@clazz.Text</option>
+    }
+                            </select>
+                        </div>
+                    `;
+
+            passengerFormsContainer.appendChild(newForm);
+        });
+    });
+</script>

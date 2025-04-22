@@ -18,7 +18,9 @@
     <main>
         <div class="text-center">
             <h1 class="playfair-display-title">@Localizer["Main Slogan"]</h1>
-            <button asp-controller="flightSearch" asp-action ="Search" class="button-56" role="button">@Localizer["Fly with us"]</button>
+            <a asp-controller="FlightSearch" asp-action="Search" class="button-56" role="button">
+                @Localizer["Fly with us"]
+            </a>
         </div>
 
         <div class="responsive-container">

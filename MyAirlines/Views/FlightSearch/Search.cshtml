@@ -23,7 +23,12 @@
                         <!--Vertrek agenda voor datum-->
                         <div>
                             <label for="DepartureDate">Departure Date</label>
-                            <input asp-for="DepartureDate" type="date" class="form-control" />
+                            <input type="date" 
+       id="departureDate" 
+       name="DepartureDate" 
+       min="@Model.MinDepartureTime.ToString("yyyy-MM-dd")" 
+       max="@Model.MaxDepartureTime.ToString("yyyy-MM-dd")" 
+       value="@Model.DepartureDate?.ToString("yyyy-MM-dd")" />
                         </div>
 
                     </div>
@@ -62,9 +67,7 @@
                                 @Html.DisplayFor(modelItem => item.ArrivalTime)
                             </td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                @Html.ActionLink("Boek deze vlucht", "BookFlight", new { flightId = item.FlightId }, new { @class = "btn btn-success" })
                             </td>
                         </tr>
                     }

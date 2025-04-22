@@ -1,4 +1,4 @@
-﻿using FlightProject.Domain.EntitiesDB;
+﻿using FlightProject.Domain.Entities;
 using FlightProject.Repositories.Interfaces;
 using FlightProject.Services.Interfaces;
 using System;

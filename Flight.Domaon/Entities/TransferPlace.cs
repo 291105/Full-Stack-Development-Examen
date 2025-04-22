@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FlightProject.Domain.EntitiesDB;
+namespace FlightProject.Domain.Entities;
 
 public partial class TransferPlace
 {

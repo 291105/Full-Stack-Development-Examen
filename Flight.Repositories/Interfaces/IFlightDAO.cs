@@ -1,4 +1,4 @@
-﻿using FlightProject.Domain.EntitiesDB;
+﻿using FlightProject.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +11,6 @@ namespace FlightProject.Repositories.Interfaces
     {
         Task<List<Flight>> GetFlightsFromTwoAirports(int airportID1, int airportID2);
         
+        Task<Flight> getFlightById(int id);
     }
 }

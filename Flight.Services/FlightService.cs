@@ -1,4 +1,4 @@
-﻿using FlightProject.Domain.EntitiesDB;
+﻿using FlightProject.Domain.Entities;
 using FlightProject.Repositories.Interfaces;
 using FlightProject.Services.Interfaces;
 using System;
@@ -27,6 +27,9 @@ namespace FlightProject.Services
             return await _flightDAO.GetFlightsFromTwoAirports(airportID1, airportID2);
         }
 
-        
+        public async Task<Flight> getFlightById(int id)
+        {
+            return await _flightDAO.getFlightById(id);
+        }
     }
 }

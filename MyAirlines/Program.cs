@@ -1,6 +1,8 @@
 using EmployeeAPI.AutoMapper;
-using FlightProject.Domain.DataDB;
-using FlightProject.Domain.EntitiesDB;
+using FlightProject.Domain.Data;
+using FlightProject.Domain.Data;
+using FlightProject.Domain.Entities;
+using FlightProject.Domain.Entities;
 using FlightProject.Repositories;
 using FlightProject.Repositories.Interfaces;
 using FlightProject.Services;
@@ -86,6 +88,11 @@ builder.Services.AddTransient<IService<ArrivalPlace>, ArrivalPlaceService>();
 builder.Services.AddTransient<IDAO<ArrivalPlace>, ArrivalPlaceDAO>();
 builder.Services.AddTransient<IService<DeparturePlace>, DeparturePlaceService>();
 builder.Services.AddTransient<IDAO<DeparturePlace>, DeparturePlaceDAO>();
+
+builder.Services.AddTransient<IService<Meal>, MealService>();
+builder.Services.AddTransient<IDAO<Meal>, MealDAO>();
+builder.Services.AddTransient<IService<Class>, ClassService>();
+builder.Services.AddTransient<IDAO<Class>, ClassDAO>();
 
 
 //jwt enzo

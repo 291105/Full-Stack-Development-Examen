@@ -2,6 +2,7 @@
 {
     public class ClassVM
     {
-        public string? Class { get; set; }
+        public int ClassId { get; set; }
+        public string? Name { get; set; }
     }
 }

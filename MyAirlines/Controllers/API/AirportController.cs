@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using FlightProject.Domain.EntitiesDB;
+using FlightProject.Domain.Entities;
 using FlightProject.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using MyAirlines.ViewModels;

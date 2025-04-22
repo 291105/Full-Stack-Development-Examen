@@ -1,4 +1,4 @@
-﻿using FlightProject.Domain.EntitiesDB;
+﻿using FlightProject.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MyAirlines.ViewModels
@@ -12,6 +12,9 @@ namespace MyAirlines.ViewModels
         public int? SelectedArrivalId { get; set; }     // Geselecteerde aankomst luchthaven
         public IEnumerable<FlightVM> Flights { get; set; }            // Lijst van vluchten
         public DateTime? DepartureDate { get; set; } //datum van vertrek
+
+        public DateTime MinDepartureTime { get; set; }
+        public DateTime MaxDepartureTime { get; set;}
     }
 }
 

@@ -1,5 +1,7 @@
-﻿using FlightProject.Domain.DataDB;
-using FlightProject.Domain.EntitiesDB;
+﻿using FlightProject.Domain.Data;
+using FlightProject.Domain.Data;
+using FlightProject.Domain.Entities;
+using FlightProject.Domain.Entities;
 using FlightProject.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -40,6 +42,17 @@ namespace FlightProject.Repositories
             }
         }
 
-        
+        public async Task<Flight> getFlightById(int id)
+        {
+            try
+            {
+                return await _db.Flights.Where(a => a.FlightId == id).Include(f => f.Departure.Place)
+                    .Include(f => f.Arrival.Place).FirstOrDefaultAsync();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("error flights by id");
+            }
+        }
     }
 }

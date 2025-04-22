@@ -2,6 +2,7 @@
 {
     public class FlightVM
     {
+       public int FlightId { get; set; }
         public String DeparturePlace { get; set; }
         public String ArrivalPlace { get; set; }
         public DateTime DepartureTime { get; set; }

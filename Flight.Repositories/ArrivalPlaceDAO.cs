@@ -1,5 +1,5 @@
-﻿using FlightProject.Domain.DataDB;
-using FlightProject.Domain.EntitiesDB;
+﻿using FlightProject.Domain.Data;
+using FlightProject.Domain.Entities;
 using FlightProject.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;

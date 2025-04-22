@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FlightProject.Domain.EntitiesDB;
-public partial class DeparturePlace
+namespace FlightProject.Domain.Entities;
+
+public partial class ArrivalPlace
 {
-    public int DepartureId { get; set; }
+    public int ArrivalId { get; set; }
 
     public int PlaceId { get; set; }
 
