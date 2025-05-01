@@ -8,12 +8,18 @@ using FlightProject.Repositories.Interfaces;
 using FlightProject.Services;
 using FlightProject.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyAirlines.Data;
+using MyAirlines.Util.Mail;
+using MyAirlines.Util.Mail.Interfaces;
+using MyAirlines.Util.PDF;
+using MyAirlines.Util.PDF.Interfaces;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +29,7 @@ builder.Services.AddLocalization(
     options => options.ResourcesPath = "Resources");
 
 // Add services to the container.
+builder.Services.AddHttpClient<HotelsApiService>();
 builder.Services.AddControllersWithViews()
     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
     .AddDataAnnotationsLocalization();
@@ -118,7 +125,14 @@ builder.Services.AddTransient<IDAO<Class>, ClassDAO>();
 });*/
 
 
-
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+// Configuration.GetSection("EmailSettings")) zal de instellingen opvragen uit de
+//AppSettings.json file en vervolgens wordt er een emailsettings - object
+//aangemaakt en de waarden worden geïnjecteerd in het object
+builder.Services.AddSingleton<IEmailSend, EmailSend>();
+builder.Services.AddSingleton<ICreatePDF, CreatePDF>();
+//Als in een Constructor een IEmailSender-parameter wordt gevonden, zal een
+//emailSender - object worden aangemaakt.
 
 //session
 builder.Services.AddSession(options =>
