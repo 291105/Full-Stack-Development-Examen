@@ -16,3 +16,20 @@ C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Repositories\obj\Debug\net8.0\
 C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Repositories\obj\Debug\net8.0\FlightProject.Repositories.pdb
 C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Repositories\obj\Debug\net8.0\FlightProject.Repositories.genruntimeconfig.cache
 C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Repositories\obj\Debug\net8.0\ref\FlightProject.Repositories.dll
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\bin\Debug\net8.0\FlightProject.Repositories.deps.json
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\bin\Debug\net8.0\FlightProject.Repositories.runtimeconfig.json
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\bin\Debug\net8.0\FlightProject.Repositories.dll
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\bin\Debug\net8.0\FlightProject.Repositories.pdb
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\bin\Debug\net8.0\FlightProject.Domain.dll
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\bin\Debug\net8.0\FlightProject.Domain.pdb
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\FlightProject.Repositories.csproj.AssemblyReference.cache
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\FlightProject.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\FlightProject.Repositories.AssemblyInfoInputs.cache
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\FlightProject.Repositories.AssemblyInfo.cs
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\FlightProject.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\FlightPr.B0D7CEA0.Up2Date
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\FlightProject.Repositories.dll
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\refint\FlightProject.Repositories.dll
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\FlightProject.Repositories.pdb
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\FlightProject.Repositories.genruntimeconfig.cache
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Repositories\obj\Debug\net8.0\ref\FlightProject.Repositories.dll
