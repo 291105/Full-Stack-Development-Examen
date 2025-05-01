@@ -13,3 +13,17 @@ C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\refint
 C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.pdb
 C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.genruntimeconfig.cache
 C:\Users\Gebruiker\source\repos\MyAirlines\Flight.Domaon\obj\Debug\net8.0\ref\FlightProject.Domain.dll
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\bin\Debug\net8.0\FlightProject.Domain.deps.json
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\bin\Debug\net8.0\FlightProject.Domain.runtimeconfig.json
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\bin\Debug\net8.0\FlightProject.Domain.dll
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\bin\Debug\net8.0\FlightProject.Domain.pdb
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.csproj.AssemblyReference.cache
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.AssemblyInfoInputs.cache
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.AssemblyInfo.cs
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.csproj.CoreCompileInputs.cache
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.dll
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\obj\Debug\net8.0\refint\FlightProject.Domain.dll
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.pdb
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\obj\Debug\net8.0\FlightProject.Domain.genruntimeconfig.cache
+C:\Users\deadS\Downloads\Full-Stack-Development-Examen-nenaApiBranch (1)\Full-Stack-Development-Examen-nenaApiBranch\Flight.Domaon\obj\Debug\net8.0\ref\FlightProject.Domain.dll

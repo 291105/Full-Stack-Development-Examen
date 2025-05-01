@@ -4015,24 +4015,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gebruiker\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\deadS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\deadS\\Downloads\\Full-Stack-Development-Examen-nenaApiBranch (1)\\Full-Stack-Development-Examen-nenaApiBranch\\Flight.Domaon\\FlightProject.Domain.csproj",
       "projectName": "FlightProject.Domain",
-      "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj",
-      "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\obj\\",
+      "projectPath": "C:\\Users\\deadS\\Downloads\\Full-Stack-Development-Examen-nenaApiBranch (1)\\Full-Stack-Development-Examen-nenaApiBranch\\Flight.Domaon\\FlightProject.Domain.csproj",
+      "packagesPath": "C:\\Users\\deadS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\deadS\\Downloads\\Full-Stack-Development-Examen-nenaApiBranch (1)\\Full-Stack-Development-Examen-nenaApiBranch\\Flight.Domaon\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\deadS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
