@@ -22,6 +22,10 @@ namespace FlightProject.Services
             return await _flightDAO.GetAllAsync();
         }
 
+        public async Task<List<List<Flight>>> GetAvailableFlights(int departureAirportId, int arrivalAirportId, int selectedClassId, int requiredSeats, DateOnly? targetDate)
+        {
+            return await _flightDAO.GetAvailableFlights(departureAirportId, arrivalAirportId, selectedClassId, requiredSeats, targetDate);
+        }
         public async Task<List<Flight>> GetFlightsFromTwoAirports(int airportID1, int airportID2)
         {
             return await _flightDAO.GetFlightsFromTwoAirports(airportID1, airportID2);
@@ -31,5 +35,7 @@ namespace FlightProject.Services
         {
             return await _flightDAO.getFlightById(id);
         }
+
+        
     }
 }

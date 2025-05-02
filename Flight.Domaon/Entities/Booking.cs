@@ -15,8 +15,6 @@ public partial class Booking
 
     public string EmailAddress { get; set; } = null!;
 
-    public string PhoneNumber { get; set; } = null!;
-
     public double TotalPricePerBooking { get; set; }
 
     public virtual Ticket Ticket { get; set; } = null!;

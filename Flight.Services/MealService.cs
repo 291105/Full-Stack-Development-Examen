@@ -9,17 +9,23 @@ using System.Threading.Tasks;
 
 namespace FlightProject.Services
 {
-    public class MealService : IService<Meal>
+    public class MealService : IMealService
     {
-        private readonly IDAO<Meal> _mealDAO;
+        private readonly IMealDAO _mealDAO;
 
-        public MealService(IDAO<Meal> mealDAO)
+        public MealService(IMealDAO mealDAO)
         {
             _mealDAO = mealDAO;
         }
-        public async Task<IEnumerable<Meal>?> GetAllAsync()
+
+        public async Task<List<Meal>> GetAllMeals(string departureAirport)
         {
-            return await _mealDAO.GetAllAsync();
+            return await _mealDAO.GetAllMeals(departureAirport);
+        }
+
+        public async Task<Meal> GetMealById(int id)
+        {
+            return await _mealDAO.GetMealById(id);
         }
     }
 }

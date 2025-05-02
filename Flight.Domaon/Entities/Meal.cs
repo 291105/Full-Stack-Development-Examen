@@ -13,5 +13,7 @@ public partial class Meal
 
     public double Price { get; set; }
 
+    public string? ImageUrl { get; set; }
+
     public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 }

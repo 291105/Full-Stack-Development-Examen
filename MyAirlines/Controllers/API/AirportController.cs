@@ -11,7 +11,7 @@ namespace tst.Controllers.API
     public class AirportController : Controller
     {
         
-        private readonly IService<Place> _service;
+        /*private readonly IService<Place> _service;
         private readonly IMapper _mapper;
 
         public AirportController(IMapper mapper, IService<Place> service)
@@ -21,7 +21,7 @@ namespace tst.Controllers.API
         }
 
         //// Ophalen van alle luchthavens
-        [HttpGet/*, Authorize*/]
+        [HttpGet/*, Authorize*//*]
         public async Task<ActionResult<IEnumerable<PlaceVM>>> Get()
         {
             try
@@ -35,7 +35,7 @@ namespace tst.Controllers.API
             {
                 return StatusCode(500, new { error = ex.Message });
             }
-        }
+        }*/
         
     }
 

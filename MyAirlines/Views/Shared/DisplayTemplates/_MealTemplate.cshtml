@@ -1,0 +1,12 @@
+﻿@model MyAirlines.ViewModels.MealVM
+<link href="~/css/MealTemplate.css" rel="stylesheet" type="text/css" />
+
+<div class="mealOption" data-price="@Model.Price.ToString("F2")" data-meal-id="@Model.MealId">
+        <h2>@Model.Name</h2>
+        <img src="/Images/@Model.ImageUrl" />
+        <p>Kind: @Model.Kind</p>
+        <p>Price: @Model.Price €</p>
+    </div>
+
+
+

@@ -9,15 +9,20 @@ using System.Threading.Tasks;
 
 namespace FlightProject.Services
 {
-    public class ClassService : IService<Class>
+    public class ClassService : IClassService
     {
-        private readonly IDAO<Class> _classDao;
-        public ClassService(IDAO<Class> classDao) {
+        private readonly IClassDAO _classDao;
+        public ClassService(IClassDAO classDao) {
             _classDao = classDao;
         }
         public async Task<IEnumerable<Class>?> GetAllAsync()
         {
             return await _classDao.GetAllAsync();
+        }
+
+        public async Task<Class> getClassById(int id)
+        {
+            return await _classDao.getClassById(id);
         }
     }
 }

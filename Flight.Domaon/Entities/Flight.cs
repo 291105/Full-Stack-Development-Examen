@@ -11,15 +11,19 @@ public partial class Flight
 
     public DateTime? ArrivalTime { get; set; }
 
-    public int ArrivalId { get; set; }
+    public int AircraftAircraftId { get; set; }
 
-    public int DepartureId { get; set; }
+    public int DepartureAirportId { get; set; }
 
-    public virtual ArrivalPlace Arrival { get; set; } = null!;
+    public int ArrivalAirportId { get; set; }
 
-    public virtual DeparturePlace Departure { get; set; } = null!;
+    public TimeOnly? Duration { get; set; }
 
-    public virtual ICollection<FlightStop> FlightStops { get; set; } = new List<FlightStop>();
+    public virtual Aircraft AircraftAircraft { get; set; } = null!;
 
-    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+    public virtual Airport ArrivalAirport { get; set; } = null!;
+
+    public virtual Airport DepartureAirport { get; set; } = null!;
+
+    public virtual ICollection<FlightTicket> FlightTickets { get; set; } = new List<FlightTicket>();
 }

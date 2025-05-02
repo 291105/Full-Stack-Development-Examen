@@ -1,0 +1,109 @@
+﻿/* Algemene bodystijl */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+h2 {
+    text-align: center;
+    margin-top: 40px; /* Ruimte boven de header */
+    font-size: 2.5em; /* Grootte van de titel */
+    color: #333;
+    margin-bottom: 20px; /* Ruimte onder de titel */
+}
+
+/* Passagier container voor elke passagier */
+.passenger-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    max-width: 1200px; /* Vergroot de max-width */
+    width: 100%; /* Zorgt ervoor dat het de volledige breedte gebruikt op grote schermen */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    /* Title of each passenger */
+    .passenger-container h3 {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+/* Styling voor passagiersinformatie */
+.passenger-info {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Styling voor de maaltijden sectie */
+.meals {
+    margin-bottom: 20px;
+}
+
+    .meals strong {
+        font-size: 1.2em;
+        color: #333;
+    }
+
+/* Styling voor de prijs */
+.price {
+    font-weight: bold;
+    color: #28a745;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Styling voor formulierinvoervelden */
+.personal-info label {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.personal-info input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+    .personal-info input:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+/* Submit button styling */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%; /* Zorg ervoor dat de button de breedte vult */
+    margin-top: 20px;
+}
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+/* Kleine stijlen voor wanneer er geen passagiers zijn */
+p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #666;
+}
+
+

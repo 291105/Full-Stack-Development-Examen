@@ -9,14 +9,20 @@ using FlightProject.Services;
 using FlightProject.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyAirlines.Data;
+using System.Globalization;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+
+
 
 //in welke map zitten de resources
 builder.Services.AddLocalization(
@@ -80,19 +86,18 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 // DI
-builder.Services.AddTransient<IService<Place>, AirportService>();
-builder.Services.AddTransient<IDAO<Place>, AirportDAO>();
+builder.Services.AddTransient<IAirportService, AirportService>();
+builder.Services.AddTransient<IAirportDAO, AirportDAO>();
 builder.Services.AddTransient<IFlightService, FlightService>();
 builder.Services.AddTransient<IFlightDAO, FlightDAO>();
-builder.Services.AddTransient<IService<ArrivalPlace>, ArrivalPlaceService>();
-builder.Services.AddTransient<IDAO<ArrivalPlace>, ArrivalPlaceDAO>();
-builder.Services.AddTransient<IService<DeparturePlace>, DeparturePlaceService>();
-builder.Services.AddTransient<IDAO<DeparturePlace>, DeparturePlaceDAO>();
 
-builder.Services.AddTransient<IService<Meal>, MealService>();
-builder.Services.AddTransient<IDAO<Meal>, MealDAO>();
-builder.Services.AddTransient<IService<Class>, ClassService>();
-builder.Services.AddTransient<IDAO<Class>, ClassDAO>();
+
+builder.Services.AddTransient<IMealService, MealService>();
+builder.Services.AddTransient<IMealDAO, MealDAO>();
+builder.Services.AddTransient<IClassService, ClassService>();
+builder.Services.AddTransient<IClassDAO, ClassDAO>();
+builder.Services.AddTransient<IAircraftService, AircraftService>();
+builder.Services.AddTransient<IAircraftDAO, AircraftDAO>();
 
 
 //jwt enzo
@@ -129,6 +134,8 @@ builder.Services.AddSession(options =>
     );
 
 var app = builder.Build();
+
+
 
 //add session
 app.UseSession();

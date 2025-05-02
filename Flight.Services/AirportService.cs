@@ -9,18 +9,28 @@ using System.Threading.Tasks;
 
 namespace FlightProject.Services
 {
-    public class AirportService : IService<Place>
+    public class AirportService : IAirportService
     {
-        private readonly IDAO<Place> _airportDAO;
+        private readonly IAirportDAO _airportDAO;
 
-        public AirportService(IDAO<Place> airportDAO)
+        public AirportService(IAirportDAO airportDAO)
         {
             _airportDAO = airportDAO;
         }
 
-        public async Task<IEnumerable<Place>?> GetAllAsync()
+        public async Task<List<Airport>> GetAllArrivalAirports()
         {
-           return await _airportDAO.GetAllAsync();
+            return await _airportDAO.GetAllArrivalAirports();
+        }
+
+        public async Task<IEnumerable<Airport>?> GetAllAsync()
+        {
+            return await _airportDAO.GetAllAsync();
+        }
+
+        public async Task<List<Airport>> GetAllDepartureAirports()
+        {
+            return await _airportDAO.GetAllDepartureAirports();
         }
     }
 }

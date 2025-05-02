@@ -1,0 +1,57 @@
+﻿.container {
+    display: flex;
+    flex-wrap: wrap; /* Zorgt ervoor dat de items omspringen als er niet genoeg ruimte is */
+    justify-content: space-between; /* Zorgt voor ruimte tussen de kaarten */
+    gap: 20px; /* Voeg wat ruimte tussen de kaarten toe */
+}
+
+.mealOption {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 300px; /* Maximaal formaat voor de kaart */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    margin: 10px;
+    width: 100%; /* Breedte van de kaart moet flexibel zijn */
+}
+
+    .mealOption:hover {
+        transform: translateY(-5px); /* Verhoogt de kaart bij hover */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Versterkt de schaduw bij hover */
+    }
+
+    .mealOption h2 {
+        font-size: 1.5em; /* Vergroot de font-size van de naam */
+        color: #333; /* Donkergrijze kleur voor de naam */
+        margin-bottom: 10px; /* Ruimte onder de naam */
+    }
+
+    .mealOption img {
+        width: 100%; /* Zorgt ervoor dat de afbeelding de volledige breedte van de kaart beslaat */
+        border-radius: 10px; /* Afgeronde hoeken voor de afbeelding */
+        object-fit: cover; /* Zorgt ervoor dat de afbeelding goed wordt bijgesneden zonder te vervormen */
+        margin-bottom: 15px; /* Ruimte onder de afbeelding */
+    }
+
+    .mealOption p {
+        font-size: 1.1em; /* Vergroot de tekst iets */
+        color: #555; /* Lichtere grijs voor de tekst */
+        margin-bottom: 10px; /* Ruimte onder de paragraaf */
+    }
+
+    .mealOption .price {
+        font-weight: bold; /* Maakt de prijs vetgedrukt */
+        color: #28a745; /* Groene kleur voor de prijs */
+    }
+
+    .mealOption .kind {
+        font-style: italic; /* Cursief voor het type van de maaltijd */
+        color: #888; /* Lichtere kleur voor de type */
+    }
+    .mealOption.selected {
+        border: 2px solid green;
+        background-color: #e0ffe0;
+    }
+

@@ -1,190 +1,114 @@
 ﻿@model MyAirlines.ViewModels.BookingVM
 
-@{
-    ViewData["Title"] = "BookFlight";
-}
+<h2>Boekingsdetails</h2>
+<link href="~/css/BookFlight.css" rel="stylesheet" type="text/css" />
+<form method="post" action="@Url.Action("BookFlight", "FlightSearch")">
+    @for (int i = 0; i < Model.Passengers.Count; i++)
+    {
+        var passenger = Model.Passengers[i];
+        <div class="passenger-container" data-index="@i">
+            <h3>Passagier @(i + 1)</h3>
 
-<h1>BookFlight</h1>
+            <div class="passenger-info">
+                <strong>Klasse:</strong> @passenger.Class.Name
+                <input type="hidden" name="Passengers[@i].Class.Name" value="@passenger.Class.Name" />
+            </div>
 
-<h4>Passenger Information</h4>
-<hr />
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="BookFlight" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <!-- Passagiers formulieren -->
-            <div id="passengerFormsContainer">
-                @if (Model.Passengers != null && Model.Passengers.Count > 0)
+            <div class="meals">
+                <strong>Maaltijden:</strong>
+                @if (passenger.Meals != null && passenger.Meals.Count > 0)
                 {
-                    @for (int i = 0; i < Model.Passengers.Count; i++)
-                    {
-                        <div class="passenger-form" id="passenger-form-@i">
-                            <h4>Passenger @i + 1</h4>
-
-                            <!-- First Name -->
-                            <div class="form-group">
-                                <label asp-for="Passengers[@i].FirstName" class="control-label">First Name</label>
-                                <input asp-for="Passengers[@i].FirstName" class="form-control" />
-                                <span asp-validation-for="Passengers[@i].FirstName" class="text-danger"></span>
-                            </div>
-
-                            <!-- Last Name -->
-                            <div class="form-group">
-                                <label asp-for="Passengers[@i].LastName" class="control-label">Last Name</label>
-                                <input asp-for="Passengers[@i].LastName" class="form-control" />
-                                <span asp-validation-for="Passengers[@i].LastName" class="text-danger"></span>
-                            </div>
-
-                            <!-- Email Address -->
-                            <div class="form-group">
-                                <label asp-for="Passengers[@i].EmailAddress" class="control-label">Email Address</label>
-                                <input asp-for="Passengers[@i].EmailAddress" class="form-control" />
-                                <span asp-validation-for="Passengers[@i].EmailAddress" class="text-danger"></span>
-                            </div>
-
-                            <!-- Phone Number -->
-                            <div class="form-group">
-                                <label asp-for="Passengers[@i].PhoneNumber" class="control-label">Phone Number</label>
-                                <input asp-for="Passengers[@i].PhoneNumber" class="form-control" />
-                                <span asp-validation-for="Passengers[@i].PhoneNumber" class="text-danger"></span>
-                            </div>
-
-                            <!-- National Register Number -->
-                            <div class="form-group">
-                                <label asp-for="Passengers[@i].NationalRegisterNumber" class="control-label">National Register Number</label>
-                                <input asp-for="Passengers[@i].NationalRegisterNumber" class="form-control" />
-                                <span asp-validation-for="Passengers[@i].NationalRegisterNumber" class="text-danger"></span>
-                            </div>
-
-                            <!-- Meal Selection -->
-                            <div class="form-group">
-                                <label asp-for="Passengers[@i].SelectedMealID" class="control-label">Meal Selection</label>
-                                @if (Model.Passengers[@i].AvailableMeals != null && Model.Passengers[@i].AvailableMeals.Any())
-                                {
-                                    <select asp-for="Passengers[@i].SelectedMealID" asp-items="@(Model.Passengers[@i].AvailableMeals)" class="form-control">
-                                        <option value="">Please select a meal</option>
-                                    </select>
-                                }
-                                else
-                                {
-                                    <p>No meals available for this passenger.</p>
-                                }
-                                <span asp-validation-for="Passengers[@i].SelectedMealID" class="text-danger"></span>
-                            </div>
-
-                            <!-- Class Selection -->
-                            <div class="form-group">
-                                <label asp-for="Passengers[@i].SelectedClassID" class="control-label">Class Selection</label>
-                                @if (Model.Passengers[@i].AvailableClasses != null && Model.Passengers[@i].AvailableClasses.Any())
-                                {
-                                    <select asp-for="Passengers[@i].SelectedClassID" asp-items="@(Model.Passengers[@i].AvailableClasses)" class="form-control">
-                                        <option value="">Please select a class</option>
-                                    </select>
-                                }
-                                else
-                                {
-                                    <p>No classes available for this passenger.</p>
-                                }
-                                <span asp-validation-for="Passengers[@i].SelectedClassID" class="text-danger"></span>
-                            </div>
-                        </div>
-                    }
+                    <div class="container">
+                        @foreach (var meal in passenger.Meals)
+                        {
+                            @await Html.PartialAsync("DisplayTemplates/_MealTemplate", meal)
+                        }
+                    </div>
+                    <input type="hidden" name="Passengers[@i].SelectedMealID" class="selectedMealInput" />
                 }
                 else
                 {
-                    <p>No passengers added yet.</p>
+                    <span>No meals available</span>
                 }
             </div>
 
-            <!-- Add Passenger Button -->
-            <div class="form-group">
-                <button type="button" id="addPassengerButton" class="btn btn-primary">Add Another Passenger</button>
+            <div class="price">
+                <p>Price: €<span class="ticketPrice">@passenger.TicketPrice.ToString("0.00")</span></p>
+                <input type="hidden" name="Passengers[@i].TicketPrice" class="ticketPriceInput" value="@passenger.TicketPrice.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)" />
             </div>
 
-            <!-- Submit Button -->
-            <div class="form-group">
-                <input type="submit" value="Book Flight" class="btn btn-primary" />
+            <div class="personal-info">
+                <label for="FirstName_@i">Voornaam</label>
+                <input type="text" name="Passengers[@i].FirstName" id="FirstName_@i" class="form-control" value="@passenger.FirstName" />
+
+                <label for="LastName_@i">Achternaam</label>
+                <input type="text" name="Passengers[@i].LastName" id="LastName_@i" class="form-control" value="@passenger.LastName" />
+
+                <label for="NationalRegisterNumber_@i">Rijksregisternummer</label>
+                <input type="text" name="Passengers[@i].NationalRegisterNumber" id="NationalRegisterNumber_@i" class="form-control" value="@passenger.NationalRegisterNumber" />
             </div>
-        </form>
+        </div>
+        <hr />
+    }
+
+    <div class="price">
+        <p>Total: €<span id="totalPricePerBooking">@Model.TotalPricePerBooking.ToString("0.00")</span></p>
+        <input type="hidden" name="TotalPricePerBooking" id="hiddenTotalPrice" value="@Model.TotalPricePerBooking.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)" />
     </div>
-</div>
+
+    <button type="submit" class="btn btn-primary">Verzend boeking</button>
+</form>
 
 <script>
-    // Wait until the DOM content is fully loaded before adding passengers
     document.addEventListener('DOMContentLoaded', function () {
-        var passengerList = document.querySelectorAll('.passenger-form');
-        if (passengerList.length === 0) {
-            console.log('No passengers found when the page loaded!');
+        const passengers = document.querySelectorAll('.passenger-container');
+
+        function updateTotalBookingPrice() {
+            let total = 0;
+            passengers.forEach(passenger => {
+                const priceInput = passenger.querySelector('.ticketPriceInput');
+                const value = parseFloat(priceInput.value);
+                if (!isNaN(value)) total += value;
+            });
+
+            document.getElementById('totalPricePerBooking').innerText = total.toFixed(2).replace('.', ',');
+            document.getElementById('hiddenTotalPrice').value = total.toFixed(2);
         }
 
-        document.getElementById('addPassengerButton').addEventListener('click', function () {
-            var passengerFormsContainer = document.getElementById('passengerFormsContainer');
-            var newPassengerIndex = passengerFormsContainer.children.length;
+        passengers.forEach(passenger => {
+            const mealOptions = passenger.querySelectorAll('.mealOption');
+            const ticketPriceSpan = passenger.querySelector('.ticketPrice');
+            const ticketPriceInput = passenger.querySelector('.ticketPriceInput');
+            const selectedMealInput = passenger.querySelector('.selectedMealInput');
 
-            var newForm = document.createElement('div');
-            newForm.classList.add('passenger-form');
-            newForm.id = 'passenger-form-' + newPassengerIndex;
+            let basePrice = parseFloat(ticketPriceInput.value);
 
-            newForm.innerHTML = `
-                        <h4>Passenger ${newPassengerIndex + 1}</h4>
+            mealOptions.forEach(meal => {
+                meal.addEventListener('click', function () {
+                    const price = parseFloat(meal.dataset.price);
+                    const mealId = meal.dataset.mealId;
 
-                        <!-- First Name -->
-                        <div class="form-group">
-                            <label for="Passengers[${newPassengerIndex}].FirstName" class="control-label">First Name</label>
-                            <input name="Passengers[${newPassengerIndex}].FirstName" class="form-control" />
-                        </div>
+                    // Toggle selectie
+                    if (meal.classList.contains('selected')) {
+                        meal.classList.remove('selected');
+                        selectedMealInput.value = "";
+                        ticketPriceSpan.innerText = basePrice.toFixed(2).replace('.', ',');
+                        ticketPriceInput.value = basePrice.toFixed(2);
+                    } else {
+                        mealOptions.forEach(m => m.classList.remove('selected'));
+                        meal.classList.add('selected');
+                        selectedMealInput.value = mealId;
 
-                        <!-- Last Name -->
-                        <div class="form-group">
-                            <label for="Passengers[${newPassengerIndex}].LastName" class="control-label">Last Name</label>
-                            <input name="Passengers[${newPassengerIndex}].LastName" class="form-control" />
-                        </div>
+                        const totalPrice = basePrice + price;
+                        ticketPriceSpan.innerText = totalPrice.toFixed(2).replace('.', ',');
+                        ticketPriceInput.value = totalPrice.toFixed(2);
+                    }
 
-                        <!-- Email Address -->
-                        <div class="form-group">
-                            <label for="Passengers[${newPassengerIndex}].EmailAddress" class="control-label">Email Address</label>
-                            <input name="Passengers[${newPassengerIndex}].EmailAddress" class="form-control" />
-                        </div>
-
-                        <!-- Phone Number -->
-                        <div class="form-group">
-                            <label for="Passengers[${newPassengerIndex}].PhoneNumber" class="control-label">Phone Number</label>
-                            <input name="Passengers[${newPassengerIndex}].PhoneNumber" class="form-control" />
-                        </div>
-
-                        <!-- National Register Number -->
-                        <div class="form-group">
-                            <label for="Passengers[${newPassengerIndex}].NationalRegisterNumber" class="control-label">National Register Number</label>
-                            <input name="Passengers[${newPassengerIndex}].NationalRegisterNumber" class="form-control" />
-                        </div>
-
-                        <!-- Meal Selection -->
-                        <div class="form-group">
-                            <label for="Passengers[${newPassengerIndex}].SelectedMealID" class="control-label">Meal Selection</label>
-                            <select name="Passengers[${newPassengerIndex}].SelectedMealID" class="form-control">
-                                <option value="">Please select a meal</option>
-    @foreach (var meal in Model.Passengers[0].AvailableMeals)
-    {
-                                        <option value="@meal.Value">@meal.Text</option>
-    }
-                            </select>
-                        </div>
-
-                        <!-- Class Selection -->
-                        <div class="form-group">
-                            <label for="Passengers[${newPassengerIndex}].SelectedClassID" class="control-label">Class Selection</label>
-                            <select name="Passengers[${newPassengerIndex}].SelectedClassID" class="form-control">
-                                <option value="">Please select a class</option>
-    @foreach (var clazz in Model.Passengers[0].AvailableClasses)
-    {
-                                        <option value="@clazz.Value">@clazz.Text</option>
-    }
-                            </select>
-                        </div>
-                    `;
-
-            passengerFormsContainer.appendChild(newForm);
+                    updateTotalBookingPrice();
+                });
+            });
         });
+
+        updateTotalBookingPrice();
     });
 </script>

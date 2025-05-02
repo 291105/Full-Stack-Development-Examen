@@ -23,7 +23,5 @@ public partial class Aircraft
 
     public int AvailableSeats { get; set; }
 
-    public int UserId { get; set; }
-
-    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+    public virtual ICollection<Flight> Flights { get; set; } = new List<Flight>();
 }

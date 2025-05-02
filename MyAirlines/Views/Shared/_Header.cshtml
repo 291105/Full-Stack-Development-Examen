@@ -1,4 +1,7 @@
-﻿
+﻿@using MyAirlines.ViewModels
+@using MyAirlines.Extentions
+@inject IHttpContextAccessor HttpContextAccessor
+
 <link href="~/css/HeaderStyle.css" rel="stylesheet" />
 <header>
     <nav class="navbar">
@@ -31,6 +34,18 @@
             }
             @await Html.PartialAsync("_SelectCulture")
         </div>
+        
+        @{
+            var cart = HttpContextAccessor.HttpContext.Session.GetObject<ShoppingCartVM>("ShoppingCart");
+            bool cartHasItems = cart != null && cart.Carts.Any();
+        }
+        @if (cartHasItems)
+        {
+            <a asp-controller="ShoppingCart" asp-action="Index">
+                <img src="~/images/shoppingcart.jpg" alt="Shopping Cart" style="cursor: pointer; height: 40px;" />
+            </a>
+        }
+
 
         <!-- Hamburger menu button -->
         <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">

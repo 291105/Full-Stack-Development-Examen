@@ -1,0 +1,68 @@
+﻿@model MyAirlines.ViewModels.ShoppingCartVM
+
+@{
+    ViewData["Title"] = "Index";
+    var total = Model.Carts.Sum(c => c.Price);
+}
+
+<h3><em>Review</em> your cart:</h3>
+<link href="~/css/shoppingcartstyle.css" rel="stylesheet" />
+
+@if (Model?.Carts?.Any() == true)
+{
+    foreach (var (cartItem, index) in Model.Carts.Select((value, i) => (value, i)))
+    {
+        <table class="table table-bordered cart-card mb-4">
+            <thead class="table-light">
+                <tr>
+                    <th colspan="3">@cartItem.Departure → @cartItem.Arrival ☀️</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Name:</strong> @cartItem.FirstName @cartItem.LastName</td>
+                    <td><strong>National Register Number:</strong> @cartItem.NationalRegisterNumber</td>
+                    <td><strong>Price:</strong> €@cartItem.Price.ToString("0.00")</td>
+                </tr>
+                <tr>
+                    <td><strong>Meal:</strong> @cartItem.MealName</td>
+                    <td><strong>Class:</strong> @cartItem.ClassName</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <strong>Flights:</strong>
+                        <ul>
+                            @foreach (var flight in cartItem.Flights)
+                            {
+                                <li>@flight.DeparturePlace → @flight.ArrivalPlace | Duration: @flight.Duration</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-end">
+                        <form method="post" asp-action="DeleteCartItem" asp-controller="ShoppingCart" asp-route-index="@index">
+                            <button type="submit" class="btn btn-danger">🗑️ Verwijderen</button>
+                        </form>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+    <div class="total-price text-end mt-3">
+        <strong>Total:</strong> €@total.ToString("0.00")
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-controller="FlightSearch" asp-action="Search" class="btn btn-secondary continue-btn">🛫 Continue Shopping</a>
+    </div>
+}
+else
+{
+    <div class="text-center mt-4">
+        <a asp-controller="FlightSearch" asp-action="Search" class="btn btn-secondary continue-btn">🛫 Continue Shopping</a>
+    </div>
+    <p>Your shopping cart is empty at the moment.</p>
+}

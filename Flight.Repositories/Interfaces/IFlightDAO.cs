@@ -10,7 +10,8 @@ namespace FlightProject.Repositories.Interfaces
     public interface IFlightDAO : IDAO<Flight>
     {
         Task<List<Flight>> GetFlightsFromTwoAirports(int airportID1, int airportID2);
-        
+
+        Task<List<List<Flight>>> GetAvailableFlights(int departureAirportId, int arrivalAirportId, int selectedClassId, int requiredSeats, DateOnly? targetDate);
         Task<Flight> getFlightById(int id);
     }
 }

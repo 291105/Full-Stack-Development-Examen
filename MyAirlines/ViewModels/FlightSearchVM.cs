@@ -5,16 +5,22 @@ namespace MyAirlines.ViewModels
 {
     public class FlightSearchVM
     {
-        public IEnumerable<SelectListItem>? AirportDeparture { get; set; }  // Lijst van luchthavens
-        
-        public IEnumerable<SelectListItem>? AirportArrival { get; set; }
-        public int? SelectedDepartureId { get; set; }  // Geselecteerde vertrek luchthaven
-        public int? SelectedArrivalId { get; set; }     // Geselecteerde aankomst luchthaven
-        public IEnumerable<FlightVM> Flights { get; set; }            // Lijst van vluchten
-        public DateTime? DepartureDate { get; set; } //datum van vertrek
+        public int? SelectedDepartureId { get; set; }
+        public int? SelectedArrivalId { get; set; }
+        public int? SelectedClassId { get; set; }
+        public int AantalPersonenNodig { get; set; }
+        public DateOnly? DepartureDate { get; set; }
+
+        public List<FlightGroupVM> FlightGroups { get; set; } = new List<FlightGroupVM>();
+
+        public SelectList AirportDeparture { get; set; }
+        public SelectList AirportArrival { get; set; }
+        public SelectList Class { get; set; }
 
         public DateTime MinDepartureTime { get; set; }
-        public DateTime MaxDepartureTime { get; set;}
+        public DateTime MaxDepartureTime { get; set; }
+
+
     }
 }
 

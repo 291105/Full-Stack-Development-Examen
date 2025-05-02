@@ -1,11 +1,15 @@
 ﻿using AutoMapper;
 using FlightProject.Domain.Data;
 using FlightProject.Domain.Entities;
+using FlightProject.Repositories.Interfaces;
+using FlightProject.Services;
 using FlightProject.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using MyAirlines.Extentions;
 using MyAirlines.ViewModels;
 using Newtonsoft.Json;
 
@@ -14,190 +18,266 @@ namespace MyAirlines.Controllers
     public class FlightSearchController : Controller
     {
         //private readonly IService<Place> _service;
-        private readonly IService<ArrivalPlace> _arrivalService;
-        private readonly IService<DeparturePlace> _departureService;
-        private readonly IService<Meal> _mealService;
-        private readonly IService<Class> _classService;
+        private readonly IAirportService _airportService;
+
+        private readonly IMealService _mealService;
+        private readonly IClassService _classService;
+        private readonly IAircraftService _aircraftService;
 
         private readonly IFlightService _flightService;
         private readonly IMapper _mapper;
-        
 
 
-        public FlightSearchController(/*IService<Place> service*/ IService<ArrivalPlace> arrivalService, IService<DeparturePlace> departureService, IFlightService flightService, IMapper mapper, IService<Meal> mealservice, IService<Class> classService)
+
+        public FlightSearchController(IAircraftService aircraftservice, IAirportService airportService, IFlightService flightService, IMapper mapper, IMealService mealservice, IClassService classService)
         {
             _flightService = flightService;
             _mapper = mapper;
             //_service = service;
-            _arrivalService = arrivalService;
-            _departureService = departureService;
+            _airportService = airportService;
             _mealService = mealservice;
             _classService = classService;
+            _aircraftService = aircraftservice;
         }
 
-        //Get flights by place (=airport)
+        // GET: Search
         [HttpGet]
         public async Task<IActionResult> Search()
         {
             try
             {
-                ViewData["Title"] = "Search";
-
                 FlightSearchVM vm = new FlightSearchVM();
 
-                // Haal de departure places op en zet ze om naar DeparturePlaceVM
-                var departurePlaces = await _departureService.GetAllAsync();
-                var departurePlaceVMs = _mapper.Map<List<DeparturePlaceVM>>(departurePlaces);
-                vm.AirportDeparture = new SelectList(departurePlaceVMs, "Id", "Name");
+                // Haal de vertrek luchthavens op
+                var departurePlaces = await _airportService.GetAllDepartureAirports();
+                var departurePlaceVMs = _mapper.Map<List<AirportVM>>(departurePlaces);
+                vm.AirportDeparture = new SelectList(departurePlaceVMs, "Id", "City");
 
-                // Haal de arrival places op en zet ze om naar ArrivalPlaceVM
-                var arrivalPlaces = await _arrivalService.GetAllAsync();
-                var arrivalPlaceVMs = _mapper.Map<List<ArrivalPlaceVM>>(arrivalPlaces);
-                vm.AirportArrival = new SelectList(arrivalPlaceVMs, "Id", "Name");
+                // Haal de aankomst luchthavens op
+                var arrivalPlaces = await _airportService.GetAllArrivalAirports();
+                var arrivalPlaceVMs = _mapper.Map<List<AirportVM>>(arrivalPlaces);
+                vm.AirportArrival = new SelectList(arrivalPlaceVMs, "Id", "City");
 
-                // Bereken de datumbereiken voor de zoekperiode (3 dagen na vandaag tot 6 maanden na vandaag)
-                DateTime minDate = DateTime.Now.AddDays(3);  // 3 dagen na de huidige datum
-                DateTime maxDate = DateTime.Now.AddMonths(6); // 6 maanden na de huidige datum
+                // Haal de klassen op
+                var classes = await _classService.GetAllAsync();
+                var classVMs = _mapper.Map<List<ClassVM>>(classes);
+                vm.Class = new SelectList(classVMs, "ClassId", "Name");
 
-                // Zet de datumbereiken in de ViewModel
+                // Stel datumbereik in (3 dagen na vandaag tot 6 maanden)
+                DateTime minDate = DateTime.Now.AddDays(3);
+                DateTime maxDate = DateTime.Now.AddMonths(6);
                 vm.MinDepartureTime = minDate;
                 vm.MaxDepartureTime = maxDate;
-
 
                 return View(vm);
             }
             catch (Exception ex)
             {
-                // Handle error
+                // Foutafhandelingslogica
                 return View("Error");
             }
         }
-
         [HttpPost]
         public async Task<IActionResult> Search(FlightSearchVM model)
         {
-            // Controleer of de dropdowns leeg zijn, geef anders een foutmelding
-            if (model.SelectedDepartureId == null || model.SelectedArrivalId == null)
-            {
-                // Voeg een foutmelding toe in ModelState
-                ModelState.AddModelError("", "Please select both departure and arrival airports.");
-                return View(model);  // Weer terug naar de View met model errors
-            }
-
             try
             {
-                // Bereken de toegestane datums voor de zoekperiode (3 dagen na vandaag tot 6 maanden na vandaag)
-                DateTime minDate = DateTime.Now.AddDays(3);  // 3 dagen na de huidige datum
-                DateTime maxDate = DateTime.Now.AddMonths(6); // 6 maanden na de huidige datum
+                // Haal de vluchten op
+                var availableFlights = await _flightService.GetAvailableFlights(
+                    model.SelectedDepartureId.Value,
+                    model.SelectedArrivalId.Value,
+                    model.SelectedClassId ?? 0,
+                    model.AantalPersonenNodig,
+                    model.DepartureDate.Value
+                );
 
-                // Controleer of de geselecteerde datum binnen het toegestane bereik ligt
-                if (model.DepartureDate.HasValue)
+                // Maak een lijst van FlightVM's
+                var flightGroups = new List<FlightGroupVM>();
+                foreach (var flightGroup in availableFlights)
                 {
-                    DateTime selectedDate = model.DepartureDate.Value;
+                    var flightVMs = new List<FlightVM>();  // Maak een nieuwe lijst voor FlightVM's
 
-                    if (selectedDate < minDate || selectedDate > maxDate)
+                    foreach (var flight in flightGroup)  // Itereer door elke Flight in de vluchtgroep
                     {
-                        ModelState.AddModelError("DepartureDate", $"The departure date must be between {minDate.ToShortDateString()} and {maxDate.ToShortDateString()}.");
-                        return View(model);  // Foutmelding als de datum buiten het bereik valt
+                        // Map elke Flight naar FlightVM
+                        var flightVM = _mapper.Map<FlightVM>(flight);
+                        flightVMs.Add(flightVM);  // Voeg de FlightVM toe aan de lijst
                     }
 
-                    var targetDate = DateOnly.FromDateTime(selectedDate); //haal alleen de datum eruit
-
-                    // Haal de vluchten op
-                    var list = await _flightService.GetFlightsFromTwoAirports(
-                        model.SelectedDepartureId.Value,
-                        model.SelectedArrivalId.Value
-                    );
-
-                    // Filter de vluchten op de gekozen datum
-                    list = list
-                        .Where(f => f.DepartureTime.HasValue &&
-                                    DateOnly.FromDateTime(f.DepartureTime.Value) == targetDate) //vergelijk met elkaar
-                        .ToList();
-
-                    FlightSearchVM flightSearchVM = new FlightSearchVM
+                    // Voeg de lijst van FlightVM's toe aan de flightGroup
+                    flightGroups.Add(new FlightGroupVM
                     {
-                        SelectedDepartureId = model.SelectedDepartureId,  // Kopieer de geselecteerde waarden
-                        SelectedArrivalId = model.SelectedArrivalId,
-                        Flights = _mapper.Map<List<FlightVM>>(list)  // Mappen naar FlightVM inclusief FlightId
-                    };
-
-                    // Herinstellen van de SelectLists met de juiste geselecteerde waarden
-                    var departurePlaces = await _departureService.GetAllAsync();
-                    var departurePlaceVMs = _mapper.Map<List<DeparturePlaceVM>>(departurePlaces);
-                    flightSearchVM.AirportDeparture = new SelectList(departurePlaceVMs, "Id", "Name", model.SelectedDepartureId);
-
-                    var arrivalPlaces = await _arrivalService.GetAllAsync();
-                    var arrivalPlaceVMs = _mapper.Map<List<ArrivalPlaceVM>>(arrivalPlaces);
-                    flightSearchVM.AirportArrival = new SelectList(arrivalPlaceVMs, "Id", "Name", model.SelectedArrivalId);
-
-                    return View("Search", flightSearchVM);
+                        Flights = flightVMs,
+                        TotalTravelTime = TimeSpan.FromMinutes(flightVMs.Where(f => f.Duration.HasValue)
+                        .Sum(f => f.Duration.Value.TotalMinutes))
+                    });
                 }
-                else
+
+
+                // Stel de zoekresultaten in voor de ViewModel
+                var searchVM = new FlightSearchVM
                 {
-                    ModelState.AddModelError("DepartureDate", "Please select a departure date.");
-                    return View(model);
-                }
+                    SelectedDepartureId = model.SelectedDepartureId,
+                    SelectedArrivalId = model.SelectedArrivalId,
+                    SelectedClassId = model.SelectedClassId,
+                    AantalPersonenNodig = model.AantalPersonenNodig,
+                    DepartureDate = model.DepartureDate,
+                    MinDepartureTime = DateTime.Now.AddDays(3),
+                    MaxDepartureTime = DateTime.Now.AddMonths(6),
+
+                    FlightGroups = flightGroups
+                };
+
+                // Vul de dropdownlijsten opnieuw in
+                var departurePlaces = await _airportService.GetAllDepartureAirports();
+                var departurePlaceVMs = _mapper.Map<List<AirportVM>>(departurePlaces);
+                searchVM.AirportDeparture = new SelectList(departurePlaceVMs, "Id", "City", searchVM.SelectedDepartureId);
+
+                var arrivalPlaces = await _airportService.GetAllArrivalAirports();
+                var arrivalPlaceVMs = _mapper.Map<List<AirportVM>>(arrivalPlaces);
+                searchVM.AirportArrival = new SelectList(arrivalPlaceVMs, "Id", "City", searchVM.SelectedArrivalId);
+
+                var classes = await _classService.GetAllAsync();
+                var classVM = _mapper.Map<List<ClassVM>>(classes);
+                searchVM.Class = new SelectList(classVM, "ClassId", "Name", searchVM.SelectedClassId);
+
+                return View("Search", searchVM);
             }
             catch (Exception ex)
             {
-                // Log het eventuele probleem
+                // Log het probleem en toon een foutpagina
                 Console.WriteLine(ex.Message);
                 return View("Error");
             }
         }
 
 
-
-
-        /*
-        [HttpGet]
-        public async Task<IActionResult> BookFlight(int flightId)
+        //dit steekt alles in een session object zodat ik dit kan gebruiken in mijn volgende pagina!
+        [HttpPost]
+        public IActionResult PrepareBooking(string flightGroupVM, int aantalpersonen, int selectedClassId)
         {
-            if (flightId <= 0)
+            var deserializedFlightGroupVM = JsonConvert.DeserializeObject<FlightGroupVM>(flightGroupVM);
+
+            HttpContext.Session.SetObject("FlightGroupVM", deserializedFlightGroupVM);
+            HttpContext.Session.SetInt32("AantalPersonen", aantalpersonen);
+            HttpContext.Session.SetInt32("SelectedClassId", selectedClassId);
+
+            return RedirectToAction("BookFlight");
+        }
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> BookFlight()
+        {
+
+            var flightGroupVM = HttpContext.Session.GetObject<FlightGroupVM>("FlightGroupVM");
+            var aantalPersonen = HttpContext.Session.GetInt32("AantalPersonen");
+            var selectedClassId = HttpContext.Session.GetInt32("SelectedClassId");
+
+
+
+            if (flightGroupVM == null)
             {
-                return NotFound();
+                // Als session leeg is, foutafhandeling
+                return RedirectToAction("ErrorPage");
             }
 
-            // Haal de vlucht op
-            var flight = await _flightService.getFlightById(flightId);
-
-            if (flight == null)
+            var bookingVm = new BookingVM
             {
-                return NotFound();
+                Flight = flightGroupVM.Flights,
+                Passengers = new List<PassengerVM>()
+            };
+            //bereken de basisprijs door de prijs te nemen van de gekozen class
+            //getPriceByClass and plane
+            double price = 0;
+            //for loop door de vluchten en per vlucht de prijs berekenen van de class in het vliegtuig en dit optellen
+            foreach (var flight in flightGroupVM.Flights)
+            {
+
+                var aircraftId = flight.AircraftId;
+
+
+                var selectedClass = await _classService.getClassById((int)selectedClassId);
+
+
+                price += await _aircraftService.getPriceByClass(aircraftId, selectedClass);
             }
 
-            // Haal de beschikbare maaltijden op en zet ze om naar MealVM's
-            var meals = await _mealService.GetAllAsync();
-            var mealVMs = _mapper.Map<List<MealVM>>(meals);
 
-            // Maak een SelectList voor de maaltijden
-            var mealSelectList = new SelectList(mealVMs, "MealId", "Name");
+            //vind de name van de gekozen class
+            var classes = await _classService.getClassById((int)selectedClassId);
+            var classVms = _mapper.Map<ClassVM>(classes);
 
-            // Haal de beschikbare klassen op en zet ze om naar ClassVM's
-            var classes = await _classService.GetAllAsync();
-            var classVMs = _mapper.Map<List<ClassVM>>(classes);
 
-            // Maak een SelectList voor de klassen
-            var classSelectList = new SelectList(classVMs, "ClassId", "Name");
 
-            // Zorg ervoor dat de lijst van Passengers altijd een geldige lijst is (zelfs als deze leeg is)
-            var bookingViewModel = new BookingVM
+            for (int i = 0; i < aantalPersonen; i++)
             {
-                FlightId = flightId,
-                Passengers = new List<PassengerVM> { new PassengerVM() }, // Initialiseer altijd met minstens 1 passagier
-                TotalPricePerBooking = 0 // Zorg ervoor dat de prijs geïnitialiseerd is
+                var meals = await _mealService.GetAllMeals(flightGroupVM.Flights.Last().ArrivalPlace);
+
+                var passengerVM = new PassengerVM
+                {
+                    Class = classVms,
+                    Meals = _mapper.Map<List<MealVM>>(meals),
+                    TicketPrice = price
+                };
+                bookingVm.TotalPricePerBooking += price;
+                bookingVm.Passengers.Add(passengerVM);
+            }
+
+            HttpContext.Session.SetObject("BookingVM", bookingVm);
+
+            return View(bookingVm);
+
+        }
+
+        //als alles is ingevuld dan duw je hierop en de ticket wordt ingevuld en in winkelmandje gezet
+        [HttpPost]
+        public async Task<IActionResult> BookFlight(List<PassengerVM> passengers, double totalPricePerBooking)
+        {
+            var bookingVM = HttpContext.Session.GetObject<BookingVM>("BookingVM");
+
+            var booking = new BookingVM();
+
+            booking.Flight = bookingVM.Flight;
+            booking.TotalPricePerBooking = (totalPricePerBooking / 100);
+            booking.Passengers = passengers;
+
+            // Haal eventueel bestaande winkelwagen op
+            var existingCart = HttpContext.Session.GetObject<ShoppingCartVM>("ShoppingCart") ?? new ShoppingCartVM
+            {
+                Carts = new List<CartVM>()
             };
 
-            // Voeg de beschikbare maaltijden en klassen toe aan **alle** passagiers
-            foreach (var passenger in bookingViewModel.Passengers)
+            // Voor elke passagier maak een CartVM aan
+            foreach (var passenger in booking.Passengers)
             {
-                // Wijs de SelectList toe voor de maaltijden en klassen (voor gebruik in de dropdowns)
-                passenger.AvailableMeals = mealSelectList;
-                passenger.AvailableClasses = classSelectList;
+                var meal = await _mealService.GetMealById(passenger.SelectedMealID);
+                var newCartItem = new CartVM
+                {
+                    TicketId = 1,
+                    Departure = booking.Flight.First().DeparturePlace,
+                    Arrival = booking.Flight.Last().ArrivalPlace,
+                    FirstName = passenger.FirstName,
+                    LastName = passenger.LastName,
+                    NationalRegisterNumber = passenger.NationalRegisterNumber,
+                    ClassName = passenger.Class.Name,
+                    MealName = meal.Name,
+                    Price = passenger.TicketPrice / 100,
+                    DateCreated = DateTime.Now,
+                    Flights = booking.Flight
+                };
+
+                existingCart.Carts.Add(newCartItem);
             }
 
-            return View(bookingViewModel);
-        }*/
+            // Zet terug in session
+            HttpContext.Session.SetObject("ShoppingCart", existingCart);
+
+            // Ga naar winkelwagen
+            return RedirectToAction("Index", "ShoppingCart");
+        }
     }
+
+
 }

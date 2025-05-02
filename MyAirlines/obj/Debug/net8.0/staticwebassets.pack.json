@@ -9,8 +9,56 @@
       "PackagePath": "staticwebassets\\Images\\Avaro logo.png"
     },
     {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Bobotie.jpg",
+      "PackagePath": "staticwebassets\\Images\\Bobotie.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\FishAndChips.jpg",
+      "PackagePath": "staticwebassets\\Images\\FishAndChips.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Hainanese.jpg",
+      "PackagePath": "staticwebassets\\Images\\Hainanese.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\KipGroenten.jpeg",
+      "PackagePath": "staticwebassets\\Images\\KipGroenten.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Kipfilet.jpg",
+      "PackagePath": "staticwebassets\\Images\\Kipfilet.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Kosher.jpg",
+      "PackagePath": "staticwebassets\\Images\\Kosher.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Lam.jpg",
+      "PackagePath": "staticwebassets\\Images\\Lam.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\LinzenCurry.jpg",
+      "PackagePath": "staticwebassets\\Images\\LinzenCurry.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Meatpie.jpg",
+      "PackagePath": "staticwebassets\\Images\\Meatpie.jpg"
+    },
+    {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Plane.jpg",
       "PackagePath": "staticwebassets\\Images\\Plane.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Risotto.jpg",
+      "PackagePath": "staticwebassets\\Images\\Risotto.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\ShoppingCart.jpg",
+      "PackagePath": "staticwebassets\\Images\\ShoppingCart.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Sushi.jpg",
+      "PackagePath": "staticwebassets\\Images\\Sushi.jpg"
     },
     {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\avaro_white.svg",
@@ -33,6 +81,10 @@
       "PackagePath": "staticwebassets\\Images\\shopping_cart.svg"
     },
     {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\BookFlight.css",
+      "PackagePath": "staticwebassets\\css\\BookFlight.css"
+    },
+    {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\FlightSearchStyle.css",
       "PackagePath": "staticwebassets\\css\\FlightSearchStyle.css"
     },
@@ -51,6 +103,14 @@
     {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\LoginStyle.css",
       "PackagePath": "staticwebassets\\css\\LoginStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\MealTemplate.css",
+      "PackagePath": "staticwebassets\\css\\MealTemplate.css"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\ShoppingCartStyle.css",
+      "PackagePath": "staticwebassets\\css\\ShoppingCartStyle.css"
     },
     {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\site.css",

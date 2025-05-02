@@ -18,7 +18,7 @@ public partial class FullStackDbContext : DbContext
 
     public virtual DbSet<Aircraft> Aircraft { get; set; }
 
-    public virtual DbSet<ArrivalPlace> ArrivalPlaces { get; set; }
+    public virtual DbSet<Airport> Airports { get; set; }
 
     public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
 
@@ -36,21 +36,17 @@ public partial class FullStackDbContext : DbContext
 
     public virtual DbSet<Class> Classes { get; set; }
 
-    public virtual DbSet<DeparturePlace> DeparturePlaces { get; set; }
-
     public virtual DbSet<Flight> Flights { get; set; }
 
-    public virtual DbSet<FlightStop> FlightStops { get; set; }
+    public virtual DbSet<FlightTicket> FlightTickets { get; set; }
 
     public virtual DbSet<Meal> Meals { get; set; }
 
-    public virtual DbSet<Place> Places { get; set; }
+    public virtual DbSet<Route> Routes { get; set; }
 
     public virtual DbSet<Season> Seasons { get; set; }
 
     public virtual DbSet<Ticket> Tickets { get; set; }
-
-    public virtual DbSet<TransferPlace> TransferPlaces { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -68,22 +64,24 @@ public partial class FullStackDbContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .IsUnicode(false);
-            entity.Property(e => e.UserId).HasColumnName("UserID");
         });
 
-        modelBuilder.Entity<ArrivalPlace>(entity =>
+        modelBuilder.Entity<Airport>(entity =>
         {
-            entity.HasKey(e => e.ArrivalId).HasName("PK__ArrivalP__2B1A513B85150E27");
+            entity.HasKey(e => e.AirportId).HasName("PK__Airport__E3DBE08AEED8A43F");
 
-            entity.ToTable("ArrivalPlace");
+            entity.ToTable("Airport");
 
-            entity.Property(e => e.ArrivalId).HasColumnName("ArrivalID");
-            entity.Property(e => e.PlaceId).HasColumnName("PlaceID");
-
-            entity.HasOne(d => d.Place).WithMany(p => p.ArrivalPlaces)
-                .HasForeignKey(d => d.PlaceId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FKArrivalPla487541");
+            entity.Property(e => e.AirportId).HasColumnName("AirportID");
+            entity.Property(e => e.City)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.Country)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.Name)
+                .HasMaxLength(255)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<AspNetRole>(entity =>
@@ -174,9 +172,6 @@ public partial class FullStackDbContext : DbContext
             entity.Property(e => e.LastName)
                 .HasMaxLength(255)
                 .IsUnicode(false);
-            entity.Property(e => e.PhoneNumber)
-                .HasMaxLength(255)
-                .IsUnicode(false);
             entity.Property(e => e.TicketId).HasColumnName("TicketID");
 
             entity.HasOne(d => d.Ticket).WithMany(p => p.Bookings)
@@ -197,62 +192,51 @@ public partial class FullStackDbContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<DeparturePlace>(entity =>
-        {
-            entity.HasKey(e => e.DepartureId).HasName("PK__Departur__8F8A7899925B7B0C");
-
-            entity.ToTable("DeparturePlace");
-
-            entity.Property(e => e.DepartureId).HasColumnName("DepartureID");
-            entity.Property(e => e.PlaceId).HasColumnName("PlaceID");
-
-            entity.HasOne(d => d.Place).WithMany(p => p.DeparturePlaces)
-                .HasForeignKey(d => d.PlaceId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FKDepartureP945915");
-        });
-
         modelBuilder.Entity<Flight>(entity =>
         {
-            entity.HasKey(e => e.FlightId).HasName("PK__Flight__8A9E148EB74B7D40");
+            entity.HasKey(e => e.FlightId).HasName("PK__Flight__8A9E148E9A3F8A10");
 
             entity.ToTable("Flight");
 
             entity.Property(e => e.FlightId).HasColumnName("FlightID");
-            entity.Property(e => e.ArrivalId).HasColumnName("ArrivalID");
+            entity.Property(e => e.AircraftAircraftId).HasColumnName("AircraftAircraftID");
+            entity.Property(e => e.ArrivalAirportId).HasColumnName("ArrivalAirportID");
             entity.Property(e => e.ArrivalTime).HasColumnType("datetime");
-            entity.Property(e => e.DepartureId).HasColumnName("DepartureID");
+            entity.Property(e => e.DepartureAirportId).HasColumnName("DepartureAirportID");
             entity.Property(e => e.DepartureTime).HasColumnType("datetime");
+            entity.Property(e => e.Duration).HasColumnName("duration");
 
-            entity.HasOne(d => d.Arrival).WithMany(p => p.Flights)
-                .HasForeignKey(d => d.ArrivalId)
+            entity.HasOne(d => d.AircraftAircraft).WithMany(p => p.Flights)
+                .HasForeignKey(d => d.AircraftAircraftId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FKFlight838934");
+                .HasConstraintName("FK_Flight_Aircraft");
 
-            entity.HasOne(d => d.Departure).WithMany(p => p.Flights)
-                .HasForeignKey(d => d.DepartureId)
+            entity.HasOne(d => d.ArrivalAirport).WithMany(p => p.FlightArrivalAirports)
+                .HasForeignKey(d => d.ArrivalAirportId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FKFlight14000");
+                .HasConstraintName("FK_Flight_ArrivalAirport");
+
+            entity.HasOne(d => d.DepartureAirport).WithMany(p => p.FlightDepartureAirports)
+                .HasForeignKey(d => d.DepartureAirportId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Flight_DepartureAirport");
         });
 
-        modelBuilder.Entity<FlightStop>(entity =>
+        modelBuilder.Entity<FlightTicket>(entity =>
         {
-            entity.HasKey(e => new { e.StopOrder, e.FlightId }).HasName("PK__FlightSt__88848E58E7198168");
+            entity.HasKey(e => e.FlightTicketId).HasName("PK__FlightTi__8E60854B5890350F");
 
-            entity.ToTable("FlightStop");
+            entity.ToTable("FlightTicket");
 
-            entity.Property(e => e.FlightId).HasColumnName("FlightID");
-            entity.Property(e => e.TransferId).HasColumnName("TransferID");
-
-            entity.HasOne(d => d.Flight).WithMany(p => p.FlightStops)
+            entity.HasOne(d => d.Flight).WithMany(p => p.FlightTickets)
                 .HasForeignKey(d => d.FlightId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FKFlightStop22395");
+                .HasConstraintName("FK__FlightTic__Fligh__2EDAF651");
 
-            entity.HasOne(d => d.Transfer).WithMany(p => p.FlightStops)
-                .HasForeignKey(d => d.TransferId)
+            entity.HasOne(d => d.Ticket).WithMany(p => p.FlightTickets)
+                .HasForeignKey(d => d.TicketId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FKFlightStop288184");
+                .HasConstraintName("FK__FlightTic__Ticke__2DE6D218");
         });
 
         modelBuilder.Entity<Meal>(entity =>
@@ -262,6 +246,9 @@ public partial class FullStackDbContext : DbContext
             entity.ToTable("Meal");
 
             entity.Property(e => e.MealId).HasColumnName("MealID");
+            entity.Property(e => e.ImageUrl)
+                .HasMaxLength(255)
+                .HasColumnName("imageUrl");
             entity.Property(e => e.Kind)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -270,19 +257,34 @@ public partial class FullStackDbContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<Place>(entity =>
+        modelBuilder.Entity<Route>(entity =>
         {
-            entity.HasKey(e => e.PlaceId).HasName("PK__Place__D5222B4E5FB5E60E");
+            entity.HasKey(e => e.RouteId).HasName("PK__Route__80979B4D2B98D052");
 
-            entity.ToTable("Place");
+            entity.ToTable("Route");
 
-            entity.Property(e => e.PlaceId).HasColumnName("PlaceID");
-            entity.Property(e => e.Description)
-                .HasMaxLength(255)
-                .IsUnicode(false);
-            entity.Property(e => e.Name)
-                .HasMaxLength(255)
-                .IsUnicode(false);
+            entity.Property(e => e.ArrivalAirportId).HasColumnName("ArrivalAirportID");
+            entity.Property(e => e.DepartureAirportId).HasColumnName("DepartureAirportID");
+            entity.Property(e => e.TransferAirportId1).HasColumnName("TransferAirportID1");
+            entity.Property(e => e.TransferAirportId2).HasColumnName("TransferAirportID2");
+
+            entity.HasOne(d => d.ArrivalAirport).WithMany(p => p.RouteArrivalAirports)
+                .HasForeignKey(d => d.ArrivalAirportId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Route_ArrivalAirport");
+
+            entity.HasOne(d => d.DepartureAirport).WithMany(p => p.RouteDepartureAirports)
+                .HasForeignKey(d => d.DepartureAirportId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Route_DepartureAirport");
+
+            entity.HasOne(d => d.TransferAirportId1Navigation).WithMany(p => p.RouteTransferAirportId1Navigations)
+                .HasForeignKey(d => d.TransferAirportId1)
+                .HasConstraintName("FK_Route_TransferAirport1");
+
+            entity.HasOne(d => d.TransferAirportId2Navigation).WithMany(p => p.RouteTransferAirportId2Navigations)
+                .HasForeignKey(d => d.TransferAirportId2)
+                .HasConstraintName("FK_Route_TransferAirport2");
         });
 
         modelBuilder.Entity<Season>(entity =>
@@ -301,7 +303,6 @@ public partial class FullStackDbContext : DbContext
             entity.ToTable("Ticket");
 
             entity.Property(e => e.TicketId).HasColumnName("TicketID");
-            entity.Property(e => e.AircraftId).HasColumnName("AircraftID");
             entity.Property(e => e.ClassId).HasColumnName("ClassID");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(255)
@@ -319,20 +320,10 @@ public partial class FullStackDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.Aircraft).WithMany(p => p.Tickets)
-                .HasForeignKey(d => d.AircraftId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FKTicket227166");
-
             entity.HasOne(d => d.Class).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.ClassId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FKTicket325293");
-
-            entity.HasOne(d => d.Flight).WithMany(p => p.Tickets)
-                .HasForeignKey(d => d.FlightId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FKTicket680783");
 
             entity.HasOne(d => d.Meal).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.MealId)
@@ -343,21 +334,6 @@ public partial class FullStackDbContext : DbContext
                 .HasForeignKey(d => d.SeasonId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FKTicket412156");
-        });
-
-        modelBuilder.Entity<TransferPlace>(entity =>
-        {
-            entity.HasKey(e => e.TransferId).HasName("PK__Transfer__9549017151D25586");
-
-            entity.ToTable("TransferPlace");
-
-            entity.Property(e => e.TransferId).HasColumnName("TransferID");
-            entity.Property(e => e.PlaceId).HasColumnName("PlaceID");
-
-            entity.HasOne(d => d.Place).WithMany(p => p.TransferPlaces)
-                .HasForeignKey(d => d.PlaceId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FKTransferPl966859");
         });
 
         OnModelCreatingPartial(modelBuilder);
