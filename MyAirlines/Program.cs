@@ -21,7 +21,7 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
+builder.Services.AddHttpClient<IHotelsApiService, HotelsApiService>();
 
 
 //in welke map zitten de resources
