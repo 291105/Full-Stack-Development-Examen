@@ -1,0 +1,30 @@
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\bin\Debug\net8.0\SendMail.Util.deps.json
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\bin\Debug\net8.0\SendMail.Util.dll
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\bin\Debug\net8.0\SendMail.Util.pdb
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.csproj.AssemblyReference.cache
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.GeneratedMSBuildEditorConfig.editorconfig
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.AssemblyInfoInputs.cache
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.AssemblyInfo.cs
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.csproj.CoreCompileInputs.cache
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.dll
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\obj\Debug\net8.0\refint\SendMail.Util.dll
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.pdb
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\obj\Debug\net8.0\ref\SendMail.Util.dll
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\bin\Debug\net8.0\SendMail.Domains.dll
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\bin\Debug\net8.0\SendMail.Domains.pdb
+C:\Full Stack Development\Oefeningen\SEM 2\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.D0830F5A.Up2Date
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\bin\Debug\net8.0\SendMail.Util.deps.json
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\bin\Debug\net8.0\SendMail.Util.dll
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\bin\Debug\net8.0\SendMail.Util.pdb
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\bin\Debug\net8.0\SendMail.Domains.dll
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\bin\Debug\net8.0\SendMail.Domains.pdb
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.csproj.AssemblyReference.cache
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.AssemblyInfoInputs.cache
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.AssemblyInfo.cs
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.csproj.CoreCompileInputs.cache
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.D0830F5A.Up2Date
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.dll
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\obj\Debug\net8.0\refint\SendMail.Util.dll
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\obj\Debug\net8.0\SendMail.Util.pdb
+C:\Users\deadS\Downloads\SendMail\SendMail\SendMail.Util\obj\Debug\net8.0\ref\SendMail.Util.dll
