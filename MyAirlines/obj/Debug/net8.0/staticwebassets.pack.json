@@ -101,6 +101,10 @@
       "PackagePath": "staticwebassets\\css\\HomepageStyle.css"
     },
     {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\HotelStyle.css",
+      "PackagePath": "staticwebassets\\css\\HotelStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\LoginStyle.css",
       "PackagePath": "staticwebassets\\css\\LoginStyle.css"
     },

@@ -23,9 +23,17 @@ public partial class Ticket
 
     public int SeasonId { get; set; }
 
-    public int FlightId { get; set; }
+    public int? BookingId { get; set; }
 
-    public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+    public string? Departure { get; set; }
+
+    public string? Arrival { get; set; }
+
+    public DateTime? DepartureTime { get; set; }
+
+    public DateTime? ArrivalTime { get; set; }
+
+    public virtual Booking? Booking { get; set; }
 
     public virtual Class Class { get; set; } = null!;
 

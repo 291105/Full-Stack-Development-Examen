@@ -235,12 +235,32 @@ namespace MyAirlines.Controllers
         [HttpPost]
         public async Task<IActionResult> BookFlight(List<PassengerVM> passengers, double totalPricePerBooking)
         {
+            foreach (var passenger in passengers)
+            {
+                if (passenger.SelectedMealID == null)
+                {
+                    // Voeg een foutmelding toe aan TempData om deze door te geven aan de weergave
+                    TempData["ErrorMessage"] = "Selecteer een maaltijd voor alle passagiers.";
+
+                    // Stuur de gebruiker terug naar de vorige pagina
+                    return RedirectToAction("BookFlight", "FlightSearch");
+                }
+            }
+
             var bookingVM = HttpContext.Session.GetObject<BookingVM>("BookingVM");
 
             var booking = new BookingVM();
 
             booking.Flight = bookingVM.Flight;
             booking.TotalPricePerBooking = (totalPricePerBooking / 100);
+
+            var selectedClassId = HttpContext.Session.GetInt32("SelectedClassId");
+
+            foreach (var passenger in passengers)
+            {
+                passenger.TicketPrice = passenger.TicketPrice / 100;
+                passenger.SelectedClassID = (int) selectedClassId;
+            }
             booking.Passengers = passengers;
 
             // Haal eventueel bestaande winkelwagen op
@@ -252,7 +272,7 @@ namespace MyAirlines.Controllers
             // Voor elke passagier maak een CartVM aan
             foreach (var passenger in booking.Passengers)
             {
-                var meal = await _mealService.GetMealById(passenger.SelectedMealID);
+                var meal = await _mealService.GetMealById((int)passenger.SelectedMealID);
                 var newCartItem = new CartVM
                 {
                     TicketId = 1,
@@ -263,13 +283,15 @@ namespace MyAirlines.Controllers
                     NationalRegisterNumber = passenger.NationalRegisterNumber,
                     ClassName = passenger.Class.Name,
                     MealName = meal.Name,
-                    Price = passenger.TicketPrice / 100,
+                    Price = passenger.TicketPrice,
                     DateCreated = DateTime.Now,
                     Flights = booking.Flight
                 };
 
                 existingCart.Carts.Add(newCartItem);
             }
+            //zet mijn bookingvm ook in een session dat ik die bij booking kan gebruiken
+            HttpContext.Session.SetObject("CompleteBooking", booking);
 
             // Zet terug in session
             HttpContext.Session.SetObject("ShoppingCart", existingCart);

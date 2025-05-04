@@ -1,0 +1,28 @@
+﻿@model List<FlightProject.Domain.Hotel>
+<link href="~/css/hotelstyle.css" rel="stylesheet" />
+
+<h2 class="search-section">Search Hotels</h2>
+
+<form method="get" asp-controller="Hotel" asp-action="Index">
+    <input type="text" name="city" value="@ViewData["City"]" placeholder="Enter city" class="search-input" />
+    <button type="submit" class="search-button">Search</button>
+</form>
+
+@if (Model.Any())
+{
+    <h3>Results for @ViewData["City"]</h3>
+    <div class="results-container">
+        @foreach (var h in Model)
+        {
+            <div class="hotel-card">
+                <h4>@h.Name</h4>
+                <p>📍 @h.Address</p>
+                <p>⭐ @h.StarRating.ToString("0.0")</p>
+
+                <a href="@h.HotelUrl" target="_blank" class="order-button">
+                    Order Here
+                </a>
+            </div>
+        }
+    </div>
+}

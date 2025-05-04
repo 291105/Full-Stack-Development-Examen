@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IZyzTMqT2uUrAd0xXOaYZhNmjMLkEe/UOrGMXkVh0p4=",
+  "Hash": "UiNLqU5bzC4Y7XmMPrzzPga4cSnN6GlEKgII9Y6md6A=",
   "Source": "MyAirlines",
   "BasePath": "_content/MyAirlines",
   "Mode": "Default",
@@ -1288,6 +1288,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\HomepageStyle.css"
+    },
+    {
+      "Identity": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\HotelStyle.css",
+      "SourceId": "MyAirlines",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\",
+      "BasePath": "_content/MyAirlines",
+      "RelativePath": "css/HotelStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HotelStyle.css"
     },
     {
       "Identity": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\css\\LoginStyle.css",

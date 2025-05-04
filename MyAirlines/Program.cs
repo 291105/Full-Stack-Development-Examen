@@ -8,7 +8,9 @@ using FlightProject.Repositories.Interfaces;
 using FlightProject.Services;
 using FlightProject.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +23,7 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
+builder.Services.AddHttpClient<IHotelsApiService, HotelsApiService>();
 
 
 //in welke map zitten de resources
@@ -29,6 +31,7 @@ builder.Services.AddLocalization(
     options => options.ResourcesPath = "Resources");
 
 // Add services to the container.
+builder.Services.AddHttpClient<HotelsApiService>(); 
 builder.Services.AddControllersWithViews()
     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
     .AddDataAnnotationsLocalization();
@@ -98,7 +101,15 @@ builder.Services.AddTransient<IClassService, ClassService>();
 builder.Services.AddTransient<IClassDAO, ClassDAO>();
 builder.Services.AddTransient<IAircraftService, AircraftService>();
 builder.Services.AddTransient<IAircraftDAO, AircraftDAO>();
+builder.Services.AddTransient<IHotelsApiDAO, HotelsApiDAO>();
+builder.Services.AddTransient<IHotelsApiService, HotelsApiService>();
 
+builder.Services.AddTransient<IBookingService, BookingService>();
+builder.Services.AddTransient<IBookingDAO, BookingDAO>();
+builder.Services.AddTransient<ITicketDAO, TicketDAO>();
+builder.Services.AddTransient<ITicketService, TicketService>();
+builder.Services.AddTransient<IFlightTicketService, FlightTicketService>();
+builder.Services.AddTransient<IFlightTicketDAO, FlightTicketDAO>();
 
 //jwt enzo
 /*builder.Services

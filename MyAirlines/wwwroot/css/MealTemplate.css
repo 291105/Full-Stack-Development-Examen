@@ -55,3 +55,8 @@
         background-color: #e0ffe0;
     }
 
+.error-highlight {
+    border: 2px dashed red;
+    padding: 0.5rem;
+    background-color: #ffe6e6;
+}

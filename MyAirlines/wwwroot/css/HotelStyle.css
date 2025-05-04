@@ -1,0 +1,88 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.search-section {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.search-input {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    width: 250px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-right: 0.5rem;
+}
+
+.search-button {
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+    .search-button:hover {
+        background-color: #0056b3;
+    }
+
+.results-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hotel-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .hotel-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .hotel-card h4 {
+        margin: 0 0 0.75rem 0;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .hotel-card p {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+.order-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+    .order-button:hover {
+        background-color: #218838;
+    }
+
+
+

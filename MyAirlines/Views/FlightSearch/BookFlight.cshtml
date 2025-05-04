@@ -2,6 +2,16 @@
 
 <h2>Boekingsdetails</h2>
 <link href="~/css/BookFlight.css" rel="stylesheet" type="text/css" />
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert('@TempData["ErrorMessage"]');
+    </script>
+}
+
+<h2>Boekingsdetails</h2>
+<link href="~/css/BookFlight.css" rel="stylesheet" type="text/css" />
 <form method="post" action="@Url.Action("BookFlight", "FlightSearch")">
     @for (int i = 0; i < Model.Passengers.Count; i++)
     {
@@ -32,6 +42,9 @@
                 }
             </div>
 
+            <!-- Foutmelding voor niet geselecteerde maaltijd -->
+            <div class="error-message" style="color: red; display: none;">Selecteer een maaltijd</div>
+
             <div class="price">
                 <p>Price: €<span class="ticketPrice">@passenger.TicketPrice.ToString("0.00")</span></p>
                 <input type="hidden" name="Passengers[@i].TicketPrice" class="ticketPriceInput" value="@passenger.TicketPrice.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)" />
@@ -39,13 +52,13 @@
 
             <div class="personal-info">
                 <label for="FirstName_@i">Voornaam</label>
-                <input type="text" name="Passengers[@i].FirstName" id="FirstName_@i" class="form-control" value="@passenger.FirstName" />
+                <input required type="text" name="Passengers[@i].FirstName" id="FirstName_@i" class="form-control" value="@passenger.FirstName" />
 
                 <label for="LastName_@i">Achternaam</label>
-                <input type="text" name="Passengers[@i].LastName" id="LastName_@i" class="form-control" value="@passenger.LastName" />
+                <input required type="text" name="Passengers[@i].LastName" id="LastName_@i" class="form-control" value="@passenger.LastName" />
 
                 <label for="NationalRegisterNumber_@i">Rijksregisternummer</label>
-                <input type="text" name="Passengers[@i].NationalRegisterNumber" id="NationalRegisterNumber_@i" class="form-control" value="@passenger.NationalRegisterNumber" />
+                <input required type="text" name="Passengers[@i].NationalRegisterNumber" id="NationalRegisterNumber_@i" class="form-control" value="@passenger.NationalRegisterNumber" />
             </div>
         </div>
         <hr />
@@ -55,60 +68,61 @@
         <p>Total: €<span id="totalPricePerBooking">@Model.TotalPricePerBooking.ToString("0.00")</span></p>
         <input type="hidden" name="TotalPricePerBooking" id="hiddenTotalPrice" value="@Model.TotalPricePerBooking.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)" />
     </div>
-
     <button type="submit" class="btn btn-primary">Verzend boeking</button>
 </form>
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const passengers = document.querySelectorAll('.passenger-container');
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const passengers = document.querySelectorAll('.passenger-container');
+    const errorMessage = document.querySelector('.error-message');
+    let formIsValid = true;
 
-        function updateTotalBookingPrice() {
-            let total = 0;
-            passengers.forEach(passenger => {
-                const priceInput = passenger.querySelector('.ticketPriceInput');
-                const value = parseFloat(priceInput.value);
-                if (!isNaN(value)) total += value;
-            });
-
-            document.getElementById('totalPricePerBooking').innerText = total.toFixed(2).replace('.', ',');
-            document.getElementById('hiddenTotalPrice').value = total.toFixed(2);
-        }
-
+    function updateTotalBookingPrice() {
+        let total = 0;
         passengers.forEach(passenger => {
-            const mealOptions = passenger.querySelectorAll('.mealOption');
-            const ticketPriceSpan = passenger.querySelector('.ticketPrice');
-            const ticketPriceInput = passenger.querySelector('.ticketPriceInput');
-            const selectedMealInput = passenger.querySelector('.selectedMealInput');
-
-            let basePrice = parseFloat(ticketPriceInput.value);
-
-            mealOptions.forEach(meal => {
-                meal.addEventListener('click', function () {
-                    const price = parseFloat(meal.dataset.price);
-                    const mealId = meal.dataset.mealId;
-
-                    // Toggle selectie
-                    if (meal.classList.contains('selected')) {
-                        meal.classList.remove('selected');
-                        selectedMealInput.value = "";
-                        ticketPriceSpan.innerText = basePrice.toFixed(2).replace('.', ',');
-                        ticketPriceInput.value = basePrice.toFixed(2);
-                    } else {
-                        mealOptions.forEach(m => m.classList.remove('selected'));
-                        meal.classList.add('selected');
-                        selectedMealInput.value = mealId;
-
-                        const totalPrice = basePrice + price;
-                        ticketPriceSpan.innerText = totalPrice.toFixed(2).replace('.', ',');
-                        ticketPriceInput.value = totalPrice.toFixed(2);
-                    }
-
-                    updateTotalBookingPrice();
-                });
-            });
+            const priceInput = passenger.querySelector('.ticketPriceInput');
+            const value = parseFloat(priceInput.value);
+            if (!isNaN(value)) total += value;
         });
 
-        updateTotalBookingPrice();
+        document.getElementById('totalPricePerBooking').innerText = total.toFixed(2).replace('.', ',');
+        document.getElementById('hiddenTotalPrice').value = total.toFixed(2);
+    }
+
+    passengers.forEach(passenger => {
+        const mealOptions = passenger.querySelectorAll('.mealOption');
+        const ticketPriceSpan = passenger.querySelector('.ticketPrice');
+        const ticketPriceInput = passenger.querySelector('.ticketPriceInput');
+        const selectedMealInput = passenger.querySelector('.selectedMealInput');
+
+        let basePrice = parseFloat(ticketPriceInput.value);
+
+        mealOptions.forEach(meal => {
+            meal.addEventListener('click', function () {
+                const price = parseFloat(meal.dataset.price);
+                const mealId = meal.dataset.mealId;
+
+                // Toggle selectie
+                mealOptions.forEach(m => m.classList.remove('selected'));
+                meal.classList.add('selected');
+                selectedMealInput.value = mealId;
+
+                const totalPrice = basePrice + price;
+                ticketPriceSpan.innerText = totalPrice.toFixed(2).replace('.', ',');
+                ticketPriceInput.value = totalPrice.toFixed(2);
+
+                updateTotalBookingPrice();
+            });
+        });
     });
+
+    updateTotalBookingPrice();
+});
+
 </script>
+
+
+
+

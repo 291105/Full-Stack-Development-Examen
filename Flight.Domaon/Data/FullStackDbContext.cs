@@ -163,21 +163,11 @@ public partial class FullStackDbContext : DbContext
             entity.ToTable("Booking");
 
             entity.Property(e => e.BookingId).HasColumnName("BookingID");
-            entity.Property(e => e.EmailAddress)
-                .HasMaxLength(255)
-                .IsUnicode(false);
-            entity.Property(e => e.FirstName)
-                .HasMaxLength(255)
-                .IsUnicode(false);
-            entity.Property(e => e.LastName)
-                .HasMaxLength(255)
-                .IsUnicode(false);
-            entity.Property(e => e.TicketId).HasColumnName("TicketID");
+            entity.Property(e => e.UserId).HasMaxLength(450);
 
-            entity.HasOne(d => d.Ticket).WithMany(p => p.Bookings)
-                .HasForeignKey(d => d.TicketId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FKBooking698796");
+            entity.HasOne(d => d.User).WithMany(p => p.Bookings)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<Class>(entity =>
@@ -303,11 +293,19 @@ public partial class FullStackDbContext : DbContext
             entity.ToTable("Ticket");
 
             entity.Property(e => e.TicketId).HasColumnName("TicketID");
+            entity.Property(e => e.Arrival)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.ArrivalTime).HasColumnType("datetime");
+            entity.Property(e => e.BookingId).HasColumnName("BookingID");
             entity.Property(e => e.ClassId).HasColumnName("ClassID");
+            entity.Property(e => e.Departure)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.DepartureTime).HasColumnType("datetime");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(255)
                 .IsUnicode(false);
-            entity.Property(e => e.FlightId).HasColumnName("FlightID");
             entity.Property(e => e.LastName)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -319,6 +317,10 @@ public partial class FullStackDbContext : DbContext
             entity.Property(e => e.SeatNumber)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+
+            entity.HasOne(d => d.Booking).WithMany(p => p.Tickets)
+                .HasForeignKey(d => d.BookingId)
+                .HasConstraintName("FK_Ticket_Booking");
 
             entity.HasOne(d => d.Class).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.ClassId)
