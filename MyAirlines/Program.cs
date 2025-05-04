@@ -17,6 +17,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyAirlines.Data;
+using SendMail.Util.Mail;
+using SendMail.Util.Mail.Interfaces;
+using SendMail.Util.PDF;
+using SendMail.Util.PDF.Interfaces;
 using System.Globalization;
 using System.Text;
 
@@ -55,6 +59,18 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+//email
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+// Configuration.GetSection("EmailSettings")) zal de instellingen opvragen uit de
+//AppSettings.json file en vervolgens wordt er een emailsettings - object
+//aangemaakt en de waarden worden ge�njecteerd in het object
+builder.Services.AddSingleton<IEmailSend, EmailSend>();
+builder.Services.AddSingleton<ICreatePDF, CreatePDF>();
+//Als in een Constructor een IEmailSender-parameter wordt gevonden, zal een
+//emailSender - object worden aangemaakt.
+
+
 
 // SwaggerGen produces JSON schema documents that power Swagger UI.By default, these are served up under / swagger
 //{ documentName}/ swagger.json, where { documentName} is usually the API version.

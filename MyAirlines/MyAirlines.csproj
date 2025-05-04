@@ -30,6 +30,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Flight.Domaon\FlightProject.Domain.csproj" />
     <ProjectReference Include="..\Flight.Services\FlightProject.Services.csproj" />
+    <ProjectReference Include="..\SendMail.Util\SendMail.Util.csproj" />
   </ItemGroup>
 
 </Project>

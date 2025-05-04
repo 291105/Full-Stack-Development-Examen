@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\Images\\Meatpie.jpg"
     },
     {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\NoMeal.png",
+      "PackagePath": "staticwebassets\\Images\\NoMeal.png"
+    },
+    {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Plane.jpg",
       "PackagePath": "staticwebassets\\Images\\Plane.jpg"
     },

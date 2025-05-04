@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UiNLqU5bzC4Y7XmMPrzzPga4cSnN6GlEKgII9Y6md6A=",
+  "Hash": "zyOX3eJQ90FltlmdHETsGmuED9Tyt0yyg6/QAidHHDI=",
   "Source": "MyAirlines",
   "BasePath": "_content/MyAirlines",
   "Mode": "Default",
@@ -1668,6 +1668,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Meatpie.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\NoMeal.png",
+      "SourceId": "MyAirlines",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\",
+      "BasePath": "_content/MyAirlines",
+      "RelativePath": "Images/NoMeal.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\NoMeal.png"
     },
     {
       "Identity": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\wwwroot\\Images\\Plane.jpg",

@@ -1,0 +1,16 @@
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\SendMail.Util.csproj.AssemblyReference.cache
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\SendMail.Util.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\SendMail.Util.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\SendMail.Util.AssemblyInfo.cs
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\SendMail.Util.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\SendMail.Util.sourcelink.json
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\bin\Debug\net8.0\SendMail.Util.deps.json
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\bin\Debug\net8.0\SendMail.Util.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\bin\Debug\net8.0\SendMail.Util.pdb
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\bin\Debug\net8.0\FlightProject.Domain.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\bin\Debug\net8.0\FlightProject.Domain.pdb
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\SendMail.D0830F5A.Up2Date
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\SendMail.Util.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\refint\SendMail.Util.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\SendMail.Util.pdb
+C:\Users\Gebruiker\source\repos\MyAirlines\SendMail.Util\obj\Debug\net8.0\ref\SendMail.Util.dll
