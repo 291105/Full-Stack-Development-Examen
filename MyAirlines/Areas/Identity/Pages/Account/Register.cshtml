@@ -37,16 +37,12 @@
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
-                    <h1>Bevestig je account</h1>
-
-                    <p>
-                        We hebben je een e-mail gestuurd. Controleer je inbox en klik op de bevestigingslink.
-                        <br>
-                        <strong>Let op:</strong> Je moet je e-mail bevestigen om verder te gaan.
-                    </p>
-                    <p>
-                        <strong>Als je geen e-mail hebt ontvangen, controleer dan je spamfolder.</strong>
-                    </p>
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        </p>
+                    </div>
                 }
                 else
                 {
