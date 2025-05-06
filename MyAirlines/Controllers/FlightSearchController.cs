@@ -58,6 +58,8 @@ namespace MyAirlines.Controllers
                 var arrivalPlaceVMs = _mapper.Map<List<AirportVM>>(arrivalPlaces);
                 vm.AirportArrival = new SelectList(arrivalPlaceVMs, "Id", "City");
 
+                // blablabla
+
                 // Haal de klassen op
                 var classes = await _classService.GetAllAsync();
                 var classVMs = _mapper.Map<List<ClassVM>>(classes);
