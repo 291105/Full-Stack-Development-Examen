@@ -1,6 +1,7 @@
 ﻿using FlightProject.Domain.Data;
 using FlightProject.Domain.Entities;
 using FlightProject.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client.Platforms.Features.DesktopOs.Kerberos;
 using System;
 using System.Collections.Generic;
@@ -19,26 +20,40 @@ namespace FlightProject.Repositories
         }
         public async Task<int> MakeTicket(string FirstName, string LastName, string NationalRegisterNumber, double Price, int MealId, int ClassId, int BookingId, string Departure, string Arrival, DateTime DepartureTime, DateTime ArrivalTime)
         {
-            var ticket = new Ticket();
-            ticket.FirstName = FirstName;
-            ticket.LastName = LastName;
-            ticket.NationalRegisterNumber = NationalRegisterNumber;
-            ticket.Price = Price;
-            ticket.SeasonId = 2;
-            ticket.SeatNumber = "1";
-            ticket.MealId = MealId;
-            ticket.ClassId = ClassId;
-            ticket.BookingId = BookingId;
-            ticket.Departure = Departure;
-            ticket.Arrival = Arrival;
-            ticket.DepartureTime = DepartureTime;
-            ticket.ArrivalTime = ArrivalTime;
+            // Zoek een beschikbare stoel in de juiste klasse
+            var availableSeat = await _db.Seats
+                .Where(s => s.ClassId == ClassId && s.IsOccupied == false)
+                .FirstOrDefaultAsync();
+
+            if (availableSeat == null)
+            {
+                throw new Exception("Geen beschikbare stoelen gevonden in de opgegeven klasse.");
+            }
+
+            // Markeer stoel als bezet
+            availableSeat.IsOccupied = true;
+
+            var ticket = new Ticket
+            {
+                FirstName = FirstName,
+                LastName = LastName,
+                NationalRegisterNumber = NationalRegisterNumber,
+                Price = Price,
+                SeasonId = 2,
+                SeatId = availableSeat.SeatId,
+                MealId = MealId,
+                ClassId = ClassId,
+                BookingId = BookingId,
+                Departure = Departure,
+                Arrival = Arrival,
+                DepartureTime = DepartureTime,
+                ArrivalTime = ArrivalTime
+            };
 
             await _db.Tickets.AddAsync(ticket);
-            await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync(); // Slaat ticket én stoelupdate op
+
             return ticket.TicketId;
         }
-
-        
     }
 }

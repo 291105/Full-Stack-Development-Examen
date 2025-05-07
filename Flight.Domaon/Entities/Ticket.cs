@@ -15,8 +15,6 @@ public partial class Ticket
 
     public double Price { get; set; }
 
-    public string SeatNumber { get; set; } = null!;
-
     public int MealId { get; set; }
 
     public int ClassId { get; set; }
@@ -33,6 +31,8 @@ public partial class Ticket
 
     public DateTime? ArrivalTime { get; set; }
 
+    public int? SeatId { get; set; }
+
     public virtual Booking? Booking { get; set; }
 
     public virtual Class Class { get; set; } = null!;
@@ -42,4 +42,6 @@ public partial class Ticket
     public virtual Meal Meal { get; set; } = null!;
 
     public virtual Season Season { get; set; } = null!;
+
+    public virtual Seat? Seat { get; set; }
 }

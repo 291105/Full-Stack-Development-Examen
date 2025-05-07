@@ -46,6 +46,8 @@ public partial class FullStackDbContext : DbContext
 
     public virtual DbSet<Season> Seasons { get; set; }
 
+    public virtual DbSet<Seat> Seats { get; set; }
+
     public virtual DbSet<Ticket> Tickets { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -286,6 +288,33 @@ public partial class FullStackDbContext : DbContext
             entity.Property(e => e.SeasonId).HasColumnName("SeasonID");
         });
 
+        modelBuilder.Entity<Seat>(entity =>
+        {
+            entity.HasKey(e => e.SeatId).HasName("PK__Seat__311713D3273ED6BD");
+
+            entity.ToTable("Seat");
+
+            entity.Property(e => e.SeatId)
+                .ValueGeneratedNever()
+                .HasColumnName("SeatID");
+            entity.Property(e => e.AircraftId).HasColumnName("AircraftID");
+            entity.Property(e => e.ClassId).HasColumnName("ClassID");
+            entity.Property(e => e.IsOccupied).HasDefaultValue(false);
+            entity.Property(e => e.SeatNumber)
+                .HasMaxLength(5)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.Aircraft).WithMany(p => p.Seats)
+                .HasForeignKey(d => d.AircraftId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Seat__AircraftID__3D2915A8");
+
+            entity.HasOne(d => d.Class).WithMany(p => p.Seats)
+                .HasForeignKey(d => d.ClassId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Seat__ClassID__3E1D39E1");
+        });
+
         modelBuilder.Entity<Ticket>(entity =>
         {
             entity.HasKey(e => e.TicketId).HasName("PK__Ticket__712CC627FA1790F8");
@@ -314,9 +343,7 @@ public partial class FullStackDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.SeasonId).HasColumnName("SeasonID");
-            entity.Property(e => e.SeatNumber)
-                .HasMaxLength(255)
-                .IsUnicode(false);
+            entity.Property(e => e.SeatId).HasColumnName("SeatID");
 
             entity.HasOne(d => d.Booking).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.BookingId)
@@ -336,6 +363,10 @@ public partial class FullStackDbContext : DbContext
                 .HasForeignKey(d => d.SeasonId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FKTicket412156");
+
+            entity.HasOne(d => d.Seat).WithMany(p => p.Tickets)
+                .HasForeignKey(d => d.SeatId)
+                .HasConstraintName("FK__Ticket__SeatID__3F115E1A");
         });
 
         OnModelCreatingPartial(modelBuilder);

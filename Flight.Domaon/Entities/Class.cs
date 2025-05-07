@@ -9,5 +9,7 @@ public partial class Class
 
     public string Name { get; set; } = null!;
 
+    public virtual ICollection<Seat> Seats { get; set; } = new List<Seat>();
+
     public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 }

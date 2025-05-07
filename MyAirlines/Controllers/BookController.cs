@@ -23,13 +23,25 @@ namespace MyAirlines.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var booking = HttpContext.Session.GetObject<BookingVM>("CompleteBooking");
-
+            //dit haal ik op omdat als ik apart twee tickets erin steek dan gaan ze niet beide geboekt worden
+            var shoppingcart = HttpContext.Session.GetObject<ShoppingCartVM>("ShoppingCart");
+            
             //booking maken
             var bookingId = await _bookingService.Book(booking.TotalPricePerBooking, userId);
 
+            foreach (var cart in shoppingcart.Carts)
+            {
+                foreach (var flight in cart.Flights)
+                {
+                    if (!booking.Flight.Any(f => f.FlightId == flight.FlightId))
+                    {
+                        booking.Flight.Add(flight);
+                    }
+                }
+            }
             //ticket maken en linken met de booking
             //voor elke vlucht die je neemt moet je een ticket maken en voor elke persoon ook nog eens
-            foreach(var flight in booking.Flight)
+            foreach (var flight in booking.Flight)
             {
                 foreach (var passenger in booking.Passengers)
                 {
