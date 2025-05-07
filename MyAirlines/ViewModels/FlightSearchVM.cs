@@ -1,12 +1,16 @@
 ﻿using FlightProject.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyAirlines.ViewModels
 {
     public class FlightSearchVM
     {
+        [Required(ErrorMessage = "No departure city selected")]
         public int? SelectedDepartureId { get; set; }
+        [Required(ErrorMessage = "No arrival city selected")]
         public int? SelectedArrivalId { get; set; }
+        [Required(ErrorMessage = "No class selected")]
         public int? SelectedClassId { get; set; }
         public int AantalPersonenNodig { get; set; }
         public DateOnly? DepartureDate { get; set; }

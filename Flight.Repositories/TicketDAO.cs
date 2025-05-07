@@ -55,5 +55,10 @@ namespace FlightProject.Repositories
 
             return ticket.TicketId;
         }
+
+        public async Task<List<Ticket>> getTicketsByBookingId(int bookingId)
+        {
+            return await _db.Tickets.Where(b => b.BookingId == bookingId).ToListAsync();
+        }
     }
 }

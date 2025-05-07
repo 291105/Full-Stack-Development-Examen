@@ -32,20 +32,15 @@ namespace FlightProject.Repositories
 
 
 
-        private bool IsClassAvailable(Aircraft aircraft, int selectedClassId, int requiredSeats)
+        private async Task<bool> IsClassAvailableAsync(int aircraftId, int selectedClassId, int requiredSeats)
         {
-            // Controleer of er genoeg beschikbare stoelen zijn in de geselecteerde klasse
-            switch (selectedClassId)
-            {
-                case 1: // Economy
-                    return aircraft.EconomySeats >= requiredSeats;
-                case 2: // Business
-                    return aircraft.BusinessSeats >= requiredSeats;
-                case 3: // FirstClass
-                    return aircraft.FirstClassSeats >= requiredSeats;
-                default:
-                    return false;
-            }
+            var availableSeats = await _db.Seats
+                .Where(s => s.AircraftId == aircraftId &&
+                            s.ClassId == selectedClassId &&
+                            s.IsOccupied == false)
+                .CountAsync();
+
+            return availableSeats >= requiredSeats;
         }
 
         public async Task<Flight> getFlightById(int id)
@@ -114,7 +109,7 @@ namespace FlightProject.Repositories
 
                         foreach (var directFlight in directFlights)
                         {
-                            if (IsClassAvailable(directFlight.AircraftAircraft, selectedClassId, requiredSeats))
+                            if (await IsClassAvailableAsync(directFlight.AircraftAircraft.AircraftId, selectedClassId, requiredSeats))
                             {
                                 availableTrips.Add(new List<Flight> { directFlight });
                             }
@@ -143,8 +138,8 @@ namespace FlightProject.Repositories
                         {
                             foreach (var secondLeg in secondLegs)
                             {
-                                if (IsClassAvailable(firstLeg.AircraftAircraft, selectedClassId, requiredSeats) &&
-                                    IsClassAvailable(secondLeg.AircraftAircraft, selectedClassId, requiredSeats))
+                                if (await IsClassAvailableAsync(firstLeg.AircraftAircraft.AircraftId, selectedClassId, requiredSeats) &&
+                                    await IsClassAvailableAsync(secondLeg.AircraftAircraft.AircraftId, selectedClassId, requiredSeats))
                                 {
                                     availableTrips.Add(new List<Flight> { firstLeg, secondLeg });
                                 }
@@ -184,9 +179,9 @@ namespace FlightProject.Repositories
                             {
                                 foreach (var thirdLeg in thirdLegs)
                                 {
-                                    if (IsClassAvailable(firstLeg.AircraftAircraft, selectedClassId, requiredSeats) &&
-                                        IsClassAvailable(secondLeg.AircraftAircraft, selectedClassId, requiredSeats) &&
-                                        IsClassAvailable(thirdLeg.AircraftAircraft, selectedClassId, requiredSeats))
+                                    if (await IsClassAvailableAsync(firstLeg.AircraftAircraft.AircraftId, selectedClassId, requiredSeats) &&
+                                        await IsClassAvailableAsync(secondLeg.AircraftAircraft.AircraftId, selectedClassId, requiredSeats) &&
+                                        await IsClassAvailableAsync(thirdLeg.AircraftAircraft.AircraftId, selectedClassId, requiredSeats))
                                     {
                                         availableTrips.Add(new List<Flight> { firstLeg, secondLeg, thirdLeg });
                                     }

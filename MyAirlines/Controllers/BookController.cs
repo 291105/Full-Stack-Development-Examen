@@ -1,7 +1,10 @@
 ﻿using FlightProject.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyAirlines.Extentions;
 using MyAirlines.ViewModels;
+using SendMail.Util.Mail.Interfaces;
+using SendMail.Util.PDF.Interfaces;
 using System.Security.Claims;
 
 namespace MyAirlines.Controllers
@@ -11,12 +14,21 @@ namespace MyAirlines.Controllers
         private readonly IBookingService _bookingService;
         private readonly ITicketService _ticketService;
         private readonly IFlightTicketService _flightTicketService;
+        //om email te kunnen verzenden
+        private readonly IEmailSend _emailSend;
+        //om de pdf te kunnen maken
+        private readonly ICreatePDF _createPDF;
+        //om useremail te kunnen ophalen
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public BookController(IBookingService bookingService, ITicketService ticketService, IFlightTicketService flightTicketService)
+        public BookController(IBookingService bookingService, ITicketService ticketService, IFlightTicketService flightTicketService, UserManager<IdentityUser> userManager, IEmailSend emailSend, ICreatePDF createPDF)
         {
             _bookingService = bookingService;
             _ticketService = ticketService;
             _flightTicketService = flightTicketService;
+            _userManager = userManager;
+            _emailSend = emailSend;
+            _createPDF = createPDF;
         }
 
         private async Task makeBookingAndTicketAsync()
@@ -50,8 +62,24 @@ namespace MyAirlines.Controllers
                     await _flightTicketService.makeFlightTicket(flight.FlightId, ticketId);
                 }
             }
+
+            //Zorgen dat er mail verzonden wordt met de tickets
+            //krijg lijst van tickets per booking
+            var tickets = await _ticketService.getTicketsByBookingId(bookingId);
+
+            //de pdf maken
+            var pdf = _createPDF.CreatePDFDocumentAsync(tickets, "avaro_white.svg");
+
+
+            //de mail van de user is nodig
+            var user = await _userManager.FindByIdAsync(userId);
+            var userEmail = await _userManager.GetEmailAsync(user);
+
+
+            //email verzenden met de ticket
+            await _emailSend.SendEmailAttachmentAsync(userEmail, "Tickets", "Dear Customer, In the attachment you will find your tickets. We hope you enjoy your flight", pdf, "Tickets", true);
         }
-        
+
         public async Task<IActionResult> BookAsync()
         {
             await makeBookingAndTicketAsync();
