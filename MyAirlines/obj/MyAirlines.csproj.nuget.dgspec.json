@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\MyAirlines.csproj": {}
+    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\MyAirlines.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj": {
+    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj",
         "projectName": "FlightProject.Domain",
-        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj",
+        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj",
         "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\obj\\",
+        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -81,14 +81,14 @@
         }
       }
     },
-    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Repositories\\FlightProject.Repositories.csproj": {
+    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Repositories\\FlightProject.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Repositories\\FlightProject.Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Repositories\\FlightProject.Repositories.csproj",
         "projectName": "FlightProject.Repositories",
-        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Repositories\\FlightProject.Repositories.csproj",
+        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Repositories\\FlightProject.Repositories.csproj",
         "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Repositories\\obj\\",
+        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -110,8 +110,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj": {
-                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj"
+              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj"
               }
             }
           }
@@ -162,14 +162,14 @@
         }
       }
     },
-    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Services\\FlightProject.Services.csproj": {
+    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Services\\FlightProject.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Services\\FlightProject.Services.csproj",
+        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Services\\FlightProject.Services.csproj",
         "projectName": "FlightProject.Services",
-        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Services\\FlightProject.Services.csproj",
+        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Services\\FlightProject.Services.csproj",
         "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Services\\obj\\",
+        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -191,11 +191,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj": {
-                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj"
+              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj"
               },
-              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Repositories\\FlightProject.Repositories.csproj": {
-                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Repositories\\FlightProject.Repositories.csproj"
+              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Repositories\\FlightProject.Repositories.csproj": {
+                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Repositories\\FlightProject.Repositories.csproj"
               }
             }
           }
@@ -234,14 +234,14 @@
         }
       }
     },
-    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\MyAirlines.csproj": {
+    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\MyAirlines.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\MyAirlines.csproj",
+        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\MyAirlines.csproj",
         "projectName": "MyAirlines",
-        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\MyAirlines.csproj",
+        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\MyAirlines.csproj",
         "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\MyAirlines\\obj\\",
+        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -263,14 +263,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj": {
-                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj"
+              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj"
               },
-              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Services\\FlightProject.Services.csproj": {
-                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Services\\FlightProject.Services.csproj"
+              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Services\\FlightProject.Services.csproj": {
+                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Services\\FlightProject.Services.csproj"
               },
-              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\SendMail.Util\\SendMail.Util.csproj": {
-                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\SendMail.Util\\SendMail.Util.csproj"
+              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\SendMail.Util\\SendMail.Util.csproj": {
+                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\SendMail.Util\\SendMail.Util.csproj"
               }
             }
           }
@@ -356,14 +356,14 @@
         }
       }
     },
-    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\SendMail.Util\\SendMail.Util.csproj": {
+    "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\SendMail.Util\\SendMail.Util.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\SendMail.Util\\SendMail.Util.csproj",
+        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\SendMail.Util\\SendMail.Util.csproj",
         "projectName": "SendMail.Util",
-        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\SendMail.Util\\SendMail.Util.csproj",
+        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\SendMail.Util\\SendMail.Util.csproj",
         "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\SendMail.Util\\obj\\",
+        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\SendMail.Util\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -385,8 +385,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj": {
-                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Flight.Domaon\\FlightProject.Domain.csproj"
+              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj"
               }
             }
           }
