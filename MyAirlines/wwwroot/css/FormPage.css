@@ -1,0 +1,77 @@
+﻿/* Reset de standaard margin en padding */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* form location on the page */
+.sd-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/background_avaro.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+}
+
+/* card style */
+.sd-form-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    box-sizing: border-box; /* Zorg ervoor dat padding correct wordt berekend */
+    text-align: center;
+}
+
+.sd-form-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.sd-form-card .form-floating {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sd-form-card .form-floating input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sd-form-card .checkbox {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.sd-form-card a {
+    color: lightgray;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.sd-form-card a:hover {
+    transform: scale(0.95);
+}
+
+    .sd-form-card p {
+        margin-top: 10px;
+    }

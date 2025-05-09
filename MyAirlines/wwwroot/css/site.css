@@ -8,6 +8,8 @@
   }
 }
 
+
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -40,12 +42,10 @@ body {
 
 .dropdown-btn {
     padding: 5px 12px;
-    /*border: 1px solid #ccc;*/
     display: flex;
     align-items: center;
     background: transparent;
     color: #0a4d68;
-    /*border: 1px solid #0a4d68;*/
     border-radius: 25px;
     height: 100%;
 }
@@ -88,71 +88,12 @@ body {
     border-radius: 25px;
 }
 
-
-
-.sd-gm-white {
-    background: rgba(255, 255, 255, 0.50);
-    color: #333;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.sd-gm-black {
-    background: rgba(0, 0, 0, 0.50);
-    color: white;
-}
-
-.sd-gm-black, .sd-gm-white {
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(13.5px);
-    -webkit-backdrop-filter: blur(13.5px);
-}
-
-/* Auth-buttons (Sign-in/Sign-up) */
-.auth-buttons {
-    display: flex;
-    gap: 1rem;
-}
-
-    .auth-buttons .sign-in,
-    .auth-buttons .sign-up {
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 500;
-        transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .auth-buttons .sign-in {
-        background: transparent;
-        color: #0fbdff;
-        border: 1px solid #0fbdff;
-        transition: 0.3s;
-    }
-
-        .auth-buttons .sign-in:hover {
-            transform: scale(0.95);
-        }
-
-    .auth-buttons .sign-up {
-        background: linear-gradient(45deg, #0fbdff, #0029ffa1);
-        color: white;
-        border: none;
-        transition: 0.3s;
-    }
-
-        .auth-buttons .sign-up:hover {
-            transform: scale(0.95);
-        }
-
-
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
     flex-wrap: wrap;
-    background-color: #fff;
 }
 
 .nav-links {
@@ -187,6 +128,70 @@ body {
     cursor: pointer;
 }
 
+.map {
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* CUSTOM CONTAINER DESIGNS */
+
+.sd-gm-white {
+    background: rgba(255, 255, 255, 0.50);
+    color: #333;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.sd-gm-black {
+    background: rgba(0, 0, 0, 0.50);
+    color: white;
+}
+
+.sd-gm-main {
+    background: rgb(19 162 197 / 46%);
+    color: white;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(100px);
+}
+
+.sd-gm-black, .sd-gm-white {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+}
+
+/* CUSTOM BUTTON DESIGNS */
+
+.sd-btn-important {
+    background: linear-gradient(45deg, #0fbdff, #0029ffa1);
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+    .sd-btn-important:hover {
+        color: white !important;
+    }
+
+.sd-btn-normal {
+    background: transparent;
+    color: #0a4d68;
+    border: 1px solid #0a4d68;
+}
+
+    .sd-btn-normal:hover {
+        color: #0a4d68 !important;
+    }
+
+.sd-btn-important, .sd-btn-normal {
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: 0.3s ease-in-out;
+    display: inline-block;
+}
+
+    .sd-btn-important:hover, .sd-btn-normal:hover {
+        transform: scale(0.95);
+    }
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .hamburger {
@@ -210,4 +215,22 @@ body {
         flex-direction: row;
         align-items: center;
     }
+}
+
+@media screen and (max-width: 1200px) {
+
+    #hamburger-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none !important;
+        flex-direction: column;
+    }
+
+        .nav-links.active {
+            display: flex !important;
+            width: 100%;
+            padding: 10px 0px 25px 0px;
+        }
 }

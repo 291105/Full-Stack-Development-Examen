@@ -5,4 +5,11 @@ footer {
     text-align: center;
     padding: 10px;
     width: 100%;
+    font-weight: bold !important;
 }
+
+    footer p {
+        margin: 0px !important;
+        font-size: unset !important;
+        color: white !important;
+    }
