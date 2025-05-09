@@ -1,4 +1,7 @@
-﻿<link href="~/css/footerstyle.css" rel="stylesheet" />
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<link href="~/css/footerstyle.css" rel="stylesheet" />
 <footer>
-    <p>© 2025 - Avaro Airlines - Alle rechten voorbehouden</p>
+    <p>© 2025 - Avaro Airlines - @Localizer["All rights reserved"]</p>
 </footer>

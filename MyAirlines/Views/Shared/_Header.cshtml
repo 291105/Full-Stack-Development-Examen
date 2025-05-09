@@ -1,6 +1,9 @@
 ﻿@using MyAirlines.ViewModels
 @using MyAirlines.Extentions
+@using Microsoft.AspNetCore.Mvc.Localization
+
 @inject IHttpContextAccessor HttpContextAccessor
+@inject IViewLocalizer Localizer
 
 <link href="~/css/HeaderStyle.css" rel="stylesheet" />
 <header>
@@ -11,11 +14,11 @@
 
         <!-- Standaard nav-links die altijd zichtbaar blijven (zonder cultuurkeuze) -->
         <ul class="nav-links">
-            <li><a href="#">Destinations</a></li>
-            <li><a href="#">Flights</a></li>
-            <li><a href="#">Trending Places</a></li>
-            <li><a href="#">Accommodations</a></li>
-            <li><a href="#">Support</a></li>
+            <li><a href="#">@Localizer["Destinations"]</a></li>
+            <li><a href="#">@Localizer["Flights"]</a></li>
+            <li><a href="#">@Localizer["Trending Places"]</a></li>
+            <li><a href="#">@Localizer["Accommodations"]</a></li>
+            <li><a href="#">@Localizer["Support"]</a></li>
         </ul>
 
         <!-- Auth-buttons voor ingelogde en niet-ingelogde gebruikers -->
@@ -24,13 +27,13 @@
             {
                 <span class="signed-in-user">Hello @User.Identity.Name!</span>
                 <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/">
-                    <button type="submit" class="sign-out">Sign out</button>
+                    <button type="submit" class="sd-btn-important">@Localizer["Sign out"]</button>
                 </form>
             }
             else
             {
-                <a href="/Identity/Account/Login" class="sign-in">Sign in</a>
-                <a href="/Identity/Account/Register" class="sign-up">Register</a>
+                <a href="/Identity/Account/Login" class="sign-in">@Localizer["Sign in"]</a>
+                <a href="/Identity/Account/Register" class="sign-up">@Localizer["Register"]</a>
             }
             @await Html.PartialAsync("_SelectCulture")
         </div>
@@ -65,11 +68,23 @@
 
 
 <script>
-    const hamburger = document.getElementById('hamburger-btn');
-    const navMenu = document.getElementById('nav-menu');
+    document.addEventListener('DOMContentLoaded', function () {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navLinks = document.querySelector('.navbar .nav-links');
 
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
+        function bindHamburger() {
+            if (window.innerWidth <= 1200) {
+                hamburgerBtn.onclick = function () {
+                    navLinks.classList.toggle('active');
+                };
+            } else {
+                navLinks.classList.remove('active');
+                hamburgerBtn.onclick = null;
+            }
+        }
+
+        bindHamburger(); // Bij het laden
+        window.addEventListener('resize', bindHamburger); // Op schermverandering
     });
 </script>
 
