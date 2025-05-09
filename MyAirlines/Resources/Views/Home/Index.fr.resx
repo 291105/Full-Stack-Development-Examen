@@ -186,4 +186,28 @@
   <data name="Language" xml:space="preserve">
     <value>Français</value>
   </data>
+  <data name="Flights" xml:space="preserve">
+    <value>Vols</value>
+  </data>
+  <data name="Trending Places" xml:space="preserve">
+    <value>Endroits populaires</value>
+  </data>
+  <data name="Accommodations" xml:space="preserve">
+    <value>Hébergements</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Assistance</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Déconnecter</value>
+  </data>
+  <data name="Sign in" xml:space="preserve">
+    <value>Connecter</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>S’inscrire</value>
+  </data>
+  <data name="Destinations" xml:space="preserve">
+    <value>Destinations</value>
+  </data>
 </root>

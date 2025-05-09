@@ -186,4 +186,28 @@
   <data name="Language" xml:space="preserve">
     <value>Nederlands</value>
   </data>
+  <data name="Flights" xml:space="preserve">
+    <value>Vluchten</value>
+  </data>
+  <data name="Trending Places" xml:space="preserve">
+    <value>Populaire plaatsen</value>
+  </data>
+  <data name="Accommodations" xml:space="preserve">
+    <value>Accomodaties</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Ondersteuning</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Afmelden</value>
+  </data>
+  <data name="Sign in" xml:space="preserve">
+    <value>Aanmelden</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registreren</value>
+  </data>
+  <data name="Destinations" xml:space="preserve">
+    <value>Bestemmingen</value>
+  </data>
 </root>
