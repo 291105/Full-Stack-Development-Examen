@@ -1,4 +1,5 @@
-﻿using FlightProject.Repositories.Interfaces;
+﻿using FlightProject.Domain.Entities;
+using FlightProject.Repositories.Interfaces;
 using FlightProject.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace FlightProject.Services
         public async Task<int> Book(double TotalPrice, string UserId)
         {
             return await _bookingDAO.Book(TotalPrice, UserId);
+        }
+
+        public async Task<Booking> GetBookingById(int id)
+        {
+            return await _bookingDAO.GetBookingById(id);
         }
     }
 }

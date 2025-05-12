@@ -1,6 +1,7 @@
 ﻿using FlightProject.Domain.Data;
 using FlightProject.Domain.Entities;
 using FlightProject.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,11 @@ namespace FlightProject.Repositories
             await _db.SaveChangesAsync();
 
             return booking.BookingId;
+        }
+
+        public async Task<Booking> GetBookingById(int id)
+        {
+            return await _db.Bookings.Where(b => b.BookingId == id).FirstOrDefaultAsync();
         }
     }
 }

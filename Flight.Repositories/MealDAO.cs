@@ -67,5 +67,10 @@ namespace FlightProject.Repositories
         {
             return await _db.Meals.Where(cl => cl.MealId == id).FirstOrDefaultAsync();
         }
+
+        public async Task<int> GetMealIdByMealName(string mealName)
+        {
+            return await _db.Meals.Where(m => m.Name == mealName).Select(m => m.MealId).FirstOrDefaultAsync();
+        }
     }
 }

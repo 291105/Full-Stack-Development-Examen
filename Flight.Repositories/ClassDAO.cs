@@ -28,5 +28,10 @@ namespace FlightProject.Repositories
         {
             return await _db.Classes.Where(cl => cl.ClassId == id).FirstOrDefaultAsync();
         }
+
+        public async Task<int> getClassIdByClassName(string className)
+        {
+            return await _db.Classes.Where(cl => cl.Name == className).Select(cl => cl.ClassId).FirstOrDefaultAsync();
+        }
     }
 }

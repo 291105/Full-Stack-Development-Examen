@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\Images\\Sushi.jpg"
     },
     {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\avaro.png",
+      "PackagePath": "staticwebassets\\Images\\avaro.png"
+    },
+    {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\avaro_white.svg",
       "PackagePath": "staticwebassets\\Images\\avaro_white.svg"
     },
@@ -87,6 +91,10 @@
     {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\css\\BookFlight.css",
       "PackagePath": "staticwebassets\\css\\BookFlight.css"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\css\\BookingConfirmationStyle.css",
+      "PackagePath": "staticwebassets\\css\\BookingConfirmationStyle.css"
     },
     {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\css\\FlightSearchStyle.css",

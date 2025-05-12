@@ -2152,6 +2152,34 @@
         "runtime": {
           "bin/placeholder/FlightProject.Domain.dll": {}
         }
+      },
+      "FlightProject.Repositories/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "FlightProject.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FlightProject.Repositories.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FlightProject.Repositories.dll": {}
+        }
+      },
+      "FlightProject.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "FlightProject.Domain": "1.0.0",
+          "FlightProject.Repositories": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FlightProject.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FlightProject.Services.dll": {}
+        }
       }
     }
   },
@@ -6732,11 +6760,22 @@
       "type": "project",
       "path": "../Flight.Domaon/FlightProject.Domain.csproj",
       "msbuildProject": "../Flight.Domaon/FlightProject.Domain.csproj"
+    },
+    "FlightProject.Repositories/1.0.0": {
+      "type": "project",
+      "path": "../Flight.Repositories/FlightProject.Repositories.csproj",
+      "msbuildProject": "../Flight.Repositories/FlightProject.Repositories.csproj"
+    },
+    "FlightProject.Services/1.0.0": {
+      "type": "project",
+      "path": "../Flight.Services/FlightProject.Services.csproj",
+      "msbuildProject": "../Flight.Services/FlightProject.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "FlightProject.Domain >= 1.0.0",
+      "FlightProject.Services >= 1.0.0",
       "Microsoft.Extensions.Options >= 8.0.0",
       "QRCoder >= 1.4.2",
       "itext7 >= 7.2.6"
@@ -6777,6 +6816,9 @@
           "projectReferences": {
             "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj": {
               "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj"
+            },
+            "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Services\\FlightProject.Services.csproj": {
+              "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Services\\FlightProject.Services.csproj"
             }
           }
         }

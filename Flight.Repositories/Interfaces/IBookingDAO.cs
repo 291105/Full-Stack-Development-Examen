@@ -10,5 +10,7 @@ namespace FlightProject.Repositories.Interfaces
     public interface IBookingDAO
     {
         Task<int> Book(double TotalPrice, string UserId);
+
+        Task<Booking> GetBookingById(int id);
     }
 }

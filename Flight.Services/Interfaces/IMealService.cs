@@ -11,5 +11,6 @@ namespace FlightProject.Services.Interfaces
     {
         Task<List<Meal>> GetAllMeals(string departureAirport);
         Task<Meal> GetMealById(int id);
+        Task<int> GetMealIdByMealName(string mealName);
     }
 }

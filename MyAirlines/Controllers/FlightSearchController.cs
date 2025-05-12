@@ -226,7 +226,7 @@ namespace MyAirlines.Controllers
                 bookingVm.TotalPricePerBooking += price;
                 bookingVm.Passengers.Add(passengerVM);
             }
-
+            bookingVm.TotalPricePerBooking = bookingVm.TotalPricePerBooking * bookingVm.Flight.Count();
             HttpContext.Session.SetObject("BookingVM", bookingVm);
 
             return View(bookingVm);
@@ -254,7 +254,7 @@ namespace MyAirlines.Controllers
             var booking = new BookingVM();
 
             booking.Flight = bookingVM.Flight;
-            booking.TotalPricePerBooking = (totalPricePerBooking / 100);
+            booking.TotalPricePerBooking = (totalPricePerBooking / 100); //maal aantal vluchten!
 
             var selectedClassId = HttpContext.Session.GetInt32("SelectedClassId");
 

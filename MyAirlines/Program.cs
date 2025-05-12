@@ -66,7 +66,7 @@ builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Emai
 //AppSettings.json file en vervolgens wordt er een emailsettings - object
 //aangemaakt en de waarden worden ge�njecteerd in het object
 builder.Services.AddSingleton<IEmailSend, EmailSend>();
-builder.Services.AddSingleton<ICreatePDF, CreatePDF>();
+builder.Services.AddScoped<ICreatePDF, CreatePDF>();
 //Als in een Constructor een IEmailSender-parameter wordt gevonden, zal een
 //emailSender - object worden aangemaakt.
 
@@ -126,6 +126,9 @@ builder.Services.AddTransient<ITicketDAO, TicketDAO>();
 builder.Services.AddTransient<ITicketService, TicketService>();
 builder.Services.AddTransient<IFlightTicketService, FlightTicketService>();
 builder.Services.AddTransient<IFlightTicketDAO, FlightTicketDAO>();
+
+builder.Services.AddTransient<ISeatService, SeatService>();
+builder.Services.AddTransient<ISeatDAO, SeatDAO>();
 
 //jwt enzo
 /*builder.Services

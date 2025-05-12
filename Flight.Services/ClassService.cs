@@ -24,5 +24,10 @@ namespace FlightProject.Services
         {
             return await _classDao.getClassById(id);
         }
+
+        public async Task<int> getClassIdByClassName(string className)
+        {
+            return await _classDao.getClassIdByClassName(className);
+        }
     }
 }

@@ -10,7 +10,29 @@ namespace tst.Controllers.API
     [ApiController]
     public class AirportController : Controller
     {
-        
+        private readonly IAirportService _airportService;
+
+        public AirportController(IAirportService airportService)
+        {
+            _airportService = airportService;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Airport>>> Get()
+        {
+            try
+            {
+                var airports = await _airportService.GetAllAsync();
+                
+
+                return Ok(airports);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
+
+
         /*private readonly IService<Place> _service;
         private readonly IMapper _mapper;
 
@@ -36,7 +58,8 @@ namespace tst.Controllers.API
                 return StatusCode(500, new { error = ex.Message });
             }
         }*/
-        
+
+
     }
 
 }

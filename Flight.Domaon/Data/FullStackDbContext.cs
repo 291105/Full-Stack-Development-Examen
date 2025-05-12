@@ -52,15 +52,13 @@ public partial class FullStackDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.\\SQL22_VIVES; Database=FullStackExamen; Trusted_Connection=True; TrustServerCertificate=True; MultipleActiveResultSets=true;");
+        => optionsBuilder.UseSqlServer("Server=tcp:avaro.database.windows.net,1433;Initial Catalog=FullStackExamen;Persist Security Info=False;User ID=beheerder;Password=AVARO25fullstack;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.UseCollation("SQL_Latin1_General_CP1_CI_AS");
-
         modelBuilder.Entity<Aircraft>(entity =>
         {
-            entity.HasKey(e => e.AircraftId).HasName("PK__Aircraft__F75CBC0B1830EC4C");
+            entity.HasKey(e => e.AircraftId).HasName("PK__Aircraft__F75CBC0BA38D8DA8");
 
             entity.Property(e => e.AircraftId).HasColumnName("AircraftID");
             entity.Property(e => e.Name)
@@ -70,7 +68,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Airport>(entity =>
         {
-            entity.HasKey(e => e.AirportId).HasName("PK__Airport__E3DBE08AEED8A43F");
+            entity.HasKey(e => e.AirportId).HasName("PK__Airport__E3DBE08A53AFF4A3");
 
             entity.ToTable("Airport");
 
@@ -160,7 +158,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Booking>(entity =>
         {
-            entity.HasKey(e => e.BookingId).HasName("PK__Booking__73951ACD12AAC51B");
+            entity.HasKey(e => e.BookingId).HasName("PK__Booking__73951ACD8FB88572");
 
             entity.ToTable("Booking");
 
@@ -174,7 +172,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Class>(entity =>
         {
-            entity.HasKey(e => e.ClassId).HasName("PK__Class__CB1927A01634CCDF");
+            entity.HasKey(e => e.ClassId).HasName("PK__Class__CB1927A05C8D2776");
 
             entity.ToTable("Class");
 
@@ -186,7 +184,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Flight>(entity =>
         {
-            entity.HasKey(e => e.FlightId).HasName("PK__Flight__8A9E148E9A3F8A10");
+            entity.HasKey(e => e.FlightId).HasName("PK__Flight__8A9E148E5140A30F");
 
             entity.ToTable("Flight");
 
@@ -216,24 +214,24 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<FlightTicket>(entity =>
         {
-            entity.HasKey(e => e.FlightTicketId).HasName("PK__FlightTi__8E60854B5890350F");
+            entity.HasKey(e => e.FlightTicketId).HasName("PK__FlightTi__8E60854B4101C160");
 
             entity.ToTable("FlightTicket");
 
             entity.HasOne(d => d.Flight).WithMany(p => p.FlightTickets)
                 .HasForeignKey(d => d.FlightId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__FlightTic__Fligh__2EDAF651");
+                .HasConstraintName("FK__FlightTic__Fligh__0A9D95DB");
 
             entity.HasOne(d => d.Ticket).WithMany(p => p.FlightTickets)
                 .HasForeignKey(d => d.TicketId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__FlightTic__Ticke__2DE6D218");
+                .HasConstraintName("FK__FlightTic__Ticke__09A971A2");
         });
 
         modelBuilder.Entity<Meal>(entity =>
         {
-            entity.HasKey(e => e.MealId).HasName("PK__Meal__ACF6A65DF25E4429");
+            entity.HasKey(e => e.MealId).HasName("PK__Meal__ACF6A65DB958C2EE");
 
             entity.ToTable("Meal");
 
@@ -251,7 +249,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Route>(entity =>
         {
-            entity.HasKey(e => e.RouteId).HasName("PK__Route__80979B4D2B98D052");
+            entity.HasKey(e => e.RouteId).HasName("PK__Route__80979B4D54AE1C7C");
 
             entity.ToTable("Route");
 
@@ -281,7 +279,7 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Season>(entity =>
         {
-            entity.HasKey(e => e.SeasonId).HasName("PK__Season__C1814E18B1973222");
+            entity.HasKey(e => e.SeasonId).HasName("PK__Season__C1814E184451B8B4");
 
             entity.ToTable("Season");
 
@@ -290,13 +288,11 @@ public partial class FullStackDbContext : DbContext
 
         modelBuilder.Entity<Seat>(entity =>
         {
-            entity.HasKey(e => e.SeatId).HasName("PK__Seat__311713D3273ED6BD");
+            entity.HasKey(e => e.SeatId).HasName("PK__Seat__311713D3D06D19CD");
 
             entity.ToTable("Seat");
 
-            entity.Property(e => e.SeatId)
-                .ValueGeneratedNever()
-                .HasColumnName("SeatID");
+            entity.Property(e => e.SeatId).HasColumnName("SeatID");
             entity.Property(e => e.AircraftId).HasColumnName("AircraftID");
             entity.Property(e => e.ClassId).HasColumnName("ClassID");
             entity.Property(e => e.IsOccupied).HasDefaultValue(false);
@@ -307,17 +303,17 @@ public partial class FullStackDbContext : DbContext
             entity.HasOne(d => d.Aircraft).WithMany(p => p.Seats)
                 .HasForeignKey(d => d.AircraftId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Seat__AircraftID__3D2915A8");
+                .HasConstraintName("FK__Seat__AircraftID__0F624AF8");
 
             entity.HasOne(d => d.Class).WithMany(p => p.Seats)
                 .HasForeignKey(d => d.ClassId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Seat__ClassID__3E1D39E1");
+                .HasConstraintName("FK__Seat__ClassID__10566F31");
         });
 
         modelBuilder.Entity<Ticket>(entity =>
         {
-            entity.HasKey(e => e.TicketId).HasName("PK__Ticket__712CC627FA1790F8");
+            entity.HasKey(e => e.TicketId).HasName("PK__Ticket__712CC627AE28E6B3");
 
             entity.ToTable("Ticket");
 
@@ -366,7 +362,7 @@ public partial class FullStackDbContext : DbContext
 
             entity.HasOne(d => d.Seat).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.SeatId)
-                .HasConstraintName("FK__Ticket__SeatID__3F115E1A");
+                .HasConstraintName("FK_Ticket_Seat");
         });
 
         OnModelCreatingPartial(modelBuilder);

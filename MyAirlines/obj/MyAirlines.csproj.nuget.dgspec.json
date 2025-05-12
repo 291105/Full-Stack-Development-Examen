@@ -387,6 +387,9 @@
             "projectReferences": {
               "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj": {
                 "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Domaon\\FlightProject.Domain.csproj"
+              },
+              "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Services\\FlightProject.Services.csproj": {
+                "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\Flight.Services\\FlightProject.Services.csproj"
               }
             }
           }

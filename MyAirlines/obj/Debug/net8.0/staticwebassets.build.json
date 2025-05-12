@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TCj68mahtIpyJHl/BsQS1I2dwfz844HyZ7Ylb/oSADA=",
+  "Hash": "zFV2kmbnxC5tBK+1eLphn8R6CnxcTtexLJW77f9X9bU=",
   "Source": "MyAirlines",
   "BasePath": "_content/MyAirlines",
   "Mode": "Default",
@@ -1214,6 +1214,25 @@
       "OriginalItemSpec": "wwwroot\\css\\BookFlight.css"
     },
     {
+      "Identity": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\css\\BookingConfirmationStyle.css",
+      "SourceId": "MyAirlines",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\",
+      "BasePath": "_content/MyAirlines",
+      "RelativePath": "css/BookingConfirmationStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\BookingConfirmationStyle.css"
+    },
+    {
       "Identity": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\css\\FlightSearchStyle.css",
       "SourceId": "MyAirlines",
       "SourceType": "Discovered",
@@ -1421,6 +1440,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Avaro logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\avaro.png",
+      "SourceId": "MyAirlines",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\",
+      "BasePath": "_content/MyAirlines",
+      "RelativePath": "Images/avaro.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\avaro.png"
     },
     {
       "Identity": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\avaro_white.svg",

@@ -27,5 +27,10 @@ namespace FlightProject.Services
         {
             return await _mealDAO.GetMealById(id);
         }
+
+        public async Task<int> GetMealIdByMealName(string mealName)
+        {
+            return await _mealDAO.GetMealIdByMealName(mealName);
+        }
     }
 }

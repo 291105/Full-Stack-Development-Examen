@@ -10,5 +10,6 @@ namespace FlightProject.Repositories.Interfaces
     public interface IClassDAO : IDAO<Class>
     {
         Task<Class> getClassById(int id);
+        Task<int> getClassIdByClassName(string className);
     }
 }

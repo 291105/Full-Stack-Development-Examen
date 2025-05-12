@@ -62,6 +62,7 @@ namespace SendMail.Util.Mail
                     smtp.Credentials =
                     new NetworkCredential(_emailSettings.Sender,
                     _emailSettings.Password);
+                    smtp.UseDefaultCredentials= false;
                     await smtp.SendMailAsync(mail);
                 }
             }

@@ -30,3 +30,7 @@ C:\Users\Gebruiker\source\repos\MyAirlines\Full-Stack-Development-Examen\SendMai
 C:\Users\Gebruiker\source\repos\MyAirlines\Full-Stack-Development-Examen\SendMail.Util\obj\Debug\net8.0\refint\SendMail.Util.dll
 C:\Users\Gebruiker\source\repos\MyAirlines\Full-Stack-Development-Examen\SendMail.Util\obj\Debug\net8.0\SendMail.Util.pdb
 C:\Users\Gebruiker\source\repos\MyAirlines\Full-Stack-Development-Examen\SendMail.Util\obj\Debug\net8.0\ref\SendMail.Util.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\Full-Stack-Development-Examen\SendMail.Util\bin\Debug\net8.0\FlightProject.Repositories.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\Full-Stack-Development-Examen\SendMail.Util\bin\Debug\net8.0\FlightProject.Services.dll
+C:\Users\Gebruiker\source\repos\MyAirlines\Full-Stack-Development-Examen\SendMail.Util\bin\Debug\net8.0\FlightProject.Services.pdb
+C:\Users\Gebruiker\source\repos\MyAirlines\Full-Stack-Development-Examen\SendMail.Util\bin\Debug\net8.0\FlightProject.Repositories.pdb

@@ -12,5 +12,7 @@ namespace FlightProject.Repositories.Interfaces
         Task<List<Meal>> GetAllMeals(string departureAirport);
         Task<Meal> GetMealById(int id);
 
+        Task<int> GetMealIdByMealName(string mealName);
+
     }
 }

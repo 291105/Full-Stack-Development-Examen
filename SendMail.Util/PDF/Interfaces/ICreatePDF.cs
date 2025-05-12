@@ -9,6 +9,6 @@ namespace SendMail.Util.PDF.Interfaces
 {
     public interface ICreatePDF
     {
-        MemoryStream CreatePDFDocumentAsync(List<Ticket> tickets, string logoPath);
+        Task<MemoryStream> CreatePDFDocumentAsync(List<Ticket> tickets, Booking booking, string logoPath);
     }
 }

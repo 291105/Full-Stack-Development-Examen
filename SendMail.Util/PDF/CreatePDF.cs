@@ -13,18 +13,31 @@ using SendMail.Util.PDF.Interfaces;
 
 using iText.Layout.Borders;
 using FlightProject.Domain.Entities;
+using FlightProject.Services.Interfaces;
 
 namespace SendMail.Util.PDF
 {
     public class CreatePDF : ICreatePDF
     {
-        public MemoryStream CreatePDFDocumentAsync(List<Ticket> tickets, string logoPath)
+        private readonly IClassService _classService;
+        private readonly IMealService _mealService;
+        private readonly ISeatService _seatService;
+
+        public CreatePDF(IClassService classService, IMealService mealService, ISeatService seatService)
+        {
+            _classService = classService;
+            _mealService = mealService;
+            _seatService = seatService;
+        }
+        public async Task<MemoryStream> CreatePDFDocumentAsync(List<Ticket> tickets, Booking booking, string logoPath)
+
         {
 
             // Genereren van de PDF-factuur
 
             using (MemoryStream stream = new MemoryStream())
             {
+                
                 PdfWriter writer = new PdfWriter(stream);
                 PdfDocument pdf = new PdfDocument(writer);
                 iText.Layout.Document document = new iText.Layout.Document(pdf);
@@ -46,28 +59,56 @@ namespace SendMail.Util.PDF
                 headerTable.AddCell(new Cell().Add(logo).SetTextAlignment(TextAlignment.LEFT).SetBorder(Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
                 headerTable.AddCell(new Cell().Add(qrCodeImageElement).SetTextAlignment(TextAlignment.RIGHT).SetBorder(Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
 
+                document.Add(new Paragraph("FlightTicket").SetFontSize(24).SetBold().SetTextAlignment(TextAlignment.CENTER).SetMarginBottom(20));
+
+
                 document.Add(headerTable);
                 document.Add(new Paragraph("Factuur").SetFontSize(20));
                 document.Add(new Paragraph("Factuurnummer: 001").SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA)).SetFontSize(16).SetFontColor(ColorConstants.BLUE));
                 document.Add(new Paragraph("Datum: " + DateTime.Now.ToShortDateString()));
                 document.Add(new Paragraph(""));
 
-                // Tabel voor producten
-                Table table = new Table(UnitValue.CreatePercentArray(3)).UseAllAvailableWidth();
-                table.AddHeaderCell("Product");
-                table.AddHeaderCell("Prijs");
-                table.AddHeaderCell("Totaal");
-                decimal totalPrice = 0;
+                double totalPrice = 0;
+
                 foreach (var ticket in tickets)
                 {
-                    table.AddCell(ticket.Departure);
-                    table.AddCell(ticket.Arrival);
-                
-                }
-                document.Add(table);
+                    Table ticketTable = new Table(UnitValue.CreatePercentArray(new float[] { 1, 2 })).UseAllAvailableWidth();
+                    ticketTable.SetMarginBottom(20);
+                    ticketTable.SetBorder(new SolidBorder(1));
 
-                // Totaalbedrag toevoegen
-                document.Add(new Paragraph($"Totaalbedrag: {totalPrice.ToString("C")}"));
+                    ticketTable.AddCell("Naam: " + ticket.FirstName + " " + ticket.LastName);
+
+                    ticketTable.AddCell("Rijksregisternummer: " + ticket.NationalRegisterNumber);
+                    
+
+                    ticketTable.AddCell("Vertrek: " + ticket.Departure + " " + ticket.DepartureTime + " "  + "✈️" + " " + ticket.Arrival + " " + ticket.ArrivalTime);
+
+                    
+                    var ticketClass = await _classService.getClassById(ticket.ClassId);
+                    ticketTable.AddCell("Class:" + ticketClass.Name);
+
+                    var ticketMeal = await _mealService.GetMealById(ticket.MealId);
+                    ticketTable.AddCell("Meal: " + ticketMeal.Name);
+                    
+                    
+                    ticketTable.AddCell("SeatNumber:" + await _seatService.GetSeatNumberBySeatId((int)ticket.SeatId));
+
+                    ticketTable.AddCell("TicketPrice: " + ticket.Price);
+
+                    document.Add(ticketTable);
+
+                    
+                }
+
+                totalPrice = booking.TotalPricePerBooking;
+
+                document.Add(new Paragraph($"Totaalbedrag: {totalPrice.ToString("C")}")
+                .SetFontSize(16)
+                .SetBold()
+                .SetTextAlignment(TextAlignment.RIGHT)
+                .SetMarginTop(10));
+
+                document.Add(new Paragraph("On all the intermediate flights you will also see the ticketprice, don't worry! The ticketPrice is for the whole flight the intermediate flights are included! The totalprice at the bottom is what you actually paid!"));
 
                 document.Close();
                 return new MemoryStream(stream.ToArray());

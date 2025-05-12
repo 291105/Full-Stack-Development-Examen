@@ -9,6 +9,7 @@
       "SendMail.Util/1.0.0": {
         "dependencies": {
           "FlightProject.Domain": "1.0.0",
+          "FlightProject.Services": "1.0.0",
           "Microsoft.Extensions.Options": "8.0.0",
           "QRCoder": "1.4.2",
           "itext7": "7.2.6"
@@ -1185,6 +1186,30 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "FlightProject.Repositories/1.0.0": {
+        "dependencies": {
+          "FlightProject.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0"
+        },
+        "runtime": {
+          "FlightProject.Repositories.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "FlightProject.Services/1.0.0": {
+        "dependencies": {
+          "FlightProject.Domain": "1.0.0",
+          "FlightProject.Repositories": "1.0.0"
+        },
+        "runtime": {
+          "FlightProject.Services.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -2042,6 +2067,16 @@
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
     "FlightProject.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FlightProject.Repositories/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FlightProject.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
