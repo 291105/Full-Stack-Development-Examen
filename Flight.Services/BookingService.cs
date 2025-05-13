@@ -26,5 +26,14 @@ namespace FlightProject.Services
         {
             return await _bookingDAO.GetBookingById(id);
         }
+
+        
+
+        public async Task<List<Booking>> GetAllBookingsByUser(string UserId)
+        {
+            return await _bookingDAO.GetAllBookingsByUser(UserId);
+        }
+
+        
     }
 }

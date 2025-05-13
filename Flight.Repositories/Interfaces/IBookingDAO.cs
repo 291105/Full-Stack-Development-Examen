@@ -12,5 +12,7 @@ namespace FlightProject.Repositories.Interfaces
         Task<int> Book(double TotalPrice, string UserId);
 
         Task<Booking> GetBookingById(int id);
+
+        Task<List<Booking>> GetAllBookingsByUser(string UserId);
     }
 }

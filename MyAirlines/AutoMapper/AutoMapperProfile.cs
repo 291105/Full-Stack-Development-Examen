@@ -8,7 +8,7 @@ namespace EmployeeAPI.AutoMapper
 {
     public class AutoMapperProfile : Profile
     {
-        public AutoMapperProfile() 
+        public AutoMapperProfile()
         {
 
             // Flight mappen naar FlightVM
@@ -24,7 +24,7 @@ namespace EmployeeAPI.AutoMapper
         opt => opt.MapFrom(src => src.DepartureTime))  // Combineer datum en tijd
     .ForMember(dest => dest.ArrivalTime,
         opt => opt.MapFrom(src => src.ArrivalTime))  // Combineer datum en tijd
-                                                                                 // Conversie van Duration, als er een waarde is
+                                                     // Conversie van Duration, als er een waarde is
     .ForMember(dest => dest.Duration,
         opt => opt.MapFrom(src => src.Duration.HasValue
             ? TimeSpan.FromHours(src.Duration.Value.Hour) + TimeSpan.FromMinutes(src.Duration.Value.Minute)
@@ -45,7 +45,7 @@ namespace EmployeeAPI.AutoMapper
             CreateMap<Airport, AirportVM>()
                 .ForMember(dest => dest.Id,
                     opt => opt.MapFrom(src => src.AirportId))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src=> src.Name))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.City))
                 .ForMember(dest => dest.Country,
                     opt => opt.MapFrom(src => src.Country));
@@ -70,6 +70,15 @@ namespace EmployeeAPI.AutoMapper
                     opt => opt.MapFrom(src => src.ClassId))
                 .ForMember(dest => dest.Name,
                     opt => opt.MapFrom(src => src.Name));
+
+            CreateMap<Ticket, TicketVM>()
+                .ForMember(dest => dest.MealName, opt => opt.MapFrom(src => src.Meal.Name))
+                .ForMember(dest => dest.ClassName, opt => opt.MapFrom(src => src.Class.Name))
+                .ForMember(dest => dest.SeatNumber, opt => opt.MapFrom(src => src.Seat.SeatNumber))
+                //.ForMember(dest => dest.DepartureAirport, opt => opt.MapFrom(src => src.FlightTickets.FirstOrDefault().Flight.DepartureAirport.Name))
+                .ForMember(dest => dest.DepartureAirport, opt => opt.MapFrom(src => src.Departure))
+                .ForMember(dest => dest.ArrivalAirport, opt => opt.MapFrom(src => src.Arrival));
+
         }
     }
 }

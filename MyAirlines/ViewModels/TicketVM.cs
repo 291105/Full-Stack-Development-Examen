@@ -8,11 +8,13 @@ namespace MyAirlines.ViewModels
         public string? LastName { get; set; }
         public int NationalRegisterNumber { get; set; }
         public int Price { get; set; }
-        public int SeatNumber { get; set; }
-        public MealVM? Meal { get; set; }
-        public ClassVM? Class { get; set; }
-        public SeasonVM? Season { get; set; }
-        public AircraftVM? Aircraft { get; set; }
+        public string SeatNumber { get; set; }
+        public string MealName { get; set; }
+        public string ClassName { get; set; }
+        public string DepartureAirport { get; set; }
+        public string ArrivalAirport { get; set; }
+        
+        
         
     }
 }

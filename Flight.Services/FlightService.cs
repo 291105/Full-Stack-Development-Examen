@@ -26,7 +26,7 @@ namespace FlightProject.Services
         {
             return await _flightDAO.GetAvailableFlights(departureAirportId, arrivalAirportId, selectedClassId, requiredSeats, targetDate);
         }
-        public async Task<List<Flight>> GetFlightsFromTwoAirports(int airportID1, int airportID2)
+        public async Task<List<List<Flight>>> GetFlightsFromTwoAirports(int airportID1, int airportID2)
         {
             return await _flightDAO.GetFlightsFromTwoAirports(airportID1, airportID2);
         }

@@ -9,20 +9,13 @@
             <img height="70" src="~/images/logo_avaro.svg" />
         </div>
 
-        <!-- Standaard nav-links die altijd zichtbaar blijven (zonder cultuurkeuze) -->
-        <ul class="nav-links">
-            <li><a href="#">Destinations</a></li>
-            <li><a href="#">Flights</a></li>
-            <li><a href="#">Trending Places</a></li>
-            <li><a href="#">Accommodations</a></li>
-            <li><a href="#">Support</a></li>
-        </ul>
+        
 
         <!-- Auth-buttons voor ingelogde en niet-ingelogde gebruikers -->
         <div class="auth-buttons">
             @if (User.Identity.IsAuthenticated)
             {
-                <span class="signed-in-user">Hello @User.Identity.Name!</span>
+                <a asp-controller="Account" asp-action="Index" class="signed-in-user">Welcome, @User.Identity.Name!</a>
                 <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/">
                     <button type="submit" class="sign-out">Sign out</button>
                 </form>

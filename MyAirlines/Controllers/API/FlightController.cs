@@ -21,9 +21,9 @@ namespace MyAirlines.Controllers.API
             _service = service;
         }
 
-        // Ophalen van vluchten tussen vertrek & aankomstluchthaven
-        [HttpGet, /*Authorize*/]
-        public async Task<ActionResult<IEnumerable<FlightsByAirportVM>>> Get([FromQuery] int departureAirportId, [FromQuery] int arrivalAirportId)
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<FlightRouteForApiVM>>> Get([FromQuery] int departureAirportId, [FromQuery] int arrivalAirportId)
         {
             if (departureAirportId == 0 || arrivalAirportId == 0)
             {
@@ -32,13 +32,14 @@ namespace MyAirlines.Controllers.API
 
             try
             {
-                var flights = await _service.GetFlightsFromTwoAirports(departureAirportId, arrivalAirportId);
-                
-                FlightsByAirportVM flightsByAirport = new FlightsByAirportVM();
-                flightsByAirport.Flights = _mapper.Map<List<FlightVM>>(flights);
-                
-                
-                return Ok(flightsByAirport.Flights);
+                var trips = await _service.GetFlightsFromTwoAirports(departureAirportId, arrivalAirportId);
+
+                var flightRoutes = trips.Select(route => new FlightRouteForApiVM
+                {
+                    Flights = _mapper.Map<List<FlightVM>>(route)
+                }).ToList();
+
+                return Ok(flightRoutes);
             }
             catch (Exception ex)
             {

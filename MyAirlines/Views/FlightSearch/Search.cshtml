@@ -1,4 +1,4 @@
-﻿@using Newtonsoft.Json
+﻿﻿@using Newtonsoft.Json
 @model MyAirlines.ViewModels.FlightSearchVM
 @{
     ViewData["Title"] = "Search";
@@ -7,37 +7,44 @@
 @if (User.Identity.IsAuthenticated)
 {
     <main>
-        <h1>Find your flight</h1>
-        <div class="row">
-            <div class="col-md-4">
+        <link href="~/css/FormPage.css" rel="stylesheet" />
+        <div class="sd-form-wrapper">
+            <div class="sd-form-card">
                 <form asp-controller="FlightSearch" asp-action="Search" method="post">
+                    <h1>Find your flight</h1>
+                    <hr />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <select id="SelectedDepartureId" asp-for="SelectedDepartureId" asp-items="@Model.AirportDeparture">
-                            <option value="">Please select a departure airport</option>
-                        </select>
-                        <select id="SelectedArrivalId" asp-for="SelectedArrivalId" asp-items="@Model.AirportArrival">
-                            <option value="">Please select an arrival airport</option>
-                        </select>
-                        <select id="SelectedClassId" asp-for="SelectedClassId" asp-items="@Model.Class">
-                            <option value="">Please select a class</option>
-                        </select>
-                        <label for="AantalPersonenNodig">Aantal Personen:</label>
-                        <input type="number" id="AantalPersonenNodig" asp-for="AantalPersonenNodig" min="1" placeholder="Enter number of people" />
-                        <!--Vertrek agenda voor datum-->
-                        <div>
-                            <label asp-for="DepartureDate">Departure Date</label>
+                    <div class="flight-search-container">
+                        <div class="left-flight form-group col-md-6">
+
+                            <select id="SelectedDepartureId" asp-for="SelectedDepartureId" asp-items="@Model.AirportDeparture">
+                                <option value="">Please select a departure airport</option>
+                            </select>
+
+                            <label class="flightsearch-text" for="AantalPersonenNodig">Aantal Personen</label>
+
+                            <label class="flightsearch-text" asp-for="DepartureDate">Departure Date</label>
+                        </div>
+                        <div class="right-flight form-group col-md-6">
+                            <select id="SelectedArrivalId" asp-for="SelectedArrivalId" asp-items="@Model.AirportArrival">
+                                <option value="">Please select an arrival airport</option>
+                            </select>
+
+                            <input class="aantal-personen" type="number" id="AantalPersonenNodig" asp-for="AantalPersonenNodig" min="1" placeholder="Enter number of people" />
+
                             <input type="date"
                                    name="DepartureDate"
                                    min="@Model.MinDepartureTime.ToString("yyyy-MM-dd")"
                                    max="@Model.MaxDepartureTime.ToString("yyyy-MM-dd")"
                                    value="@(Model.DepartureDate.HasValue ? Model.DepartureDate.Value.ToString("yyyy-MM-dd") : "")" />
-
-
                         </div>
                     </div>
-                    <div class="form-group">
-                        <input type="submit" value="Search flights" class="btn btn-primary" />
+                    <select id="SelectedClassId" asp-for="SelectedClassId" asp-items="@Model.Class">
+                        <option value="">Please select a class</option>
+                    </select>
+
+                    <div class="mt-3 form-group">
+                        <input type="submit" value="Search flights" class="sd-btn-important" />
                     </div>
                 </form>
             </div>
@@ -95,12 +102,12 @@
                     </table>
                 }
             }
-           
+
 
             <h3>Flights with Layovers</h3>
             @foreach (var group in Model.FlightGroups)
             {
-                var firstFlight = group.Flights.First(); 
+                var firstFlight = group.Flights.First();
                 var lastFlight = group.Flights.Last();
                 if (group.Flights.Count != 1)
                 {
@@ -118,7 +125,7 @@
                                 <input type="hidden" name="flightGroupVM" value='@Html.Raw(JsonConvert.SerializeObject(group))' />
                                 <input type="hidden" name="selectedClassId" value="@Model.SelectedClassId" />
 
-                          
+
 
                                 <button type="submit" class="btn btn-success">Boek deze vlucht</button>
                                 }
@@ -146,18 +153,18 @@
                             }
                         </tbody>
                         <tfoot>
-                            <td>
-                                TotalDuration: @group.TotalTravelTime hours
-                            </td>
+                        <td>
+                            TotalDuration: @group.TotalTravelTime hours
+                        </td>
                         </tfoot>
-                        
+
                     </table>
                 }
-                
-                
-                
+
+
+
             }
-            
+
         }
         else
         {
@@ -168,11 +175,11 @@
 else
 {
     <main class="text-center mt-5">
-        <div class="notLoggedIn">
+        <div class="sd-gm-white notLoggedIn">
             <h2>You are not logged in</h2>
             <p>Log in to search for flights and see available destinations.</p>
-            <a class="btn btn-primary m-2" href="/Identity/Account/Login">Login</a>
-            <a class="btn btn-secondary m-2" href="/Identity/Account/Register">Register</a>
+            <a class="sd-btn-important" href="/Identity/Account/Login">Login</a>
+            <a class="sd-btn-normal" href="/Identity/Account/Register">Register</a>
         </div>
     </main>
 }

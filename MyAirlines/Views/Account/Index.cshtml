@@ -1,0 +1,60 @@
+﻿@model List<MyAirlines.ViewModels.BookingsForAccountVM>
+
+@{
+    ViewData["Title"] = "Mijn Boekingen";
+}
+
+<h2>Mijn Boekingen</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Je hebt momenteel geen boekingen.</p>
+}
+else
+{
+    foreach (var booking in Model)
+    {
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <strong>Boeking ID:</strong> @booking.BookingId |
+                
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Tickets</h5>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>FirstName</th>
+                            <th>Lastname</th>
+                            <th>National register number</th>
+                            <th>DepartureAirport</th>
+                            <th>ArrivalAirport</th>
+                            <th>Price (€)</th>
+                            <th>SeatNumber</th>
+                            <th>Meal</th>
+                            <th>Class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ticket in booking.Tickets)
+                        {
+                            <tr>
+                                <td>@ticket.FirstName</td>
+                                <td>@ticket.LastName</td>
+                                <td>@ticket.NationalRegisterNumber</td>
+                                <td>@ticket.DepartureAirport</td>
+                                <td>@ticket.ArrivalAirport</td>
+                                <td>@ticket.Price</td>
+                                <td>@ticket.SeatNumber</td>
+                                <td>@ticket.MealName</td>
+                                <td>@ticket.ClassName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+}
+

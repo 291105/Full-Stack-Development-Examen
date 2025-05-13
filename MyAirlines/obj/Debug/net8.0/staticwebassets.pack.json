@@ -13,6 +13,34 @@
       "PackagePath": "staticwebassets\\Images\\Bobotie.jpg"
     },
     {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\Countries\\capetown.jpg",
+      "PackagePath": "staticwebassets\\Images\\Countries\\capetown.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\Countries\\dubai.jpg",
+      "PackagePath": "staticwebassets\\Images\\Countries\\dubai.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\Countries\\london.jpg",
+      "PackagePath": "staticwebassets\\Images\\Countries\\london.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\Countries\\newyork.jpg",
+      "PackagePath": "staticwebassets\\Images\\Countries\\newyork.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\Countries\\singapore.jpg",
+      "PackagePath": "staticwebassets\\Images\\Countries\\singapore.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\Countries\\sydney.jpg",
+      "PackagePath": "staticwebassets\\Images\\Countries\\sydney.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\Countries\\tokyo.jpg",
+      "PackagePath": "staticwebassets\\Images\\Countries\\tokyo.jpg"
+    },
+    {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\FishAndChips.jpg",
       "PackagePath": "staticwebassets\\Images\\FishAndChips.jpg"
     },
@@ -103,6 +131,10 @@
     {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\css\\FooterStyle.css",
       "PackagePath": "staticwebassets\\css\\FooterStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\css\\FormPage.css",
+      "PackagePath": "staticwebassets\\css\\FormPage.css"
     },
     {
       "Id": "C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\css\\HeaderStyle.css",

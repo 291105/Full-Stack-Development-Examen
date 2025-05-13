@@ -60,26 +60,109 @@ namespace FlightProject.Repositories
             }
         }
 
-        public async Task<List<Flight>> GetFlightsFromTwoAirports(int airportID1, int airportID2)
+        public async Task<List<List<Flight>>> GetFlightsFromTwoAirports(int departureAirportId, int arrivalAirportId)
         {
             try
             {
-                return await _db.Flights
-                    .Where(f => f.DepartureAirportId == airportID1 && f.ArrivalAirportId == airportID2)
+                var routes = await _db.Routes
+                    .Where(r => r.DepartureAirportId == departureAirportId && r.ArrivalAirportId == arrivalAirportId)
+                    .ToListAsync();
+
+                var flights = await _db.Flights
+                    .Include(f => f.AircraftAircraft)
                     .Include(f => f.DepartureAirport)
                     .Include(f => f.ArrivalAirport)
-                    .Include(f => f.AircraftAircraft)
+                    .Where(f => f.DepartureTime.HasValue)
                     .ToListAsync();
+
+                var trips = new List<List<Flight>>();
+
+                foreach (var route in routes)
+                {
+                    // Direct
+                    if (route.TransferAirportId1 == null && route.TransferAirportId2 == null)
+                    {
+                        var directFlights = flights
+                            .Where(f =>
+                                f.DepartureAirportId == route.DepartureAirportId &&
+                                f.ArrivalAirportId == route.ArrivalAirportId)
+                            .ToList();
+
+                        foreach (var directFlight in directFlights)
+                        {
+                            trips.Add(new List<Flight> { directFlight });
+                        }
+                    }
+                    // 1 overstap
+                    else if (route.TransferAirportId1 != null && route.TransferAirportId2 == null)
+                    {
+                        var firstLegs = flights
+                            .Where(f =>
+                                f.DepartureAirportId == route.DepartureAirportId &&
+                                f.ArrivalAirportId == route.TransferAirportId1)
+                            .ToList();
+
+                        var secondLegs = flights
+                            .Where(f =>
+                                f.DepartureAirportId == route.TransferAirportId1 &&
+                                f.ArrivalAirportId == route.ArrivalAirportId)
+                            .ToList();
+
+                        foreach (var first in firstLegs)
+                        {
+                            foreach (var second in secondLegs)
+                            {
+                                trips.Add(new List<Flight> { first, second });
+                            }
+                        }
+                    }
+                    // 2 overstappen
+                    else if (route.TransferAirportId1 != null && route.TransferAirportId2 != null)
+                    {
+                        var firstLegs = flights
+                            .Where(f =>
+                                f.DepartureAirportId == route.DepartureAirportId &&
+                                f.ArrivalAirportId == route.TransferAirportId1)
+                            .ToList();
+
+                        var secondLegs = flights
+                            .Where(f =>
+                                f.DepartureAirportId == route.TransferAirportId1 &&
+                                f.ArrivalAirportId == route.TransferAirportId2)
+                            .ToList();
+
+                        var thirdLegs = flights
+                            .Where(f =>
+                                f.DepartureAirportId == route.TransferAirportId2 &&
+                                f.ArrivalAirportId == route.ArrivalAirportId)
+                            .ToList();
+
+                        foreach (var first in firstLegs)
+                        {
+                            foreach (var second in secondLegs)
+                            {
+                                foreach (var third in thirdLegs)
+                                {
+                                    trips.Add(new List<Flight> { first, second, third });
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return trips
+                    .OrderBy(t => t.FirstOrDefault()?.DepartureTime)
+                    .ToList();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
                 throw;
+
             }
         }
-
-        public async Task<List<List<Flight>>> GetAvailableFlights(int departureAirportId, int arrivalAirportId, int selectedClassId, int requiredSeats, DateOnly? targetDate)
-        {
+            public async Task<List<List<Flight>>> GetAvailableFlights(int departureAirportId, int arrivalAirportId, int selectedClassId, int requiredSeats, DateOnly? targetDate)
+            {
             try
             {
                 var routes = await _db.Routes

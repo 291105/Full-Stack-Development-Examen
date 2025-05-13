@@ -1,16 +1,20 @@
-﻿html, body {
+﻿﻿ /* Algemene stijlen */
+html, body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Zorg ervoor dat de body de volledige hoogte van het scherm inneemt */
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url('../images/plane.jpg');
+    background-image: url('../images/background_avaro.png') !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow-x: hidden;
+    background-attachment: fixed; /* De achtergrond blijft vast tijdens het scrollen */
+    overflow-x: hidden; /* Voorkom horizontaal scrollen */
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 main {
@@ -25,29 +29,16 @@ main {
     color: #333;
 }
 
-/* Form card */
-.row .col-md-4 {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    margin-top: 20px;
-    max-width: 450px;
-    width: 100%;
-}
-
 /* Form styling */
 select,
 input[type="date"] {
     width: 100%;
     padding: 12px;
-    font-size: 15px;
-    border: 2px solid #007bff;
-    border-radius: 8px;
-    margin-top: 12px;
-    margin-bottom: 15px;
+    font-size: 12px;
+    border-radius: 10px;
     background-color: #fff;
     transition: 0.3s ease;
+    border: 1px solid #999;
 }
 
     select:focus,
@@ -56,20 +47,41 @@ input[type="date"] {
         outline: none;
     }
 
-.btn-primary {
-    background-color: #007bff;
-    border: none;
-    padding: 12px 18px;
-    font-size: 16px;
-    border-radius: 8px;
-    width: 100%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.left-flight {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 5px;
 }
 
-    .btn-primary:hover {
-        background-color: #0056b3;
-    }
+.right-flight {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 5px;
+}
+
+.flightsearch-text {
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.flight-search-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.aantal-personen {
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid #999;
+    padding: 12px;
+    font-size: 12px;
+}
 
 /* Table styling */
 table.table {
@@ -95,13 +107,8 @@ table thead {
 }
 
 a {
-    color: #007bff;
     text-decoration: none;
 }
-
-    a:hover {
-        text-decoration: underline;
-    }
 
 .notLoggedIn {
     background-color: rgba(255, 255, 255, 0.8); /* doorschijnend wit */
