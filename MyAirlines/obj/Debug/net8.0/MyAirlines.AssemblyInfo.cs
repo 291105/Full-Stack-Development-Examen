@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyAirlines")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81d3b1538f31989d161035d353919896155a38d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a198d246cb918ad29bb4290089db121e2e906d4c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyAirlines")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyAirlines")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

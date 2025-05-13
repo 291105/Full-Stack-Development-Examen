@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SendMail.Util")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8e7ce747220d9f8856cc9dafb43bd07b09bc28d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a198d246cb918ad29bb4290089db121e2e906d4c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SendMail.Util")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SendMail.Util")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
