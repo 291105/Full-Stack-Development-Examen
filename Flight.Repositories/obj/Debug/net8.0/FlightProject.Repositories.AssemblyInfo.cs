@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlightProject.Repositories")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81d3b1538f31989d161035d353919896155a38d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8e7ce747220d9f8856cc9dafb43bd07b09bc28d")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlightProject.Repositories")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlightProject.Repositories")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
