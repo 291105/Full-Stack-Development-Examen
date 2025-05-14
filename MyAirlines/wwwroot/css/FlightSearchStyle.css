@@ -18,15 +18,9 @@ html, body {
 }
 
 main {
-    margin-top: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     text-align: center;
     flex: 1;
-    padding: 30px 20px;
-    color: #333;
 }
 
 /* Form styling */
@@ -110,8 +104,8 @@ a {
     text-decoration: none;
 }
 
-.notLoggedIn {
-    background-color: rgba(255, 255, 255, 0.8); /* doorschijnend wit */
+.sd-gm-spacing-mid {
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 40px;
     border-radius: 20px;
     max-width: 500px;
@@ -119,11 +113,11 @@ a {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-    .notLoggedIn h2 {
+    .sd-gm-spacing-mid h2 {
         margin-bottom: 20px;
     }
 
-    .notLoggedIn .button-group {
+    .sd-gm-spacing-mid .button-group {
         display: flex;
         justify-content: center;
         gap: 20px;

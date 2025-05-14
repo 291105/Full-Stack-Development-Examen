@@ -1,10 +1,23 @@
-﻿/* Algemene bodystijl */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+﻿﻿ /* Algemene stijlen */
+html, body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Zorg ervoor dat de body de volledige hoogte van het scherm inneemt */
     margin: 0;
     padding: 0;
+    background-image: url('../images/background_avaro.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* De achtergrond blijft vast tijdens het scrollen */
+    overflow-x: hidden; /* Voorkom horizontaal scrollen */
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
+
+
 
 /* Header Styling */
 h2 {
@@ -19,7 +32,7 @@ h2 {
 .passenger-container {
     background-color: #ffffff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
     max-width: 1200px; /* Vergroot de max-width */

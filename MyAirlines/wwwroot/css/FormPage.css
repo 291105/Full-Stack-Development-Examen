@@ -1,27 +1,26 @@
-﻿﻿ /* Reset de standaard margin en padding */
+﻿﻿ /* Algemene stijlen */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-/* form location on the page */
-.sd-form-wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Zorg ervoor dat de body de volledige hoogte van het scherm inneemt */
     margin: 0;
     padding: 0;
     background-image: url('../images/background_avaro.png') !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow-x: hidden;
+    background-attachment: fixed; /* De achtergrond blijft vast tijdens het scrollen */
+    overflow-x: hidden; /* Voorkom horizontaal scrollen */
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+
+/* form location on the page */
+.sd-form-wrapper {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }

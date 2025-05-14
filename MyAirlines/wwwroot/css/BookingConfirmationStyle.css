@@ -1,17 +1,20 @@
-﻿body {
+﻿﻿ /* Algemene stijlen */
+html, body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Zorg ervoor dat de body de volledige hoogte van het scherm inneemt */
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-
-.checkmark {
-    font-size: 100px;
-    color: green;
+    padding: 0;
+    background-image: url('../images/background_avaro.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* De achtergrond blijft vast tijdens het scrollen */
+    overflow-x: hidden; /* Voorkom horizontaal scrollen */
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 h1 {

@@ -34,66 +34,12 @@ body {
     outline: none;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.dropdown-btn {
-    padding: 5px 12px;
-    display: flex;
-    align-items: center;
-    background: transparent;
-    color: #0a4d68;
-    border-radius: 25px;
-    height: 100%;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background: #fff;
-    border: 1px solid #ccc;
-    min-width: 160px;
-    z-index: 1;
-    border-radius: 15px;
-    padding: 10px;
-    right: -20px;
-}
-
-    .dropdown-content div {
-        padding: 8px 12px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-
-.dropdown-item:hover {
-    border-radius: 10px;
-    background: linear-gradient(45deg, #0fbdff, #0029ffa1);
-    color: white;
-    font-weight: bold;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
 .flag {
     width: 15px;
     height: 15px;
     margin-right: 8px;
     object-fit: cover;
     border-radius: 25px;
-}
-
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    flex-wrap: wrap;
 }
 
 .nav-links {
@@ -121,16 +67,25 @@ body {
     gap: 0.5rem;
 }
 
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
 .map {
     border-radius: 10px;
     width: 100%;
+}
+
+/* SD TEMPLATE PAGE */
+
+.sd-page-full {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    padding: 35px;
+}
+
+.sd-page-full-large {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 35px;
 }
 
 /* CUSTOM CONTAINER DESIGNS */
@@ -166,6 +121,8 @@ body {
     color: white;
     font-weight: bold;
     border: none;
+    display: inline-block;
+    margin: 0px !important;
 }
 
     .sd-btn-important:hover {
@@ -183,8 +140,8 @@ body {
     }
 
 .sd-btn-important, .sd-btn-normal {
-    padding: 10px 25px;
-    border-radius: 25px;
+    padding: 10px 25px !important;
+    border-radius: 25px !important;
     transition: 0.3s ease-in-out;
     display: inline-block;
 }
@@ -195,9 +152,6 @@ body {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
 
     .nav-links {
         flex-direction: column;
@@ -220,18 +174,20 @@ body {
 
 @media screen and (max-width: 1200px) {
 
-    #hamburger-btn {
-        display: block;
-    }
-
-    .nav-links {
+    .auth-buttons {
         display: none !important;
         flex-direction: column;
     }
 
-        .nav-links.active {
+        .auth-buttons.active {
             display: flex !important;
             width: 100%;
-            padding: 10px 0px 25px 0px;
+            padding: 0px;
+            margin-bottom: 15px;
+            background-color: #ffffff61;
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 10px;
         }
 }
