@@ -77,7 +77,7 @@ namespace MyAirlines.Controllers
             var tickets = await _ticketService.getTicketsByBookingId(bookingId);
             
             //de pdf maken get booking by id
-            var pdf = await _createPDF.CreatePDFDocumentAsync(tickets, await _bookingService.GetBookingById(bookingId) ,"C:\\Users\\Gebruiker\\source\\repos\\MyAirlines\\Full-Stack-Development-Examen\\MyAirlines\\wwwroot\\Images\\avaro.png");
+            var pdf = await _createPDF.CreatePDFDocumentAsync(tickets, await _bookingService.GetBookingById(bookingId) , "wwwroot/Images/avaro.png");
 
 
             //de mail van de user is nodig
@@ -86,7 +86,7 @@ namespace MyAirlines.Controllers
 
 
             //email verzenden met de ticket
-            await _emailSend.SendEmailAttachmentAsync(userEmail, "Tickets", "Dear Customer, In the attachment you will find your tickets. We hope you enjoy your flight.", pdf, "Tickets", true);
+            await _emailSend.SendEmailAttachmentAsync(userEmail, "Tickets", "Dear Customer, In the attachment you will find your tickets. We hope you enjoy your flight.", pdf, "Tickets.pdf", true);
 
             //winkelmandje wegdoen
             HttpContext.Session.Remove("ShoppingCart");

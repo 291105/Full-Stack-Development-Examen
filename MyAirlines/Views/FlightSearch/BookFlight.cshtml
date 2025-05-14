@@ -1,6 +1,4 @@
 ﻿@model MyAirlines.ViewModels.BookingVM
-
-<h2>Boekingsdetails</h2>
 <link href="~/css/BookFlight.css" rel="stylesheet" type="text/css" />
 
 @if (TempData["ErrorMessage"] != null)
@@ -10,14 +8,14 @@
     </script>
 }
 
-<h2>Boekingsdetails</h2>
+<div class="sd-page-full-large">
 <link href="~/css/BookFlight.css" rel="stylesheet" type="text/css" />
 <form method="post" action="@Url.Action("BookFlight", "FlightSearch")">
     @for (int i = 0; i < Model.Passengers.Count; i++)
     {
         var passenger = Model.Passengers[i];
         <div class="passenger-container" data-index="@i">
-            <h3>Passagier @(i + 1)</h3>
+            <h3>Extra informatie passagier @(i + 1)</h3>
 
             <div class="passenger-info">
                 <strong>Klasse:</strong> @passenger.Class.Name
@@ -66,12 +64,12 @@
 
     <div class="price">
         <p>Total: €<span id="totalPricePerBooking">@Model.TotalPricePerBooking.ToString("0.00")</span></p>
-        <input type="hidden" name="TotalPricePerBooking" id="hiddenTotalPrice" value="@Model.TotalPricePerBooking.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)" />
+        <input type="hidden" name="totalPricePerBooking" id="hiddenTotalPrice" value="@Model.TotalPricePerBooking.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)" />
     </div>
 
     <button type="submit" class="btn btn-primary">Verzend boeking</button>
 </form>
-
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -89,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         document.getElementById('totalPricePerBooking').innerText = total.toFixed(2).replace('.', ',');
-        document.getElementById('hiddenTotalPrice').value = total.toFixed(2);
+        document.getElementById('hiddenTotalPrice').value = total.toFixed(2).replace(',', '.');
     }
 
     passengers.forEach(passenger => {
@@ -111,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 selectedMealInput.value = mealId;
 
                 const totalPrice = basePrice + price;
-                ticketPriceSpan.innerText = totalPrice.toFixed(2).replace('.', ',');
+                ticketPriceSpan.innerText = totalPrice.toFixed(2).replace(',', '.');
                 ticketPriceInput.value = totalPrice.toFixed(2);
 
                 updateTotalBookingPrice();

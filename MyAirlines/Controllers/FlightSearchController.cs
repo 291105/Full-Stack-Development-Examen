@@ -249,12 +249,9 @@ namespace MyAirlines.Controllers
                 }
             }
 
-            var bookingVM = HttpContext.Session.GetObject<BookingVM>("BookingVM");
+            var booking = HttpContext.Session.GetObject<BookingVM>("BookingVM");
 
-            var booking = new BookingVM();
-
-            booking.Flight = bookingVM.Flight;
-            booking.TotalPricePerBooking = (totalPricePerBooking / 100); //maal aantal vluchten!
+            booking.TotalPricePerBooking = totalPricePerBooking * booking.Flight.Count; //maal aantal vluchten!
 
             var selectedClassId = HttpContext.Session.GetInt32("SelectedClassId");
 
